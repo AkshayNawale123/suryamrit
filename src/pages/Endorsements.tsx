@@ -131,7 +131,7 @@ const Endorsements = () => {
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               What Health Experts &
-              <span className="block text-primary-glow">Customers Say</span>
+              <span className="block text-secondary">Customers Say</span>
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Don't just take our word for it. See what leading healthcare professionals 

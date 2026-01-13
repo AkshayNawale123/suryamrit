@@ -23,7 +23,7 @@ const About = () => {
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Illuminating Lives with the Power of
-              <span className="block text-primary-glow">Vitamin D₃</span>
+              <span className="block text-secondary">Vitamin D₃</span>
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Born from a deep understanding of India's Vitamin D crisis, SuryAmrit™ represents 

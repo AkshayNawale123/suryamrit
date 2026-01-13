@@ -170,7 +170,7 @@ const Blog = () => {
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Your Guide to
-              <span className="block text-primary-glow">Vitamin D & Wellness</span>
+              <span className="block text-secondary">Vitamin D & Wellness</span>
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Discover evidence-based articles, expert insights, and practical tips 
