@@ -13,17 +13,17 @@ const HomePage = () => {
     <div className="min-h-screen bg-background overflow-hidden">
       <Header />
       
-      {/* Hero Section - Futuristic */}
+      {/* Hero Section - Futuristic Light */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-hero" />
-        <div className="absolute inset-0 grid-pattern opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
+        <div className="absolute inset-0 grid-pattern opacity-60" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] radial-glow" />
         
         {/* Floating Orbs */}
-        <div className="absolute top-20 left-[10%] w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-transparent blur-2xl animate-float-slow" />
-        <div className="absolute bottom-32 right-[15%] w-48 h-48 rounded-full bg-gradient-to-br from-secondary/15 to-transparent blur-3xl animate-float-slow" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/3 right-[20%] w-24 h-24 rounded-full bg-primary/10 blur-xl animate-float-slow" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-20 left-[10%] w-32 h-32 rounded-full bg-gradient-to-br from-primary/30 to-transparent blur-2xl animate-float-slow" />
+        <div className="absolute bottom-32 right-[15%] w-48 h-48 rounded-full bg-gradient-to-br from-secondary/20 to-transparent blur-3xl animate-float-slow" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/3 right-[20%] w-24 h-24 rounded-full bg-primary/15 blur-xl animate-float-slow" style={{ animationDelay: '4s' }} />
         
         {/* Geometric Lines */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -68,7 +68,7 @@ const HomePage = () => {
                 asChild
                 variant="outline" 
                 size="lg"
-                className="px-8 py-6 text-lg border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 rounded-2xl glass"
+                className="px-8 py-6 text-lg border-secondary/40 text-secondary hover:bg-secondary/10 hover:border-secondary transition-all duration-300 rounded-2xl"
               >
                 <Link to="/where-to-buy">Where to Buy</Link>
               </Button>
@@ -82,7 +82,7 @@ const HomePage = () => {
                 { value: '100%', label: 'Plant-Based' },
               ].map((stat, i) => (
                 <div key={i} className="text-center glass-card rounded-2xl p-4">
-                  <div className="text-2xl md:text-3xl font-bold text-primary neon-text">{stat.value}</div>
+                  <div className="text-2xl md:text-3xl font-bold text-primary">{stat.value}</div>
                   <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
                 </div>
               ))}
@@ -91,12 +91,12 @@ const HomePage = () => {
         </div>
         
         {/* Floating Icons */}
-        <div className="absolute top-32 left-16 animate-float-slow">
-          <div className="glass-card p-4 rounded-2xl">
+        <div className="absolute top-32 left-16 animate-float-slow hidden lg:block">
+          <div className="glass-card p-4 rounded-2xl neon-border">
             <Sun className="h-8 w-8 text-primary animate-pulse-glow" />
           </div>
         </div>
-        <div className="absolute bottom-32 right-16 animate-float-slow" style={{ animationDelay: '1s' }}>
+        <div className="absolute bottom-32 right-16 animate-float-slow hidden lg:block" style={{ animationDelay: '1s' }}>
           <div className="glass-card p-4 rounded-2xl">
             <Shield className="h-8 w-8 text-secondary" />
           </div>
@@ -104,8 +104,8 @@ const HomePage = () => {
       </section>
 
       {/* Problem Statement - Futuristic Cards */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 grid-pattern opacity-30" />
+      <section className="py-24 relative bg-gradient-to-b from-background via-muted/30 to-background">
+        <div className="absolute inset-0 grid-pattern opacity-40" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -129,30 +129,36 @@ const HomePage = () => {
                   title: '80%+ Deficient',
                   desc: 'Over 80% of Indians have insufficient Vitamin D levels, especially in urban areas with limited sun exposure.',
                   gradient: 'from-primary/20 to-primary/5',
-                  iconColor: 'text-primary',
+                  iconBg: 'bg-gradient-to-br from-primary to-primary-glow',
+                  iconColor: 'text-primary-foreground',
+                  titleColor: 'text-primary',
                 },
                 {
                   icon: Heart,
                   title: 'Multiple Health Risks',
                   desc: 'Deficiency leads to bone problems, weakened immunity, depression, and increased risk of chronic diseases.',
-                  gradient: 'from-destructive/20 to-destructive/5',
-                  iconColor: 'text-destructive',
+                  gradient: 'from-destructive/15 to-destructive/5',
+                  iconBg: 'bg-gradient-to-br from-red-500 to-red-400',
+                  iconColor: 'text-white',
+                  titleColor: 'text-destructive',
                 },
                 {
                   icon: TrendingUp,
                   title: 'Growing Problem',
                   desc: 'Modern lifestyle, pollution, and dietary changes are making Vitamin D deficiency more prevalent each year.',
                   gradient: 'from-secondary/20 to-secondary/5',
-                  iconColor: 'text-secondary',
+                  iconBg: 'bg-gradient-to-br from-secondary to-green-400',
+                  iconColor: 'text-secondary-foreground',
+                  titleColor: 'text-secondary',
                 },
               ].map((item, i) => (
-                <Card key={i} className="group glass-card border-0 hover:border-primary/30 transition-all duration-500 hover:shadow-golden rounded-3xl overflow-hidden">
+                <Card key={i} className="group glass-card border-0 hover:border-primary/20 transition-all duration-500 hover:shadow-golden rounded-3xl overflow-hidden">
                   <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                   <CardHeader className="relative z-10 text-center pt-8">
-                    <div className={`w-20 h-20 glass rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 neon-border`}>
+                    <div className={`w-20 h-20 ${item.iconBg} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                       <item.icon className={`h-10 w-10 ${item.iconColor}`} />
                     </div>
-                    <CardTitle className="text-xl text-foreground">{item.title}</CardTitle>
+                    <CardTitle className={`text-xl ${item.titleColor}`}>{item.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="relative z-10 text-center pb-8">
                     <p className="text-muted-foreground">{item.desc}</p>
@@ -184,8 +190,8 @@ const HomePage = () => {
       </section>
 
       {/* Solution Preview - Futuristic */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 grid-pattern opacity-20" />
+      <section className="py-24 relative bg-gradient-to-b from-background via-secondary/5 to-background">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
         <div className="absolute top-1/2 right-0 w-[600px] h-[600px] radial-glow translate-x-1/2 -translate-y-1/2" />
         
         <div className="container mx-auto px-4 relative z-10">
@@ -211,7 +217,7 @@ const HomePage = () => {
                     'Safe for All Ages - From Infants to Elderly',
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-4 group">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center group-hover:shadow-neon transition-all duration-300">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center group-hover:shadow-golden transition-all duration-300 shadow-md">
                         <span className="text-primary-foreground font-bold">✓</span>
                       </div>
                       <span className="text-foreground font-medium text-lg">{item}</span>
@@ -220,20 +226,20 @@ const HomePage = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button asChild size="lg" className="bg-gradient-to-r from-primary to-primary-glow text-primary-foreground hover:shadow-neon transition-all duration-300 rounded-xl">
+                  <Button asChild size="lg" className="bg-gradient-to-r from-primary to-primary-glow text-primary-foreground hover:shadow-golden transition-all duration-300 rounded-xl">
                     <Link to="/product">
                       Learn More About SuryAmrit™ <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="border-muted-foreground/30 hover:border-primary/50 hover:bg-primary/5 rounded-xl">
+                  <Button asChild variant="outline" size="lg" className="border-secondary/40 text-secondary hover:border-secondary hover:bg-secondary/5 rounded-xl">
                     <Link to="/about">Our Story</Link>
                   </Button>
                 </div>
               </div>
               
               <div className="relative">
-                <div className="glass-card rounded-3xl p-10 text-center relative overflow-hidden group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="glass-card rounded-3xl p-10 text-center relative overflow-hidden group border-primary/20">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/5 opacity-50" />
                   
                   {/* Animated Rings */}
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -242,8 +248,8 @@ const HomePage = () => {
                   
                   <div className="relative z-10">
                     <div className="w-40 h-40 mx-auto mb-8 relative">
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 animate-pulse" />
-                      <div className="absolute inset-4 rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center shadow-neon">
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/40 to-primary/20 animate-pulse" />
+                      <div className="absolute inset-4 rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center shadow-golden">
                         <Sun className="h-16 w-16 text-primary-foreground animate-pulse-glow" />
                       </div>
                     </div>
@@ -253,7 +259,7 @@ const HomePage = () => {
                       Optimal daily dose in a soft, chewable format that's easy to take and pleasant to taste.
                     </p>
                     
-                    <Button asChild size="lg" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-xl">
+                    <Button asChild size="lg" className="w-full bg-gradient-to-r from-secondary to-green-500 hover:shadow-green text-secondary-foreground rounded-xl">
                       <Link to="/where-to-buy">Order Now</Link>
                     </Button>
                   </div>
@@ -275,18 +281,18 @@ const HomePage = () => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { to: '/about', icon: Heart, title: 'About Us', desc: 'Learn about our mission to combat Vitamin D deficiency in India.', color: 'primary' },
-                { to: '/endorsements', icon: Users, title: 'Endorsements', desc: 'See what health experts and satisfied customers say about us.', color: 'secondary' },
-                { to: '/blog', icon: TrendingUp, title: 'Knowledge Center', desc: 'Read articles about Vitamin D health and wellness tips.', color: 'primary' },
-                { to: '/where-to-buy', icon: MapPin, title: 'Where to Buy', desc: 'Find SuryAmrit™ on leading e-commerce platforms.', color: 'secondary' },
+                { to: '/about', icon: Heart, title: 'About Us', desc: 'Learn about our mission to combat Vitamin D deficiency in India.', iconBg: 'bg-gradient-to-br from-primary to-primary-glow', titleColor: 'text-primary' },
+                { to: '/endorsements', icon: Users, title: 'Endorsements', desc: 'See what health experts and satisfied customers say about us.', iconBg: 'bg-gradient-to-br from-secondary to-green-400', titleColor: 'text-secondary' },
+                { to: '/blog', icon: TrendingUp, title: 'Knowledge Center', desc: 'Read articles about Vitamin D health and wellness tips.', iconBg: 'bg-gradient-to-br from-primary to-primary-glow', titleColor: 'text-primary' },
+                { to: '/where-to-buy', icon: MapPin, title: 'Where to Buy', desc: 'Find SuryAmrit™ on leading e-commerce platforms.', iconBg: 'bg-gradient-to-br from-secondary to-green-400', titleColor: 'text-secondary' },
               ].map((item, i) => (
-                <Card key={i} className="group glass-card border-0 hover:border-primary/30 transition-all duration-500 cursor-pointer rounded-3xl overflow-hidden">
+                <Card key={i} className="group glass-card border-0 hover:border-primary/20 transition-all duration-500 cursor-pointer rounded-3xl overflow-hidden hover:shadow-golden">
                   <Link to={item.to} className="block">
                     <CardHeader className="text-center pt-8">
-                      <div className={`w-20 h-20 glass rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:shadow-neon transition-all duration-300`}>
-                        <item.icon className={`h-10 w-10 ${item.color === 'primary' ? 'text-primary' : 'text-secondary'}`} />
+                      <div className={`w-20 h-20 ${item.iconBg} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg`}>
+                        <item.icon className="h-10 w-10 text-white" />
                       </div>
-                      <CardTitle className={`${item.color === 'primary' ? 'text-primary' : 'text-secondary'}`}>{item.title}</CardTitle>
+                      <CardTitle className={item.titleColor}>{item.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="text-center pb-8">
                       <p className="text-muted-foreground">{item.desc}</p>
