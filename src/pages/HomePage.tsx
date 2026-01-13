@@ -23,7 +23,7 @@ const HomePage = () => {
             </Badge>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Combat India's Silent
-              <span className="block bg-gradient-to-r from-white to-secondary bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-white to-primary-glow bg-clip-text text-transparent">
                 Vitamin D Crisis
               </span>
             </h1>
