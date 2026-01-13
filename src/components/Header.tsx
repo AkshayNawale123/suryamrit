@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import SearchComponent from "./SearchComponent";
 import { CartDrawer } from "./CartDrawer";
-import suryamritLogo from "@/assets/suryamrit-logo.jpeg";
+import suryamritLogo from "@/assets/suryamrit-logo.png";
 
 const Header = () => {
   const location = useLocation();
