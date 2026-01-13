@@ -21,7 +21,7 @@ const Header = () => {
     { path: '/contact', label: 'Contact' }
   ];
   return (
-    <header className="bg-white shadow-soft sticky top-0 z-50">
+    <header className="bg-primary shadow-soft sticky top-0 z-50">
       {/* Top contact bar */}
       <div className="bg-gradient-secondary text-white py-2">
         <div className="container mx-auto px-4">
@@ -62,10 +62,10 @@ const Header = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`transition-colors ${
+                className={`transition-colors font-medium ${
                   location.pathname === link.path 
-                    ? 'text-primary font-medium' 
-                    : 'text-muted-foreground hover:text-primary'
+                    ? 'text-secondary' 
+                    : 'text-foreground/80 hover:text-secondary'
                 }`}
               >
                 {link.label}
@@ -79,13 +79,13 @@ const Header = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsSearchOpen(true)}
-              className="text-muted-foreground hover:text-primary"
+              className="text-foreground/80 hover:text-secondary hover:bg-primary/80"
             >
               <Search className="h-4 w-4" />
               <span className="ml-2">Search</span>
             </Button>
             <CartDrawer />
-            <Button asChild className="bg-gradient-primary hover:shadow-golden transition-all duration-300">
+            <Button asChild className="bg-secondary text-white hover:bg-secondary/90 transition-all duration-300">
               <Link to="/where-to-buy">Order Now</Link>
             </Button>
           </div>
@@ -96,7 +96,7 @@ const Header = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsSearchOpen(true)}
-              className="text-muted-foreground hover:text-primary"
+              className="text-foreground/80 hover:text-secondary hover:bg-primary/80"
             >
               <Search className="h-4 w-4" />
             </Button>
@@ -105,6 +105,7 @@ const Header = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-foreground/80 hover:text-secondary hover:bg-primary/80"
             >
               {isMobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </Button>
@@ -113,23 +114,23 @@ const Header = () => {
 
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-border">
+          <div className="lg:hidden mt-4 pb-4 border-t border-foreground/20">
             <nav className="flex flex-col space-y-4 pt-4">
               {navigationLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`transition-colors ${
+                  className={`transition-colors font-medium ${
                     location.pathname === link.path 
-                      ? 'text-primary font-medium' 
-                      : 'text-muted-foreground hover:text-primary'
+                      ? 'text-secondary' 
+                      : 'text-foreground/80 hover:text-secondary'
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Button asChild className="bg-gradient-primary hover:shadow-golden transition-all duration-300 mt-4">
+              <Button asChild className="bg-secondary text-white hover:bg-secondary/90 transition-all duration-300 mt-4">
                 <Link to="/where-to-buy" onClick={() => setIsMobileMenuOpen(false)}>
                   Order Now
                 </Link>
