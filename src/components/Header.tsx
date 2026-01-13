@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import SearchComponent from "./SearchComponent";
 import { CartDrawer } from "./CartDrawer";
+import suryamritLogo from "@/assets/suryamrit-logo.jpeg";
 
 const Header = () => {
   const location = useLocation();
@@ -47,15 +48,12 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center animate-float">
-              <span className="text-2xl font-bold text-white">S</span>
-            </div>
-            <div>
-              <h1 className="text-xs font-bold text-secondary">AYURBRAMH</h1>
-              <p className="text-2xl text-primary font-semibold">SuryAmrit™</p>
-              <p className="text-xs text-muted-foreground">NATURAL DAILY D3 WITH GHEE</p>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img 
+              src={suryamritLogo} 
+              alt="Ayurbramh SuryAmrit - Natural Daily D3 with Ghee" 
+              className="h-12 md:h-14 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
