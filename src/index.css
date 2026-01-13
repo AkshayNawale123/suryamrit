@@ -2,64 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Futuristic Design System - SuryAmrit 2026 - Light Theme */
+/* SuryAmrit Design System - Natural Warmth Theme */
+/* Colors extracted from brand imagery: Amber Gold, Sage Green, Earth Tones */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Warm cream/off-white background inspired by ghee */
+    --background: 45 40% 98%;
+    --foreground: 30 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 45 35% 97%;
+    --card-foreground: 30 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 45 35% 99%;
+    --popover-foreground: 30 25% 15%;
 
-    /* SuryaAmrit Brand Colors - Golden Yellow Primary */
-    --primary: 45 93% 47%;
-    --primary-foreground: 0 0% 100%;
+    /* SuryAmrit Brand - Warm Amber Gold (from sunrise/ghee imagery) */
+    --primary: 40 95% 52%;
+    --primary-foreground: 30 25% 10%;
     --primary-glow: 45 100% 60%;
 
-    /* Natural Green Secondary */
-    --secondary: 140 60% 35%;
+    /* Sage Green Secondary (from herbs/nature imagery) */
+    --secondary: 145 35% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 45 30% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Warm Earth Muted Tones */
+    --muted: 45 25% 94%;
+    --muted-foreground: 30 15% 45%;
 
-    --accent: 45 60% 94%;
-    --accent-foreground: 140 60% 35%;
+    /* Sage accent */
+    --accent: 145 30% 92%;
+    --accent-foreground: 145 35% 35%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 45 25% 88%;
-    --input: 45 25% 95%;
-    --ring: 45 93% 47%;
+    /* Warm borders */
+    --border: 40 30% 88%;
+    --input: 45 30% 95%;
+    --ring: 40 95% 52%;
 
-    /* Futuristic Gradients - Light */
-    --gradient-primary: linear-gradient(135deg, hsl(45 93% 47%), hsl(45 100% 60%));
-    --gradient-secondary: linear-gradient(135deg, hsl(140 60% 35%), hsl(140 70% 45%));
-    --gradient-hero: linear-gradient(135deg, hsl(45 93% 47%) 0%, hsl(140 60% 35%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(45 30% 98%), hsl(45 15% 96%));
-    --gradient-glass: linear-gradient(135deg, hsl(45 93% 47% / 0.05), hsl(140 60% 45% / 0.03));
+    /* Warm Earth Brown (for accents) */
+    --earth: 25 55% 35%;
+    --earth-foreground: 45 40% 98%;
 
-    /* Shadows */
-    --shadow-golden: 0 10px 40px -10px hsl(45 93% 47% / 0.35);
-    --shadow-green: 0 10px 40px -10px hsl(140 60% 35% / 0.3);
-    --shadow-soft: 0 4px 20px -4px hsl(45 50% 80% / 0.4);
-    --shadow-neon: 0 0 20px hsl(45 93% 47% / 0.25), 0 0 40px hsl(45 93% 47% / 0.15);
+    /* Soft Mint (for highlights) */
+    --mint: 150 40% 88%;
+    --mint-foreground: 145 35% 30%;
+
+    /* Gradients - Warm & Natural */
+    --gradient-primary: linear-gradient(135deg, hsl(40 95% 52%), hsl(45 100% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(145 35% 45%), hsl(150 40% 55%));
+    --gradient-sunset: linear-gradient(135deg, hsl(40 95% 52%) 0%, hsl(25 90% 50%) 50%, hsl(45 100% 60%) 100%);
+    --gradient-sage: linear-gradient(180deg, hsl(145 30% 92%), hsl(150 25% 96%));
+    --gradient-warm: linear-gradient(180deg, hsl(45 40% 98%), hsl(40 35% 95%));
+
+    /* Natural Shadows */
+    --shadow-golden: 0 10px 40px -10px hsl(40 95% 52% / 0.35);
+    --shadow-sage: 0 10px 40px -10px hsl(145 35% 45% / 0.25);
+    --shadow-soft: 0 4px 20px -4px hsl(40 50% 80% / 0.35);
+    --shadow-warm: 0 8px 30px -8px hsl(25 55% 35% / 0.2);
 
     --radius: 1rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 45 93% 47%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 45 30% 96%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 45 25% 88%;
-    --sidebar-ring: 45 93% 47%;
+    --sidebar-background: 45 35% 97%;
+    --sidebar-foreground: 30 25% 25%;
+    --sidebar-primary: 40 95% 52%;
+    --sidebar-primary-foreground: 30 25% 10%;
+    --sidebar-accent: 145 30% 92%;
+    --sidebar-accent-foreground: 30 20% 15%;
+    --sidebar-border: 40 30% 88%;
+    --sidebar-ring: 40 95% 52%;
   }
 
   .dark {
@@ -111,22 +124,26 @@
   }
 }
 
-/* Futuristic Utility Classes - Light Theme */
+/* Natural Warmth Utility Classes */
 @layer utilities {
   .glass {
-    @apply backdrop-blur-xl bg-white/80 border border-primary/10 shadow-sm;
+    @apply backdrop-blur-xl bg-card/90 border border-primary/15 shadow-sm;
   }
   
   .glass-card {
-    @apply backdrop-blur-xl bg-white/90 border border-primary/10 shadow-lg;
+    @apply backdrop-blur-xl bg-card/95 border border-primary/10 shadow-lg;
   }
   
-  .neon-text {
-    text-shadow: 0 0 20px hsl(45 93% 47% / 0.4), 0 0 40px hsl(45 93% 47% / 0.2);
+  .warm-glow {
+    text-shadow: 0 0 20px hsl(40 95% 52% / 0.4), 0 0 40px hsl(40 95% 52% / 0.2);
   }
   
-  .neon-border {
-    box-shadow: inset 0 0 15px hsl(45 93% 47% / 0.1), 0 0 25px hsl(45 93% 47% / 0.15);
+  .sage-border {
+    box-shadow: inset 0 0 15px hsl(145 35% 45% / 0.08), 0 0 25px hsl(145 35% 45% / 0.1);
+  }
+  
+  .golden-border {
+    box-shadow: inset 0 0 15px hsl(40 95% 52% / 0.1), 0 0 25px hsl(40 95% 52% / 0.12);
   }
   
   .animate-pulse-glow {
@@ -142,26 +159,45 @@
     animation: gradient-shift 8s ease infinite;
   }
   
-  .grid-pattern {
+  .organic-pattern {
     background-image: 
-      linear-gradient(hsl(45 93% 47% / 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(45 93% 47% / 0.06) 1px, transparent 1px);
-    background-size: 50px 50px;
+      radial-gradient(hsl(145 35% 45% / 0.05) 1px, transparent 1px),
+      radial-gradient(hsl(40 95% 52% / 0.04) 1px, transparent 1px);
+    background-size: 40px 40px, 60px 60px;
+    background-position: 0 0, 20px 30px;
   }
   
   .radial-glow {
-    background: radial-gradient(ellipse at center, hsl(45 93% 47% / 0.12) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, hsl(40 95% 52% / 0.1) 0%, transparent 70%);
+  }
+  
+  .radial-sage {
+    background: radial-gradient(ellipse at center, hsl(145 35% 45% / 0.08) 0%, transparent 70%);
+  }
+  
+  .image-frame {
+    @apply relative rounded-3xl overflow-hidden shadow-lg;
+    border: 3px solid hsl(145 35% 45% / 0.2);
+  }
+  
+  .image-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, hsl(40 95% 52% / 0.1), transparent 50%, hsl(145 35% 45% / 0.08));
+    pointer-events: none;
   }
 }
 
 @keyframes pulse-glow {
   0%, 100% {
     opacity: 1;
-    filter: drop-shadow(0 0 15px hsl(45 93% 47% / 0.4));
+    filter: drop-shadow(0 0 15px hsl(40 95% 52% / 0.3));
   }
   50% {
-    opacity: 0.9;
-    filter: drop-shadow(0 0 30px hsl(45 93% 47% / 0.6));
+    opacity: 0.95;
+    filter: drop-shadow(0 0 25px hsl(40 95% 52% / 0.5));
   }
 }
 
@@ -173,5 +209,5 @@
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
