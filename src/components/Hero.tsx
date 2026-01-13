@@ -1,80 +1,85 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Sun, Shield, Heart } from "lucide-react";
+import { Sun, Shield, Heart, Play } from "lucide-react";
+import heroVideo from "@/assets/suryamrit-hero-video.mp4";
 
 const Hero = () => {
   return (
-    <section id="home" className="bg-gradient-hero text-white py-20 relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-white animate-float"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 rounded-full bg-white animate-float" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-20 left-1/3 w-16 h-16 rounded-full bg-white animate-float" style={{animationDelay: '2s'}}></div>
+    <section id="home" className="relative min-h-screen overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-secondary/40" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <Badge className="mb-6 bg-white/20 text-white border-white/30">
-              ✨ Over 82% of Indians are deficient in Vitamin D
-            </Badge>
-            
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Natural
-              <span className="block text-primary-glow">D₃ Daily</span>
-              <span className="block text-3xl md:text-4xl">with Ghee</span>
-            </h1>
+      {/* Content */}
+      <div className="container mx-auto px-4 relative z-10 min-h-screen flex items-center">
+        <div className="max-w-2xl py-20">
+          <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 backdrop-blur-sm px-4 py-2">
+            <Sun className="w-4 h-4 mr-2 inline" />
+            Over 82% of Indians are deficient in Vitamin D
+          </Badge>
+          
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
+            Natural
+            <span className="block text-primary drop-shadow-lg">D₃ Daily</span>
+            <span className="block text-3xl md:text-4xl text-white/90 font-normal mt-2">with Pure Ghee</span>
+          </h1>
 
-            <p className="text-xl mb-8 text-white/90">
-              AYURBRAMH SuryAmrit™ - Soft Chewable Veg Capsules Of 
-              Natural Vitamin D₃-600 IU With Ghee
-            </p>
+          <p className="text-xl mb-8 text-white/90 leading-relaxed">
+            AYURBRAMH SuryAmrit™ - Soft Chewable Veg Capsules of 
+            Natural Vitamin D₃-600 IU with Ghee from sacred Indian cows
+          </p>
 
-            <div className="flex flex-wrap gap-4 mb-8">
-              <div className="flex items-center space-x-2">
-                <Sun className="h-5 w-5 text-primary-glow" />
-                <span>600 IU Natural D₃</span>
+          <div className="flex flex-wrap gap-6 mb-10">
+            <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                <Sun className="h-5 w-5 text-white" />
               </div>
-              <div className="flex items-center space-x-2">
-                <Shield className="h-5 w-5 text-primary-glow" />
-                <span>Enhanced with Ghee</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Heart className="h-5 w-5 text-primary-glow" />
-                <span>100% Vegetarian</span>
-              </div>
+              <span className="text-white font-medium">600 IU Natural D₃</span>
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-white text-secondary hover:bg-white/90 hover:shadow-golden transition-all duration-300">
-                Order Now - PAN India Delivery
-              </Button>
-              <Button size="lg" variant="outline" className="bg-white text-secondary hover:bg-white/90 hover:shadow-golden transition-all duration-300">
-                Learn More
-              </Button>
+            <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+              <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
+                <Shield className="h-5 w-5 text-white" />
+              </div>
+              <span className="text-white font-medium">Enhanced with Ghee</span>
             </div>
-
-            <p className="text-sm mt-4 text-white/70">
-              - ICMR-NIN Survey, 2020
-            </p>
-          </div>
-
-          <div className="flex justify-center">
-            <div className="relative">
-              <div className="w-80 h-80 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                <div className="w-64 h-64 bg-gradient-primary rounded-full flex items-center justify-center animate-glow">
-                  <div className="w-32 h-32 bg-primary-glow rounded-full flex items-center justify-center shadow-golden">
-                    <span className="text-4xl">💊</span>
-                  </div>
-                </div>
+            <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                <Heart className="h-5 w-5 text-white" />
               </div>
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-soft animate-float">
-                <Sun className="h-8 w-8 text-primary" />
-              </div>
+              <span className="text-white font-medium">100% Vegetarian</span>
             </div>
           </div>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white shadow-warm text-lg px-8 py-6">
+              Order Now - PAN India Delivery
+            </Button>
+            <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6">
+              <Play className="w-5 h-5 mr-2" />
+              Watch Story
+            </Button>
+          </div>
+
+          <p className="text-sm mt-6 text-white/60">
+            - ICMR-NIN Survey, 2020
+          </p>
         </div>
       </div>
+
+      {/* Decorative elements */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
     </section>
   );
 };
