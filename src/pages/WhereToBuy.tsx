@@ -44,7 +44,7 @@ const WhereToBuy = () => {
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Get SuryAmrit™
-              <span className="block text-primary-glow">Delivered to Your Doorstep</span>
+              <span className="block text-secondary">Delivered to Your Doorstep</span>
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Shop directly from our store with fast delivery 

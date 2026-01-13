@@ -20,10 +20,10 @@ const Footer = () => {
               Natural Daily D₃ with Ghee - The Grace of Ghee with the Power of Sun, in One Honest Chew.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="h-6 w-6 hover:text-primary-glow cursor-pointer transition-colors" />
-              <Twitter className="h-6 w-6 hover:text-primary-glow cursor-pointer transition-colors" />
-              <Instagram className="h-6 w-6 hover:text-primary-glow cursor-pointer transition-colors" />
-              <Youtube className="h-6 w-6 hover:text-primary-glow cursor-pointer transition-colors" />
+              <Facebook className="h-6 w-6 hover:text-secondary cursor-pointer transition-colors" />
+              <Twitter className="h-6 w-6 hover:text-secondary cursor-pointer transition-colors" />
+              <Instagram className="h-6 w-6 hover:text-secondary cursor-pointer transition-colors" />
+              <Youtube className="h-6 w-6 hover:text-secondary cursor-pointer transition-colors" />
             </div>
           </div>
 
@@ -31,12 +31,12 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-bold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="#home" className="text-white/80 hover:text-primary-glow transition-colors">Home</a></li>
-              <li><a href="#benefits" className="text-white/80 hover:text-primary-glow transition-colors">Benefits</a></li>
-              <li><a href="#science" className="text-white/80 hover:text-primary-glow transition-colors">Science</a></li>
-              <li><a href="#dosage" className="text-white/80 hover:text-primary-glow transition-colors">Dosage</a></li>
-              <li><a href="#" className="text-white/80 hover:text-primary-glow transition-colors">Clinical Studies</a></li>
-              <li><a href="#" className="text-white/80 hover:text-primary-glow transition-colors">FAQ</a></li>
+              <li><a href="#home" className="text-white/80 hover:text-secondary transition-colors">Home</a></li>
+              <li><a href="#benefits" className="text-white/80 hover:text-secondary transition-colors">Benefits</a></li>
+              <li><a href="#science" className="text-white/80 hover:text-secondary transition-colors">Science</a></li>
+              <li><a href="#dosage" className="text-white/80 hover:text-secondary transition-colors">Dosage</a></li>
+              <li><a href="#" className="text-white/80 hover:text-secondary transition-colors">Clinical Studies</a></li>
+              <li><a href="#" className="text-white/80 hover:text-secondary transition-colors">FAQ</a></li>
             </ul>
           </div>
 
@@ -58,20 +58,20 @@ const Footer = () => {
             <h4 className="text-xl font-bold mb-6">Contact Us</h4>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-primary-glow" />
+                <Phone className="h-5 w-5 text-secondary" />
                 <span className="text-white/80">1800-XXX-XXXX</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-primary-glow" />
+                <Mail className="h-5 w-5 text-secondary" />
                 <span className="text-white/80">info@ayurbramh.com</span>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-primary-glow mt-1" />
+                <MapPin className="h-5 w-5 text-secondary mt-1" />
                 <span className="text-white/80">Available across India<br />PAN India Distribution</span>
               </div>
             </div>
 
-            <Button className="mt-6 bg-primary hover:bg-primary-glow text-white border-none">
+            <Button className="mt-6 bg-secondary hover:bg-secondary/90 text-secondary-foreground border-none">
               Order Now - Free Delivery
             </Button>
           </div>

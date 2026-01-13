@@ -21,7 +21,7 @@ const Hero = () => {
             
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Natural
-              <span className="block text-primary-glow">D₃ Daily</span>
+              <span className="block text-secondary">D₃ Daily</span>
               <span className="block text-3xl md:text-4xl">with Ghee</span>
             </h1>
 
@@ -32,15 +32,15 @@ const Hero = () => {
 
             <div className="flex flex-wrap gap-4 mb-8">
               <div className="flex items-center space-x-2">
-                <Sun className="h-5 w-5 text-primary-glow" />
+                <Sun className="h-5 w-5 text-secondary" />
                 <span>600 IU Natural D₃</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Shield className="h-5 w-5 text-primary-glow" />
+                <Shield className="h-5 w-5 text-secondary" />
                 <span>Enhanced with Ghee</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Heart className="h-5 w-5 text-primary-glow" />
+                <Heart className="h-5 w-5 text-secondary" />
                 <span>100% Vegetarian</span>
               </div>
             </div>
@@ -63,7 +63,7 @@ const Hero = () => {
             <div className="relative">
               <div className="w-80 h-80 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                 <div className="w-64 h-64 bg-gradient-primary rounded-full flex items-center justify-center animate-glow">
-                  <div className="w-32 h-32 bg-primary-glow rounded-full flex items-center justify-center shadow-golden">
+                  <div className="w-32 h-32 bg-secondary rounded-full flex items-center justify-center shadow-golden">
                     <span className="text-4xl">💊</span>
                   </div>
                 </div>
