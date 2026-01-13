@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
-import suryamritLogo from "@/assets/suryamrit-logo.jpeg";
+import suryamritLogo from "@/assets/suryamrit-logo.png";
 
 const Footer = () => {
   return (
@@ -13,7 +13,7 @@ const Footer = () => {
               <img 
                 src={suryamritLogo} 
                 alt="Ayurbramh SuryAmrit - Natural Daily D3 with Ghee" 
-                className="h-14 w-auto object-contain bg-white/90 rounded-lg p-2"
+                className="h-16 w-auto object-contain"
               />
             </div>
             <p className="text-white/80 mb-4">
