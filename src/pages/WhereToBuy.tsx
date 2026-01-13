@@ -1,74 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Truck, Shield, Clock, MapPin, Phone, Star } from 'lucide-react';
+import { Truck, Shield, Clock, MapPin, Phone, Loader2 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { ProductCard } from '@/components/ProductCard';
+import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
 
 const WhereToBuy = () => {
-  const ecommercePartners = [
-    {
-      name: 'Amazon India',
-      logo: '🏪',
-      url: '#',
-      rating: 4.8,
-      reviews: '2,500+',
-      delivery: '1-2 days',
-      offer: '15% off on first order',
-      badge: 'Best Seller'
-    },
-    {
-      name: 'Flipkart',
-      logo: '🛒',
-      url: '#',
-      rating: 4.7,
-      reviews: '1,800+',
-      delivery: '2-3 days',
-      offer: 'Free delivery',
-      badge: 'Top Choice'
-    },
-    {
-      name: '1mg',
-      logo: '💊',
-      url: '#',
-      rating: 4.9,
-      reviews: '900+',
-      delivery: '1-2 days',
-      offer: '20% off on health supplements',
-      badge: 'Trusted'
-    },
-    {
-      name: 'PharmEasy',
-      logo: '🏥',
-      url: '#',
-      rating: 4.6,
-      reviews: '1,200+',
-      delivery: '2-4 days',
-      offer: 'Buy 2 Get 1 Free',
-      badge: 'Popular'
-    },
-    {
-      name: 'Netmeds',
-      logo: '⚕️',
-      url: '#',
-      rating: 4.5,
-      reviews: '800+',
-      delivery: '1-3 days',
-      offer: '10% cashback',
-      badge: 'Verified'
-    },
-    {
-      name: 'Apollo Pharmacy',
-      logo: '🏪',
-      url: '#',
-      rating: 4.7,
-      reviews: '1,500+',
-      delivery: '1-2 days',
-      offer: 'Same day delivery available',
-      badge: 'Reliable'
-    }
-  ];
+  const [products, setProducts] = useState<ShopifyProduct[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      setLoading(true);
+      const fetchedProducts = await fetchProducts(20);
+      setProducts(fetchedProducts);
+      setLoading(false);
+    };
+    loadProducts();
+  }, []);
 
   const cities = [
     'Mumbai', 'Delhi', 'Bangalore', 'Chennai', 'Kolkata', 'Hyderabad',
@@ -95,7 +47,7 @@ const WhereToBuy = () => {
               <span className="block text-primary-glow">Delivered to Your Doorstep</span>
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Available on all major e-commerce platforms with fast delivery 
+              Shop directly from our store with fast delivery 
               across India. Order now and start your journey to better health.
             </p>
           </div>
@@ -138,55 +90,39 @@ const WhereToBuy = () => {
         </div>
       </section>
 
-      {/* E-commerce Partners */}
+      {/* Products Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Choose Your Preferred Platform
+                Shop Our Products
               </h2>
               <p className="text-lg text-muted-foreground">
-                SuryAmrit™ is available on all leading e-commerce and pharmacy platforms
+                Order directly and get authentic SuryAmrit™ delivered to your doorstep
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {ecommercePartners.map((partner, index) => (
-                <Card key={index} className="border-primary/20 shadow-soft hover:shadow-golden transition-all duration-300 group">
-                  <CardHeader className="text-center pb-3">
-                    <div className="text-4xl mb-3">{partner.logo}</div>
-                    <div className="flex items-center justify-between mb-2">
-                      <CardTitle className="text-lg">{partner.name}</CardTitle>
-                      <Badge className="bg-primary/10 text-primary border-primary/20">
-                        {partner.badge}
-                      </Badge>
-                    </div>
-                    <div className="flex items-center justify-center gap-1 text-sm">
-                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      <span className="font-semibold">{partner.rating}</span>
-                      <span className="text-muted-foreground">({partner.reviews} reviews)</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Delivery:</span>
-                      <span className="font-medium text-secondary">{partner.delivery}</span>
-                    </div>
-                    <div className="text-sm">
-                      <span className="text-muted-foreground">Offer: </span>
-                      <span className="font-medium text-primary">{partner.offer}</span>
-                    </div>
-                    <Button 
-                      className="w-full group-hover:shadow-golden transition-all"
-                      onClick={() => window.open(partner.url, '_blank')}
-                    >
-                      Shop Now <ExternalLink className="ml-2 h-4 w-4" />
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            {loading ? (
+              <div className="flex items-center justify-center py-20">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                <span className="ml-3 text-muted-foreground">Loading products...</span>
+              </div>
+            ) : products.length > 0 ? (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {products.map((product) => (
+                  <ProductCard key={product.node.id} product={product} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-20 bg-muted/30 rounded-xl">
+                <div className="text-6xl mb-4">📦</div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">No products found</h3>
+                <p className="text-muted-foreground max-w-md mx-auto">
+                  Products are being added to the store. Check back soon or contact us for more information.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -286,30 +222,6 @@ const WhereToBuy = () => {
                   </CardContent>
                 </Card>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Start Your Health Journey Today
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Don't let Vitamin D deficiency hold you back. Order SuryAmrit™ now 
-              and experience the difference natural supplementation can make.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="shadow-golden">
-                Order Now from Amazon
-                <ExternalLink className="ml-2 h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="lg">
-                Compare All Platforms
-              </Button>
             </div>
           </div>
         </div>

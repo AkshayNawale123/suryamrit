@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Search, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import SearchComponent from "./SearchComponent";
+import { CartDrawer } from "./CartDrawer";
 
 const Header = () => {
   const location = useLocation();
@@ -85,6 +86,7 @@ const Header = () => {
               <Search className="h-4 w-4" />
               <span className="ml-2">Search</span>
             </Button>
+            <CartDrawer />
             <Button asChild className="bg-gradient-primary hover:shadow-golden transition-all duration-300">
               <Link to="/where-to-buy">Order Now</Link>
             </Button>
@@ -100,6 +102,7 @@ const Header = () => {
             >
               <Search className="h-4 w-4" />
             </Button>
+            <CartDrawer />
             <Button
               variant="ghost"
               size="sm"
