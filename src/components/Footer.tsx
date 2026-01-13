@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import suryamritLogo from "@/assets/suryamrit-logo.jpeg";
 
 const Footer = () => {
   return (
@@ -8,14 +9,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-2xl font-bold text-white">S</span>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold">AYURBRAMH</h3>
-                <p className="text-lg text-primary-glow">SuryAmrit™</p>
-              </div>
+            <div className="mb-6">
+              <img 
+                src={suryamritLogo} 
+                alt="Ayurbramh SuryAmrit - Natural Daily D3 with Ghee" 
+                className="h-14 w-auto object-contain bg-white/90 rounded-lg p-2"
+              />
             </div>
             <p className="text-white/80 mb-4">
               Natural Daily D₃ with Ghee - The Grace of Ghee with the Power of Sun, in One Honest Chew.
