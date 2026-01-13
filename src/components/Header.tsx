@@ -21,23 +21,23 @@ const Header = () => {
     { path: '/contact', label: 'Contact' }
   ];
   return (
-    <header className="bg-white shadow-soft sticky top-0 z-50">
+    <header className="glass sticky top-0 z-50 border-b border-white/10">
       {/* Top contact bar */}
-      <div className="bg-gradient-secondary text-white py-2">
+      <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-2 border-b border-white/5">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-sm">
             <div className="flex space-x-6">
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4" />
+              <div className="flex items-center space-x-2 text-muted-foreground">
+                <Phone className="h-4 w-4 text-primary" />
                 <span>1800-XXX-XXXX</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4" />
+              <div className="hidden sm:flex items-center space-x-2 text-muted-foreground">
+                <Mail className="h-4 w-4 text-primary" />
                 <span>info@ayurbramh.com</span>
               </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <MapPin className="h-4 w-4" />
+            <div className="flex items-center space-x-2 text-muted-foreground">
+              <MapPin className="h-4 w-4 text-secondary" />
               <span>Available PAN India</span>
             </div>
           </div>
