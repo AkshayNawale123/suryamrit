@@ -11,6 +11,7 @@ import Endorsements from "./pages/Endorsements";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import StickyOrderButton from "./components/StickyOrderButton";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <StickyOrderButton />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product" element={<Product />} />
