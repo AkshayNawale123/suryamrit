@@ -211,3 +211,115 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
+
+/* Promotional Badge Animations */
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bounce-attention {
+  0%, 100% { transform: scale(1) translateY(0); }
+  25% { transform: scale(1.05) translateY(-5px); }
+  50% { transform: scale(1) translateY(0); }
+  75% { transform: scale(1.03) translateY(-3px); }
+}
+
+@keyframes flash-scale {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 20px hsl(40 95% 52% / 0.4);
+  }
+  50% { 
+    transform: scale(1.02);
+    box-shadow: 0 0 40px hsl(40 95% 52% / 0.7);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes star-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+.animate-bounce-attention {
+  animation: bounce-attention 2s ease-in-out infinite;
+}
+
+.animate-flash-scale {
+  animation: flash-scale 1.5s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(40 95% 52%) 0%,
+    hsl(45 100% 70%) 25%,
+    hsl(40 95% 52%) 50%,
+    hsl(45 100% 70%) 75%,
+    hsl(40 95% 52%) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+.animate-star-pulse {
+  animation: star-pulse 2s ease-in-out infinite;
+}
+
+/* Star Badge Styles */
+.star-badge {
+  position: relative;
+}
+
+.star-badge::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  background: conic-gradient(
+    from 0deg,
+    hsl(40 95% 52% / 0.8),
+    hsl(45 100% 60% / 0.3),
+    hsl(40 95% 52% / 0.8),
+    hsl(45 100% 60% / 0.3),
+    hsl(40 95% 52% / 0.8),
+    hsl(45 100% 60% / 0.3),
+    hsl(40 95% 52% / 0.8),
+    hsl(45 100% 60% / 0.3),
+    hsl(40 95% 52% / 0.8)
+  );
+  border-radius: 50%;
+  animation: spin-slow 8s linear infinite;
+  z-index: -1;
+}
+
+.urgency-banner {
+  background: linear-gradient(135deg, hsl(40 95% 52%), hsl(25 90% 50%), hsl(45 100% 60%));
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite, flash-scale 2s ease-in-out infinite;
+}

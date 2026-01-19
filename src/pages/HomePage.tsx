@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Sun, Shield, Heart, MapPin, Users, TrendingUp, Sparkles, Zap, Leaf } from 'lucide-react';
+import { ArrowRight, Sun, Shield, Heart, MapPin, Users, TrendingUp, Sparkles, Zap, Leaf, ShoppingCart, Star } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import D3DeficiencyMap from '@/components/D3DeficiencyMap';
@@ -37,59 +37,125 @@ const HomePage = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <Badge className="mb-8 px-6 py-2 text-sm font-medium bg-primary/15 text-primary border-primary/30 backdrop-blur-sm animate-pulse-glow">
-              <Sparkles className="w-4 h-4 mr-2" />
-              India's #1 Vitamin D₃ Solution
-            </Badge>
-            
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[0.9] tracking-tight">
-              <span className="text-foreground">Combat India's Silent</span>
-              <span className="block mt-2 bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent animate-gradient warm-glow">
-                Vitamin D Crisis
-              </span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl mb-12 text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Over 80% of Indians are Vitamin D deficient. SuryAmrit™ provides the natural, 
-              plant-based solution your body needs to thrive.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button 
-                asChild
-                size="lg" 
-                className="group relative px-8 py-6 text-lg bg-gradient-to-r from-primary to-primary text-primary-foreground hover:shadow-[0_10px_40px_-10px_hsl(40_95%_52%_/_0.5)] transition-all duration-500 rounded-2xl overflow-hidden"
-              >
-                <Link to="/product">
-                  <span className="relative z-10 flex items-center">
-                    Explore SuryAmrit™ 
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </Link>
-              </Button>
-              <Button 
-                asChild
-                variant="outline" 
-                size="lg"
-                className="px-8 py-6 text-lg border-secondary/40 text-secondary hover:bg-secondary/10 hover:border-secondary transition-all duration-300 rounded-2xl"
-              >
-                <Link to="/where-to-buy">Where to Buy</Link>
-              </Button>
+          <div className="grid lg:grid-cols-5 gap-8 items-center">
+            {/* Main Hero Content */}
+            <div className="lg:col-span-3 text-center lg:text-left">
+              <Badge className="mb-8 px-6 py-2 text-sm font-medium bg-primary/15 text-primary border-primary/30 backdrop-blur-sm animate-pulse-glow">
+                <Sparkles className="w-4 h-4 mr-2" />
+                India's #1 Vitamin D₃ Solution
+              </Badge>
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[0.9] tracking-tight">
+                <span className="text-foreground">Combat India's Silent</span>
+                <span className="block mt-2 bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent animate-gradient warm-glow">
+                  Vitamin D Crisis
+                </span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl mb-12 text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                Over 80% of Indians are Vitamin D deficient. SuryAmrit™ provides the natural, 
+                plant-based solution your body needs to thrive.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center">
+                <Button 
+                  asChild
+                  size="lg" 
+                  className="group relative px-8 py-6 text-lg bg-gradient-to-r from-primary to-primary text-primary-foreground hover:shadow-[0_10px_40px_-10px_hsl(40_95%_52%_/_0.5)] transition-all duration-500 rounded-2xl overflow-hidden"
+                >
+                  <Link to="/product">
+                    <span className="relative z-10 flex items-center">
+                      Explore SuryAmrit™ 
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </Link>
+                </Button>
+                <Button 
+                  asChild
+                  variant="outline" 
+                  size="lg"
+                  className="px-8 py-6 text-lg border-secondary/40 text-secondary hover:bg-secondary/10 hover:border-secondary transition-all duration-300 rounded-2xl"
+                >
+                  <Link to="/where-to-buy">Where to Buy</Link>
+                </Button>
+              </div>
+              
+              {/* Stats Row */}
+              <div className="mt-16 grid grid-cols-3 gap-6 max-w-xl mx-auto lg:mx-0">
+                {[
+                  { value: '80%+', label: 'Indians Deficient' },
+                  { value: '600 IU', label: 'Daily Dose' },
+                  { value: '100%', label: 'Plant-Based' },
+                ].map((stat, i) => (
+                  <div key={i} className="text-center glass-card rounded-2xl p-4 golden-border">
+                    <div className="text-2xl md:text-3xl font-bold text-primary">{stat.value}</div>
+                    <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-            
-            {/* Stats Row */}
-            <div className="mt-20 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-              {[
-                { value: '80%+', label: 'Indians Deficient' },
-                { value: '600 IU', label: 'Daily Dose' },
-                { value: '100%', label: 'Plant-Based' },
-              ].map((stat, i) => (
-                <div key={i} className="text-center glass-card rounded-2xl p-4 golden-border">
-                  <div className="text-2xl md:text-3xl font-bold text-primary">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+
+            {/* Promotional Badge - Right Side */}
+            <div className="lg:col-span-2 flex flex-col items-center justify-center gap-6">
+              {/* Urgency Banner */}
+              <Link 
+                to="/product" 
+                className="urgency-banner group flex items-center gap-3 px-6 py-4 rounded-2xl text-primary-foreground font-bold text-lg shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer"
+              >
+                <ShoppingCart className="h-6 w-6 animate-wiggle" />
+                <span>Buy your Trial Pack Now!</span>
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform" />
+              </Link>
+
+              {/* Star Price Badge */}
+              <Link to="/product" className="relative group cursor-pointer">
+                {/* Outer Rotating Glow */}
+                <div className="absolute inset-0 rounded-full star-badge animate-spin-slow" style={{ width: '220px', height: '220px', marginLeft: '-10px', marginTop: '-10px' }} />
+                
+                {/* Star Rays */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {[...Array(12)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-1 h-28 bg-gradient-to-t from-primary/60 to-transparent animate-star-pulse"
+                      style={{
+                        transform: `rotate(${i * 30}deg)`,
+                        transformOrigin: 'center 100px',
+                        animationDelay: `${i * 0.1}s`
+                      }}
+                    />
+                  ))}
                 </div>
-              ))}
+
+                {/* Main Circle Badge */}
+                <div className="relative w-[200px] h-[200px] rounded-full bg-gradient-to-br from-primary via-primary to-amber-400 flex flex-col items-center justify-center shadow-2xl animate-bounce-attention group-hover:scale-110 transition-transform duration-300 border-4 border-primary-foreground/20">
+                  {/* Inner Glow */}
+                  <div className="absolute inset-4 rounded-full bg-gradient-to-br from-amber-100/30 to-transparent" />
+                  
+                  {/* Decorative Stars */}
+                  <Star className="absolute top-4 left-1/2 -translate-x-1/2 h-5 w-5 text-primary-foreground/80 fill-current animate-pulse-glow" />
+                  <Star className="absolute top-8 left-6 h-3 w-3 text-primary-foreground/60 fill-current" />
+                  <Star className="absolute top-8 right-6 h-3 w-3 text-primary-foreground/60 fill-current" />
+                  
+                  {/* Content */}
+                  <span className="relative text-primary-foreground/90 text-sm font-semibold tracking-wide uppercase mt-2">Only</span>
+                  <span className="relative text-5xl md:text-6xl font-black text-primary-foreground animate-shimmer drop-shadow-lg">
+                    ₹99/-
+                  </span>
+                  <span className="relative text-primary-foreground/90 text-sm font-semibold tracking-wide uppercase">Trial Pack</span>
+                  
+                  {/* Bottom Stars */}
+                  <Star className="absolute bottom-4 left-1/2 -translate-x-1/2 h-5 w-5 text-primary-foreground/80 fill-current animate-pulse-glow" />
+                </div>
+
+                {/* Sparkle Effects */}
+                <Sparkles className="absolute -top-2 -right-2 h-8 w-8 text-primary animate-pulse-glow" />
+                <Sparkles className="absolute -bottom-2 -left-2 h-6 w-6 text-amber-400 animate-pulse-glow" style={{ animationDelay: '0.5s' }} />
+              </Link>
+
+              <p className="text-center text-muted-foreground text-sm max-w-[200px]">
+                Limited time offer! Start your wellness journey today
+              </p>
             </div>
           </div>
         </div>
