@@ -106,7 +106,7 @@ const WhereToBuy = () => {
                 </div>
               </div>
 
-              {/* Right: Featured Product */}
+              {/* Right: Featured Product with Trial Pack Badge */}
               <div className="flex justify-center">
                 {loading ? (
                   <div className="flex flex-col items-center justify-center py-12 px-8 bg-white/10 rounded-2xl backdrop-blur-sm min-h-[320px]">
@@ -114,7 +114,26 @@ const WhereToBuy = () => {
                     <span className="text-white/80">Loading products...</span>
                   </div>
                 ) : products.length > 0 ? (
-                  <div className="w-full max-w-sm">
+                  <div className="w-full max-w-sm relative">
+                    {/* Trial Pack Offer Badge */}
+                    <div className="absolute -top-3 -right-3 z-10 animate-pulse">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 rounded-full blur-md opacity-75"></div>
+                        <div className="relative bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
+                          <div className="text-xs font-medium">Trial Pack</div>
+                          <div className="text-lg font-bold">₹99</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Ribbon Badge */}
+                    <div className="absolute -left-2 top-6 z-10">
+                      <div className="bg-secondary text-white px-4 py-1.5 text-sm font-bold shadow-lg" 
+                           style={{ clipPath: 'polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%)' }}>
+                        🔥 LIMITED OFFER
+                      </div>
+                    </div>
+                    
                     <ProductCard product={products[0]} />
                   </div>
                 ) : (
