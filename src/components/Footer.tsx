@@ -43,12 +43,13 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-bold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="#home" className="text-white/80 hover:text-primary-glow transition-colors">Home</a></li>
-              <li><a href="#benefits" className="text-white/80 hover:text-primary-glow transition-colors">Benefits</a></li>
-              <li><a href="#science" className="text-white/80 hover:text-primary-glow transition-colors">Science</a></li>
-              <li><a href="#dosage" className="text-white/80 hover:text-primary-glow transition-colors">Dosage</a></li>
-              <li><a href="#" className="text-white/80 hover:text-primary-glow transition-colors">Clinical Studies</a></li>
-              <li><a href="#" className="text-white/80 hover:text-primary-glow transition-colors">FAQ</a></li>
+              <li><a href="/product" className="text-white/80 hover:text-primary-glow transition-colors">Shop</a></li>
+              <li><a href="/product#science" className="text-white/80 hover:text-primary-glow transition-colors">Science</a></li>
+              <li><a href="/endorsements" className="text-white/80 hover:text-primary-glow transition-colors">Reviews</a></li>
+              <li><a href="/product#faq" className="text-white/80 hover:text-primary-glow transition-colors">FAQ</a></li>
+              <li><a href="/about" className="text-white/80 hover:text-primary-glow transition-colors">About Us</a></li>
+              <li><a href="/blog" className="text-white/80 hover:text-primary-glow transition-colors">Blog</a></li>
+              <li><a href="/contact" className="text-white/80 hover:text-primary-glow transition-colors">Contact</a></li>
             </ul>
           </div>
 
