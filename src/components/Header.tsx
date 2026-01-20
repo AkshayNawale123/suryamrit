@@ -62,7 +62,7 @@ const Header = () => {
             </Button>
             <CartDrawer />
             <Button asChild className="bg-gradient-primary hover:shadow-golden transition-all duration-300 px-6 font-semibold">
-              <Link to="/product">Order Now</Link>
+              <Link to="/buy">Order Now</Link>
             </Button>
           </div>
 
@@ -106,7 +106,7 @@ const Header = () => {
                 </Link>
               ))}
               <Button asChild className="bg-gradient-primary hover:shadow-golden transition-all duration-300 mt-4">
-                <Link to="/product" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link to="/buy" onClick={() => setIsMobileMenuOpen(false)}>
                   Order Now
                 </Link>
               </Button>

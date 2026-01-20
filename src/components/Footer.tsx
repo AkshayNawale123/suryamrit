@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 import suryamritLogo from "@/assets/suryamrit-logo.png";
@@ -83,8 +84,8 @@ const Footer = () => {
               </div>
             </div>
 
-            <Button className="mt-6 bg-gradient-to-r from-primary to-primary-glow text-primary-foreground hover:shadow-golden transition-all duration-300 rounded-xl">
-              Order Now - Free Delivery
+            <Button asChild className="mt-6 bg-gradient-to-r from-primary to-primary-glow text-primary-foreground hover:shadow-golden transition-all duration-300 rounded-xl">
+              <Link to="/buy">Order Now - Free Delivery</Link>
             </Button>
           </div>
         </div>
