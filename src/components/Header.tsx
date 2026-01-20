@@ -15,6 +15,7 @@ const Header = () => {
     { path: '/where-to-buy', label: 'Shop' },
     { path: '/product#science', label: 'Science' },
     { path: '/endorsements', label: 'Reviews' },
+    { path: '/blog', label: 'Blog' },
     { path: '/product#faq', label: 'FAQ' }
   ];
 
