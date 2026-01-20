@@ -38,7 +38,7 @@ const StickyOrderButton = () => {
         className="group relative px-6 py-6 text-base font-bold bg-gradient-to-r from-primary via-primary to-amber-500 text-primary-foreground rounded-2xl shadow-2xl hover:shadow-[0_10px_40px_-10px_hsl(40_95%_52%_/_0.6)] transition-all duration-300 hover:scale-105 animate-bounce-attention"
         style={{ animationDuration: "3s" }}
       >
-        <Link to="/product" className="flex items-center gap-3">
+        <Link to="/buy" className="flex items-center gap-3">
           <ShoppingCart className="h-5 w-5" />
           <span>Order Now</span>
           <span className="bg-primary-foreground/20 px-2 py-1 rounded-lg text-sm">₹351</span>
