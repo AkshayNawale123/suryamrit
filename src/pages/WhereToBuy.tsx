@@ -71,97 +71,121 @@ const WhereToBuy = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-hero text-primary-foreground">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-white/20 text-white border-white/30">
-              Available Nationwide
-            </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Get SuryAmrit™
-              <span className="block text-primary-glow">Delivered to Your Doorstep</span>
-            </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Shop directly from our store with fast delivery 
-              across India. Order now and start your journey to better health.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Key Benefits */}
-      <section className="py-12 bg-background border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <Truck className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="font-semibold text-foreground mb-2">Fast Delivery</h3>
-              <p className="text-sm text-muted-foreground">1-3 days across major cities</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="font-semibold text-foreground mb-2">Authentic Product</h3>
-              <p className="text-sm text-muted-foreground">100% genuine guarantee</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="font-semibold text-foreground mb-2">24/7 Support</h3>
-              <p className="text-sm text-muted-foreground">Customer service available</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="font-semibold text-foreground mb-2">Pan India</h3>
-              <p className="text-sm text-muted-foreground">Available in 500+ cities</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Products Section */}
-      <section className="py-16 bg-background">
+      {/* Hero + Products Section - Above the Fold */}
+      <section className="py-6 md:py-10 bg-gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Shop Our Products
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Order directly and get authentic SuryAmrit™ delivered to your doorstep
-              </p>
-            </div>
-
-            {loading ? (
-              <div className="flex items-center justify-center py-20">
-                <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                <span className="ml-3 text-muted-foreground">Loading products...</span>
+            <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+              {/* Left: Marketing Copy */}
+              <div className="text-center lg:text-left">
+                <Badge className="mb-4 bg-white/20 text-white border-white/30">
+                  Available Nationwide • Free Delivery on ₹500+
+                </Badge>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                  Get SuryAmrit™
+                  <span className="block text-primary-glow">Delivered Today</span>
+                </h1>
+                <p className="text-lg text-white/90 mb-6 max-w-lg mx-auto lg:mx-0">
+                  Order now and start your journey to better health with pure, natural Vitamin D3.
+                </p>
+                
+                {/* Compact Trust Indicators */}
+                <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm">
+                  <div className="flex items-center gap-2 bg-white/10 px-3 py-2 rounded-full">
+                    <Truck className="h-4 w-4" />
+                    <span>1-3 Day Delivery</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/10 px-3 py-2 rounded-full">
+                    <Shield className="h-4 w-4" />
+                    <span>100% Authentic</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/10 px-3 py-2 rounded-full">
+                    <Award className="h-4 w-4" />
+                    <span>30-Day Guarantee</span>
+                  </div>
+                </div>
               </div>
-            ) : products.length > 0 ? (
+
+              {/* Right: Featured Product */}
+              <div className="flex justify-center">
+                {loading ? (
+                  <div className="flex flex-col items-center justify-center py-12 px-8 bg-white/10 rounded-2xl backdrop-blur-sm min-h-[320px]">
+                    <Loader2 className="h-10 w-10 animate-spin text-white mb-4" />
+                    <span className="text-white/80">Loading products...</span>
+                  </div>
+                ) : products.length > 0 ? (
+                  <div className="w-full max-w-sm">
+                    <ProductCard product={products[0]} />
+                  </div>
+                ) : (
+                  <div className="text-center py-12 px-8 bg-white/10 rounded-2xl backdrop-blur-sm">
+                    <div className="text-5xl mb-4">📦</div>
+                    <h3 className="text-lg font-semibold text-white mb-2">Coming Soon</h3>
+                    <p className="text-white/80 text-sm">
+                      Products are being added. Check back soon!
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Compact Trust Bar */}
+      <section className="py-4 bg-background border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10 max-w-4xl mx-auto">
+            <div className="flex items-center gap-2 text-sm">
+              <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
+                <Truck className="h-4 w-4 text-white" />
+              </div>
+              <span className="font-medium text-foreground">Fast Delivery</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <div className="w-8 h-8 bg-gradient-secondary rounded-full flex items-center justify-center">
+                <Shield className="h-4 w-4 text-white" />
+              </div>
+              <span className="font-medium text-foreground">Authentic Product</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <div className="w-8 h-8 bg-gradient-hero rounded-full flex items-center justify-center">
+                <Clock className="h-4 w-4 text-white" />
+              </div>
+              <span className="font-medium text-foreground">24/7 Support</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
+                <MapPin className="h-4 w-4 text-white" />
+              </div>
+              <span className="font-medium text-foreground">500+ Cities</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Products Section - Only show if more than 1 product */}
+      {!loading && products.length > 1 && (
+        <section className="py-10 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                  More Products
+                </h2>
+                <p className="text-muted-foreground">
+                  Explore our complete range of health supplements
+                </p>
+              </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {products.map((product) => (
+                {products.slice(1).map((product) => (
                   <ProductCard key={product.node.id} product={product} />
                 ))}
               </div>
-            ) : (
-              <div className="text-center py-20 bg-muted/30 rounded-xl">
-                <div className="text-6xl mb-4">📦</div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">No products found</h3>
-                <p className="text-muted-foreground max-w-md mx-auto">
-                  Products are being added to the store. Check back soon or contact us for more information.
-                </p>
-              </div>
-            )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Availability Map */}
       <section className="py-16 bg-muted/50">
