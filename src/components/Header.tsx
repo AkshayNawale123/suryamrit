@@ -12,7 +12,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigationLinks = [
-    { path: '/where-to-buy', label: 'Shop' },
+    { path: '/buy', label: 'Shop' },
     { path: '/product#science', label: 'Science' },
     { path: '/endorsements', label: 'Reviews' },
     { path: '/blog', label: 'Blog' },

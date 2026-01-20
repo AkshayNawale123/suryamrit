@@ -44,7 +44,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ isOpen, onClose }) =>
       id: '3',
       title: 'Where to Buy SuryAmrit™',
       description: 'Find SuryAmrit™ on leading e-commerce platforms with fast delivery',
-      url: '/where-to-buy',
+      url: '/buy',
       category: 'Purchase'
     },
     {
