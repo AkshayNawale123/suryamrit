@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Truck, Shield, Clock, MapPin, Phone, Loader2, Mail, MessageCircle, Users, Award } from 'lucide-react';
+import { Truck, Shield, Clock, MapPin, Phone, Loader2, Mail, MessageCircle, Users, Award, ShoppingCart } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ProductCard } from '@/components/ProductCard';
@@ -12,10 +12,61 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
+import { useCartStore } from '@/stores/cartStore';
+import { CartItem } from '@/lib/shopify';
+import { toast as sonnerToast } from 'sonner';
 const WhereToBuy = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
+  const [addingTrial, setAddingTrial] = useState(false);
   const { toast } = useToast();
+  const addItem = useCartStore(state => state.addItem);
+
+  // Find trial variant (lowest price variant, typically ₹99)
+  const getTrialVariant = (product: ShopifyProduct) => {
+    const variants = product.node.variants.edges;
+    if (variants.length === 0) return null;
+    
+    // Sort by price and get the cheapest (trial pack)
+    const sortedVariants = [...variants].sort((a, b) => 
+      parseFloat(a.node.price.amount) - parseFloat(b.node.price.amount)
+    );
+    return sortedVariants[0]?.node;
+  };
+
+  const handleTrialPackClick = () => {
+    if (products.length === 0) return;
+    
+    const product = products[0];
+    const trialVariant = getTrialVariant(product);
+    
+    if (!trialVariant || !trialVariant.availableForSale) {
+      sonnerToast.error("Trial Pack unavailable", {
+        description: "Sorry, the trial pack is currently out of stock.",
+        position: "top-center",
+      });
+      return;
+    }
+
+    setAddingTrial(true);
+    
+    const cartItem: CartItem = {
+      product,
+      variantId: trialVariant.id,
+      variantTitle: trialVariant.title,
+      price: trialVariant.price,
+      quantity: 1,
+      selectedOptions: trialVariant.selectedOptions || []
+    };
+    
+    addItem(cartItem);
+    setAddingTrial(false);
+    
+    sonnerToast.success("Trial Pack added! 🎉", {
+      description: `₹${parseFloat(trialVariant.price.amount).toFixed(0)} Trial Pack added to your cart.`,
+      position: "top-center",
+    });
+  };
   
   const [formData, setFormData] = useState({
     name: '',
@@ -115,16 +166,27 @@ const WhereToBuy = () => {
                   </div>
                 ) : products.length > 0 ? (
                   <div className="w-full max-w-sm relative">
-                    {/* Trial Pack Offer Badge */}
-                    <div className="absolute -top-3 -right-3 z-10 animate-pulse">
+                    {/* Trial Pack Offer Badge - Clickable */}
+                    <button 
+                      onClick={handleTrialPackClick}
+                      disabled={addingTrial}
+                      className="absolute -top-3 -right-3 z-10 animate-pulse hover:scale-110 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50 rounded-full"
+                      aria-label="Add Trial Pack to cart for ₹99"
+                    >
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 rounded-full blur-md opacity-75"></div>
-                        <div className="relative bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
+                        <div className="relative bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg flex flex-col items-center">
                           <div className="text-xs font-medium">Trial Pack</div>
-                          <div className="text-lg font-bold">₹99</div>
+                          <div className="text-lg font-bold flex items-center gap-1">
+                            {addingTrial ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                              <>₹99 <ShoppingCart className="h-3 w-3" /></>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </button>
                     
                     {/* Ribbon Badge */}
                     <div className="absolute -left-2 top-6 z-10">
