@@ -17,7 +17,7 @@ const BreadcrumbNavigation = () => {
     '': 'Home',
     'product': 'Product',
     'about': 'About Us',
-    'where-to-buy': 'Where to Buy',
+    'buy': 'Shop',
     'endorsements': 'Endorsements',
     'blog': 'Blog',
     'contact': 'Contact'

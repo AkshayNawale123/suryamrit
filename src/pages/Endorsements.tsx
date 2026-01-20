@@ -354,7 +354,7 @@ const Endorsements = () => {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link to="/where-to-buy">Where to Buy</Link>
+                <Link to="/buy">Where to Buy</Link>
               </Button>
             </div>
           </div>

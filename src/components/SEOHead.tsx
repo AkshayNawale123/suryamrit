@@ -28,7 +28,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({ title, description, keywords, canonic
       description: 'Learn about SuryAmrit™\'s mission to solve India\'s Vitamin D crisis with natural, plant-based solutions. Discover our story and values.',
       keywords: 'about suryamrit, company mission, vitamin d deficiency india, natural health, plant based supplements, ayurbramh'
     },
-    '/where-to-buy': {
+    '/buy': {
       title: 'Where to Buy SuryAmrit™ - Available on Amazon, Flipkart & Leading Platforms',
       description: 'Buy SuryAmrit™ on Amazon, Flipkart, 1mg, PharmEasy & more. Fast delivery across 500+ Indian cities. Authentic products guaranteed.',
       keywords: 'buy suryamrit, amazon, flipkart, 1mg, pharmeasy, online purchase, delivery india, authentic vitamin d3'

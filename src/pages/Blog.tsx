@@ -514,7 +514,7 @@ const Blog = () => {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link to="/where-to-buy#contact">Ask Our Experts</Link>
+                <Link to="/buy#contact">Ask Our Experts</Link>
               </Button>
             </div>
           </div>

@@ -252,7 +252,7 @@ const FAQ = () => {
                 <Link to="/product">Explore SuryAmrit</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                <Link to="/where-to-buy">Where to Buy</Link>
+                <Link to="/buy">Where to Buy</Link>
               </Button>
             </div>
           </div>

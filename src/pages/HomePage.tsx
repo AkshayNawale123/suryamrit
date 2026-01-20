@@ -76,7 +76,7 @@ const HomePage = () => {
                   size="lg"
                   className="px-8 py-6 text-lg border-secondary/40 text-secondary hover:bg-secondary/10 hover:border-secondary transition-all duration-300 rounded-2xl"
                 >
-                  <Link to="/where-to-buy">Where to Buy</Link>
+                  <Link to="/buy">Where to Buy</Link>
                 </Button>
               </div>
               
@@ -424,7 +424,7 @@ const HomePage = () => {
                     </p>
                     
                     <Button asChild size="lg" className="w-full bg-gradient-to-r from-secondary to-secondary hover:shadow-[0_10px_40px_-10px_hsl(145_35%_45%_/_0.4)] text-secondary-foreground rounded-xl">
-                      <Link to="/where-to-buy">Order Now</Link>
+                      <Link to="/buy">Order Now</Link>
                     </Button>
                   </div>
                 </div>
@@ -448,7 +448,7 @@ const HomePage = () => {
                 { to: '/about', icon: Heart, title: 'About Us', desc: 'Learn about our mission to combat Vitamin D deficiency in India.', iconBg: 'bg-gradient-to-br from-primary to-primary', titleColor: 'text-primary' },
                 { to: '/endorsements', icon: Users, title: 'Endorsements', desc: 'See what health experts and satisfied customers say about us.', iconBg: 'bg-gradient-to-br from-secondary to-secondary', titleColor: 'text-secondary' },
                 { to: '/blog', icon: TrendingUp, title: 'Knowledge Center', desc: 'Read articles about Vitamin D health and wellness tips.', iconBg: 'bg-gradient-to-br from-primary to-primary', titleColor: 'text-primary' },
-                { to: '/where-to-buy', icon: MapPin, title: 'Where to Buy', desc: 'Find SuryAmrit™ on leading e-commerce platforms.', iconBg: 'bg-gradient-to-br from-secondary to-secondary', titleColor: 'text-secondary' },
+                { to: '/buy', icon: MapPin, title: 'Where to Buy', desc: 'Find SuryAmrit™ on leading e-commerce platforms.', iconBg: 'bg-gradient-to-br from-secondary to-secondary', titleColor: 'text-secondary' },
               ].map((item, i) => (
                 <Card key={i} className="group glass-card border-0 hover:border-primary/20 transition-all duration-500 cursor-pointer rounded-3xl overflow-hidden hover:shadow-[0_10px_40px_-10px_hsl(40_95%_52%_/_0.3)]">
                   <Link to={item.to} className="block">
