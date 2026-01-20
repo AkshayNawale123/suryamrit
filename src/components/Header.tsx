@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MapPin, Search, Menu, X } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import SearchComponent from "./SearchComponent";
@@ -12,38 +12,14 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigationLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/product', label: 'Product' },
-    { path: '/about', label: 'About' },
-    { path: '/where-to-buy', label: 'Where to Buy' },
-    { path: '/endorsements', label: 'Endorsements' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/contact', label: 'Contact' }
+    { path: '/product', label: 'Shop' },
+    { path: '/product#science', label: 'Science' },
+    { path: '/endorsements', label: 'Reviews' },
+    { path: '/product#faq', label: 'FAQ' }
   ];
+
   return (
     <header className="bg-white/95 backdrop-blur-xl shadow-soft sticky top-0 z-50 border-b border-primary/10">
-      {/* Top contact bar */}
-      <div className="bg-gradient-to-r from-secondary to-green-600 text-white py-2">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center text-sm">
-            <div className="flex space-x-6">
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4" />
-                <span>1800-XXX-XXXX</span>
-              </div>
-              <div className="hidden sm:flex items-center space-x-2">
-                <Mail className="h-4 w-4" />
-                <span>info@ayurbramh.com</span>
-              </div>
-            </div>
-            <div className="flex items-center space-x-2">
-              <MapPin className="h-4 w-4" />
-              <span>Available PAN India</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main header */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
@@ -57,14 +33,14 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-8">
             {navigationLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`transition-colors ${
-                  location.pathname === link.path 
-                    ? 'text-primary font-medium' 
+                className={`font-medium transition-colors ${
+                  location.pathname === link.path.split('#')[0]
+                    ? 'text-primary' 
                     : 'text-muted-foreground hover:text-primary'
                 }`}
               >
@@ -82,11 +58,10 @@ const Header = () => {
               className="text-muted-foreground hover:text-primary"
             >
               <Search className="h-4 w-4" />
-              <span className="ml-2">Search</span>
             </Button>
             <CartDrawer />
-            <Button asChild className="bg-gradient-primary hover:shadow-golden transition-all duration-300">
-              <Link to="/where-to-buy">Order Now</Link>
+            <Button asChild className="bg-gradient-primary hover:shadow-golden transition-all duration-300 px-6 font-semibold">
+              <Link to="/product">Order Now</Link>
             </Button>
           </div>
 
@@ -120,9 +95,9 @@ const Header = () => {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`transition-colors ${
-                    location.pathname === link.path 
-                      ? 'text-primary font-medium' 
+                  className={`font-medium transition-colors ${
+                    location.pathname === link.path.split('#')[0]
+                      ? 'text-primary' 
                       : 'text-muted-foreground hover:text-primary'
                   }`}
                 >
@@ -130,7 +105,7 @@ const Header = () => {
                 </Link>
               ))}
               <Button asChild className="bg-gradient-primary hover:shadow-golden transition-all duration-300 mt-4">
-                <Link to="/where-to-buy" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link to="/product" onClick={() => setIsMobileMenuOpen(false)}>
                   Order Now
                 </Link>
               </Button>
