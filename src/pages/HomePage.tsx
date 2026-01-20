@@ -99,7 +99,7 @@ const HomePage = () => {
             <div className="lg:col-span-2 flex flex-col items-center justify-center gap-6">
               {/* Urgency Banner */}
               <Link 
-                to="/product" 
+                to="/buy" 
                 className="urgency-banner group flex items-center gap-3 px-6 py-4 rounded-2xl text-primary-foreground font-bold text-lg shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer"
               >
                 <ShoppingCart className="h-6 w-6 animate-wiggle" />
@@ -108,7 +108,7 @@ const HomePage = () => {
               </Link>
 
               {/* Star Price Badge */}
-              <Link to="/product" className="relative group cursor-pointer">
+              <Link to="/buy" className="relative group cursor-pointer">
                 {/* Outer Rotating Glow */}
                 <div className="absolute inset-0 rounded-full star-badge animate-spin-slow" style={{ width: '220px', height: '220px', marginLeft: '-10px', marginTop: '-10px' }} />
                 
