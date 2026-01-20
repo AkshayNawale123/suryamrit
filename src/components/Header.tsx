@@ -16,7 +16,7 @@ const Header = () => {
     { path: '/product#science', label: 'Science' },
     { path: '/endorsements', label: 'Reviews' },
     { path: '/blog', label: 'Blog' },
-    { path: '/product#faq', label: 'FAQ' }
+    { path: '/faq', label: 'FAQ' }
   ];
 
   return (
