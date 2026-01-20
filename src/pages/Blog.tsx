@@ -3,14 +3,45 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Search, Calendar, User, ArrowRight, Clock, Tag, BookOpen, Sun, Heart, Shield } from 'lucide-react';
+import { Search, Calendar, User, ArrowRight, Clock, Tag, BookOpen, Sun, Heart, Shield, Mail, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useToast } from '@/hooks/use-toast';
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [email, setEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const { toast } = useToast();
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.trim() || !emailRegex.test(email.trim())) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubscribing(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    toast({
+      title: "Successfully Subscribed! 🎉",
+      description: "You'll receive our latest health tips and articles in your inbox.",
+    });
+    
+    setEmail('');
+    setIsSubscribing(false);
+  };
 
   const categories = ['All', 'Vitamin D', 'Nutrition', 'Children Health', 'Women Health', 'Immunity', 'Lifestyle'];
 
@@ -395,15 +426,44 @@ const Blog = () => {
                 <Card className="bg-gradient-primary text-white border-0 shadow-golden">
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Heart className="h-6 w-6 text-white" />
+                      <Mail className="h-6 w-6 text-white" />
                     </div>
                     <h3 className="font-bold text-lg mb-3">Stay Updated</h3>
                     <p className="text-white/90 mb-4 text-sm">
                       Get the latest health tips and articles delivered to your inbox.
                     </p>
-                    <Button variant="secondary" size="sm" className="w-full">
-                      Subscribe to Newsletter
-                    </Button>
+                    <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+                      <Input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-white"
+                        disabled={isSubscribing}
+                      />
+                      <Button 
+                        type="submit" 
+                        variant="secondary" 
+                        size="sm" 
+                        className="w-full"
+                        disabled={isSubscribing}
+                      >
+                        {isSubscribing ? (
+                          <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            Subscribing...
+                          </>
+                        ) : (
+                          <>
+                            <Heart className="mr-2 h-4 w-4" />
+                            Subscribe Now
+                          </>
+                        )}
+                      </Button>
+                    </form>
+                    <p className="text-white/70 text-xs mt-3">
+                      No spam. Unsubscribe anytime.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -454,7 +514,7 @@ const Blog = () => {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link to="/contact">Ask Our Experts</Link>
+                <Link to="/where-to-buy#contact">Ask Our Experts</Link>
               </Button>
             </div>
           </div>
