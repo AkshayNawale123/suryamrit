@@ -59,9 +59,20 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
           {node.description}
         </p>
-        <p className="text-xl font-bold text-primary">
-          {price.currencyCode} {parseFloat(price.amount).toFixed(2)}
-        </p>
+        {/* Transparency Pricing Display */}
+        <div className="space-y-1">
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-muted-foreground line-through">
+              MRP {price.currencyCode} {(parseFloat(price.amount) * 1.2).toFixed(0)}
+            </span>
+          </div>
+          <p className="text-xl font-bold text-primary">
+            {price.currencyCode} {parseFloat(price.amount).toFixed(0)}
+          </p>
+          <p className="text-xs text-secondary font-medium">
+            Mission Subsidy Applied
+          </p>
+        </div>
       </CardContent>
       
       <CardFooter className="p-4 pt-0">

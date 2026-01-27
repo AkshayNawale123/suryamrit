@@ -100,52 +100,42 @@ const HomePage = () => {
               {/* Urgency Banner */}
               <Link 
                 to="/buy" 
-                className="urgency-banner group flex items-center gap-3 px-6 py-4 rounded-2xl text-primary-foreground font-bold text-lg shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer"
+                className="group flex items-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-primary via-primary to-amber-500 text-primary-foreground font-bold text-lg shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer border-2 border-primary-foreground/20"
               >
-                <ShoppingCart className="h-6 w-6 animate-wiggle" />
-                <span>Buy your Trial Pack Now!</span>
+                <ShoppingCart className="h-6 w-6" />
+                <span>Start Your Citizen Trial</span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform" />
               </Link>
 
-              {/* Star Price Badge */}
+              {/* Premium Price Badge with Transparency Pricing */}
               <Link to="/buy" className="relative group cursor-pointer">
-                {/* Outer Rotating Glow */}
-                <div className="absolute inset-0 rounded-full star-badge animate-spin-slow" style={{ width: '220px', height: '220px', marginLeft: '-10px', marginTop: '-10px' }} />
+                {/* Outer Rotating Glow - Gold tones */}
+                <div className="absolute inset-0 rounded-full animate-spin-slow" style={{ 
+                  width: '240px', 
+                  height: '240px', 
+                  marginLeft: '-20px', 
+                  marginTop: '-20px',
+                  background: 'conic-gradient(from 0deg, hsl(40 95% 52% / 0.6), hsl(45 100% 70% / 0.2), hsl(40 95% 52% / 0.6), hsl(45 100% 70% / 0.2), hsl(40 95% 52% / 0.6))'
+                }} />
                 
-                {/* Star Rays */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {[...Array(12)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-28 bg-gradient-to-t from-primary/60 to-transparent animate-star-pulse"
-                      style={{
-                        transform: `rotate(${i * 30}deg)`,
-                        transformOrigin: 'center 100px',
-                        animationDelay: `${i * 0.1}s`
-                      }}
-                    />
-                  ))}
-                </div>
-
-                {/* Main Circle Badge */}
-                <div className="relative w-[200px] h-[200px] rounded-full bg-gradient-to-br from-primary via-primary to-amber-400 flex flex-col items-center justify-center shadow-2xl animate-bounce-attention group-hover:scale-110 transition-transform duration-300 border-4 border-primary-foreground/20">
+                {/* Main Circle Badge - Clinical Gold + White */}
+                <div className="relative w-[200px] h-[200px] rounded-full bg-gradient-to-br from-white via-amber-50 to-white flex flex-col items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300 border-4 border-primary/30">
                   {/* Inner Glow */}
-                  <div className="absolute inset-4 rounded-full bg-gradient-to-br from-amber-100/30 to-transparent" />
+                  <div className="absolute inset-2 rounded-full bg-gradient-to-br from-primary/10 to-transparent" />
                   
-                  {/* Decorative Stars */}
-                  <Star className="absolute top-4 left-1/2 -translate-x-1/2 h-5 w-5 text-primary-foreground/80 fill-current animate-pulse-glow" />
-                  <Star className="absolute top-8 left-6 h-3 w-3 text-primary-foreground/60 fill-current" />
-                  <Star className="absolute top-8 right-6 h-3 w-3 text-primary-foreground/60 fill-current" />
-                  
-                  {/* Content */}
-                  <span className="relative text-primary-foreground/90 text-sm font-semibold tracking-wide uppercase mt-2">Only</span>
-                  <span className="relative text-5xl md:text-6xl font-black text-primary-foreground animate-shimmer drop-shadow-lg">
-                    ₹99/-
-                  </span>
-                  <span className="relative text-primary-foreground/90 text-sm font-semibold tracking-wide uppercase">Trial Pack</span>
-                  
-                  {/* Bottom Stars */}
-                  <Star className="absolute bottom-4 left-1/2 -translate-x-1/2 h-5 w-5 text-primary-foreground/80 fill-current animate-pulse-glow" />
+                  {/* Transparency Pricing Content */}
+                  <div className="relative text-center">
+                    <div className="text-xs text-muted-foreground line-through mb-1">MRP ₹399</div>
+                    <div className="text-4xl md:text-5xl font-bold text-primary drop-shadow-sm">
+                      ₹99
+                    </div>
+                    <div className="text-xs font-semibold text-secondary mt-1">
+                      Citizen Trial
+                    </div>
+                    <div className="text-[10px] text-muted-foreground mt-1">
+                      You save ₹300
+                    </div>
+                  </div>
                 </div>
 
                 {/* Sparkle Effects */}
@@ -153,8 +143,9 @@ const HomePage = () => {
                 <Sparkles className="absolute -bottom-2 -left-2 h-6 w-6 text-amber-400 animate-pulse-glow" style={{ animationDelay: '0.5s' }} />
               </Link>
 
-              <p className="text-center text-muted-foreground text-sm max-w-[200px]">
-                Limited time offer! Start your wellness journey today
+              {/* Mission Note */}
+              <p className="text-center text-muted-foreground text-sm max-w-[220px] leading-relaxed">
+                <span className="font-medium text-secondary">Mission Subsidy:</span> We absorb the cost so you can feel the difference
               </p>
             </div>
           </div>

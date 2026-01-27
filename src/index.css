@@ -124,7 +124,12 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  /* Premium Serif Typography for Headings */
+  h1, h2, h3 {
+    @apply font-serif;
   }
 }
 
