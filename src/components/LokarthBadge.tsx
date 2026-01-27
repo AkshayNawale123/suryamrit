@@ -32,8 +32,8 @@ const LokarthBadge: React.FC<LokarthBadgeProps> = ({
   };
 
   const containerClasses = {
-    default: 'bg-primary/10 border-primary/30',
-    header: 'bg-secondary/10 border-secondary/30',
+    default: 'bg-primary/5 border-primary/20',
+    header: 'bg-secondary/5 border-secondary/20',
     footer: 'bg-white/10 border-white/20'
   };
 
@@ -55,7 +55,7 @@ const LokarthBadge: React.FC<LokarthBadgeProps> = ({
         className={cn("w-auto object-contain", sizeClasses[size])}
       />
       <span className={cn(
-        "text-xs font-medium whitespace-nowrap tracking-wide",
+        "text-xs font-medium whitespace-nowrap",
         textClasses[variant]
       )}>
         An Initiative by Lokarth
