@@ -21,7 +21,10 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-white/95 backdrop-blur-xl shadow-soft sticky top-0 z-50 border-b border-primary/10">
+    <header className="bg-white/80 backdrop-blur-xl sticky top-0 z-50 relative">
+      {/* Gold Accent Line */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
+      
       {/* Main header */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
