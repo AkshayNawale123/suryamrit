@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Truck, Shield, Clock, MapPin, Phone, Loader2, Mail, MessageCircle, Users, Award, ShoppingCart } from 'lucide-react';
+import { Truck, Shield, Clock, MapPin, Phone, Loader2, Mail, MessageCircle, Users, Award, ShoppingCart, Sun, ArrowRight, Heart } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ProductCard } from '@/components/ProductCard';
@@ -244,6 +244,84 @@ const WhereToBuy = () => {
               </div>
               <span className="font-medium text-foreground">500+ Cities</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Subsidy Explained Section */}
+      <section className="py-10 bg-gradient-to-b from-primary/5 to-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <Card className="border-2 border-primary/30 shadow-golden overflow-hidden">
+              {/* Header */}
+              <div className="bg-gradient-to-r from-primary/10 via-amber-100/50 to-primary/10 px-6 py-4 border-b border-primary/20">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-amber-500 rounded-full flex items-center justify-center shadow-lg">
+                    <Sun className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-serif font-bold text-foreground">
+                    Our Mission Subsidy
+                  </h3>
+                </div>
+              </div>
+              
+              <CardContent className="p-6 md:p-8 space-y-6">
+                {/* The Question */}
+                <div className="text-center">
+                  <p className="text-lg md:text-xl font-serif italic text-foreground">
+                    "Why Does Premium Cost So Little?"
+                  </p>
+                </div>
+                
+                {/* The Story */}
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    SuryAmrit is crafted with <span className="text-foreground font-semibold">pure A2 Ghee</span> and 
+                    authentic Ayurvedic formulation — ingredients that cost us <span className="text-primary font-bold">₹350+ per unit</span>.
+                  </p>
+                  <p>
+                    But India's Vitamin D crisis affects <span className="text-foreground font-semibold">80% of our population</span>. 
+                    We believe <span className="text-secondary font-semibold">health shouldn't be a luxury</span>.
+                  </p>
+                  <p className="font-medium text-foreground">
+                    So we absorb most of the cost ourselves.
+                  </p>
+                </div>
+                
+                {/* Price Breakdown Visualization */}
+                <div className="bg-muted/50 rounded-xl p-5 border border-primary/10">
+                  <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 text-sm md:text-base">
+                    <div className="flex flex-col items-center px-4 py-2 bg-card rounded-lg border border-border">
+                      <span className="text-muted-foreground text-xs">MRP</span>
+                      <span className="text-lg font-bold text-foreground">₹399</span>
+                    </div>
+                    <ArrowRight className="h-5 w-5 text-primary hidden md:block" />
+                    <span className="text-primary md:hidden">→</span>
+                    <div className="flex flex-col items-center px-4 py-2 bg-secondary/10 rounded-lg border border-secondary/30">
+                      <span className="text-secondary text-xs font-medium">Our Subsidy</span>
+                      <span className="text-lg font-bold text-secondary">-₹300</span>
+                    </div>
+                    <ArrowRight className="h-5 w-5 text-primary hidden md:block" />
+                    <span className="text-primary md:hidden">→</span>
+                    <div className="flex flex-col items-center px-4 py-2 bg-primary/10 rounded-lg border-2 border-primary/40">
+                      <span className="text-primary text-xs font-medium">You Pay</span>
+                      <span className="text-2xl font-bold text-primary">₹99</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* The Commitment */}
+                <div className="text-center pt-2 border-t border-border">
+                  <p className="text-foreground font-medium mb-2">
+                    This is <span className="text-primary font-bold">not a discount</span>. It's our commitment to making premium health accessible.
+                  </p>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full text-sm">
+                    <Heart className="h-4 w-4 text-secondary" />
+                    <span className="text-secondary font-semibold">Direct-to-Consumer Pilot Program</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
