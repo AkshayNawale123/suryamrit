@@ -134,41 +134,78 @@ const WhereToBuy = () => {
     loadProducts();
   }, []);
 
-  const cities = [
-    "Mumbai",
-    "Delhi",
-    "Bangalore",
-    "Chennai",
-    "Kolkata",
-    "Hyderabad",
-    "Pune",
-    "Ahmedabad",
-    "Jaipur",
-    "Lucknow",
-    "Kanpur",
-    "Nagpur",
-    "Indore",
-    "Thane",
-    "Bhopal",
-    "Visakhapatnam",
-    "Pimpri-Chinchwad",
-    "Patna",
-    "Vadodara",
-    "Ghaziabad",
-    "Ludhiana",
-    "Agra",
-    "Nashik",
-    "Faridabad",
-    "Meerut",
-    "Rajkot",
-    "Kalyan-Dombivali",
-    "Vasai-Virar",
-    "Varanasi",
-    "Srinagar",
-    "Aurangabad",
-    "Dhanbad",
-    "Amritsar",
+  // City data with mission status
+  type CityStatus = 'live' | 'phase2' | 'waitlist' | 'upcoming';
+  
+  interface CityData {
+    name: string;
+    status: CityStatus;
+    label: string;
+  }
+
+  const cities: CityData[] = [
+    { name: "Pune", status: "live", label: "LIVE NOW" },
+    { name: "Pimpri-Chinchwad", status: "live", label: "LIVE NOW" },
+    { name: "Mumbai", status: "phase2", label: "Phase 2" },
+    { name: "Bangalore", status: "phase2", label: "Phase 2" },
+    { name: "Delhi", status: "waitlist", label: "Waitlist" },
+    { name: "Hyderabad", status: "waitlist", label: "Waitlist" },
+    { name: "Chennai", status: "upcoming", label: "" },
+    { name: "Kolkata", status: "upcoming", label: "" },
+    { name: "Ahmedabad", status: "upcoming", label: "" },
+    { name: "Jaipur", status: "upcoming", label: "" },
+    { name: "Lucknow", status: "upcoming", label: "" },
+    { name: "Kanpur", status: "upcoming", label: "" },
+    { name: "Nagpur", status: "upcoming", label: "" },
+    { name: "Indore", status: "upcoming", label: "" },
+    { name: "Thane", status: "upcoming", label: "" },
+    { name: "Bhopal", status: "upcoming", label: "" },
+    { name: "Visakhapatnam", status: "upcoming", label: "" },
+    { name: "Patna", status: "upcoming", label: "" },
+    { name: "Vadodara", status: "upcoming", label: "" },
+    { name: "Ghaziabad", status: "upcoming", label: "" },
+    { name: "Ludhiana", status: "upcoming", label: "" },
+    { name: "Agra", status: "upcoming", label: "" },
+    { name: "Nashik", status: "upcoming", label: "" },
+    { name: "Faridabad", status: "upcoming", label: "" },
+    { name: "Meerut", status: "upcoming", label: "" },
+    { name: "Rajkot", status: "upcoming", label: "" },
+    { name: "Kalyan-Dombivali", status: "upcoming", label: "" },
+    { name: "Vasai-Virar", status: "upcoming", label: "" },
+    { name: "Varanasi", status: "upcoming", label: "" },
+    { name: "Srinagar", status: "upcoming", label: "" },
+    { name: "Aurangabad", status: "upcoming", label: "" },
+    { name: "Dhanbad", status: "upcoming", label: "" },
+    { name: "Amritsar", status: "upcoming", label: "" },
   ];
+
+  // Helper functions for city styling
+  const getStatusIndicatorColor = (status: CityStatus): string => {
+    switch (status) {
+      case 'live': return 'bg-[#2C5F2D]';
+      case 'phase2': return 'bg-amber-500';
+      case 'waitlist': return 'bg-blue-500';
+      case 'upcoming': return 'bg-[#A0AEC0]';
+    }
+  };
+
+  const getStatusTextStyle = (status: CityStatus): string => {
+    switch (status) {
+      case 'live': return 'font-bold text-foreground opacity-100';
+      case 'phase2': return 'font-medium text-foreground/70';
+      case 'waitlist': return 'text-foreground/60';
+      case 'upcoming': return 'text-foreground/50';
+    }
+  };
+
+  const getStatusBadgeStyle = (status: CityStatus): string => {
+    switch (status) {
+      case 'live': return 'bg-[#2C5F2D] text-white';
+      case 'phase2': return 'bg-amber-500/20 text-amber-700 border-amber-500/30';
+      case 'waitlist': return 'bg-blue-500/20 text-blue-700 border-blue-500/30';
+      default: return '';
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -548,24 +585,34 @@ const WhereToBuy = () => {
         </section>
       )}
 
-      {/* Availability Map */}
+      {/* Mission Roadmap Section */}
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
+            {/* Section Header with Phase Badge */}
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Available Across India</h2>
-              <p className="text-lg text-muted-foreground">
-                We deliver to 500+ cities across all states and union territories
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Badge className="bg-[#2C5F2D] text-white border-0 px-4 py-1.5 text-sm font-bold">
+                  PHASE 1
+                </Badge>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+                Mission Roadmap: Phase 1 Active
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                We are rolling out the <span className="text-[#2C5F2D] font-semibold">'Vitamin Efficient India'</span> mission one city at a time. 
+                Currently exclusive to <span className="text-primary font-semibold">Pune & PCMC</span>.
               </p>
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8">
+              {/* Mission Expansion Map */}
               <div className="lg:col-span-2">
-                <Card className="border-primary/20 shadow-soft">
+                <Card className="border-[#2C5F2D]/20 shadow-soft">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
-                      <MapPin className="h-6 w-6 text-primary" />
-                      Major Cities We Serve
+                      <MapPin className="h-6 w-6 text-[#2C5F2D]" />
+                      Mission Expansion Map
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -573,61 +620,120 @@ const WhereToBuy = () => {
                       {cities.map((city, index) => (
                         <div
                           key={index}
-                          className="flex items-center gap-2 p-2 rounded-lg bg-muted/50 hover:bg-primary/10 transition-colors"
+                          className={`flex items-center justify-between gap-2 p-2.5 rounded-lg transition-colors ${
+                            city.status === 'live' 
+                              ? 'bg-[#2C5F2D]/10 border border-[#2C5F2D]/30' 
+                              : 'bg-muted/50'
+                          }`}
                         >
-                          <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                          <span className="text-sm font-medium">{city}</span>
+                          <div className="flex items-center gap-2">
+                            <div className={`w-2.5 h-2.5 rounded-full ${getStatusIndicatorColor(city.status)}`}></div>
+                            <span className={`text-sm ${getStatusTextStyle(city.status)}`}>{city.name}</span>
+                          </div>
+                          {city.label && (
+                            <Badge 
+                              variant="outline" 
+                              className={`text-[10px] px-1.5 py-0 h-5 ${getStatusBadgeStyle(city.status)}`}
+                            >
+                              {city.status === 'live' ? 'LIVE' : city.label}
+                            </Badge>
+                          )}
                         </div>
                       ))}
                     </div>
-                    <div className="mt-6 p-4 bg-gradient-subtle rounded-lg">
-                      <p className="text-sm text-muted-foreground text-center">
-                        Don't see your city? Don't worry! We deliver to most pin codes across India. Check availability
-                        during checkout.
-                      </p>
+                    
+                    {/* Phase 2 Coming Soon */}
+                    <div className="mt-6 p-5 bg-gradient-to-r from-[#2C5F2D]/5 via-primary/5 to-[#2C5F2D]/5 rounded-xl border border-[#2C5F2D]/20">
+                      <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                        <div className="text-center md:text-left">
+                          <p className="text-lg font-semibold text-foreground flex items-center justify-center md:justify-start gap-2">
+                            🚀 Phase 2 Coming Soon
+                          </p>
+                          <p className="text-sm text-muted-foreground mt-1">
+                            Not in Pune yet? Join the waitlist for your city and be the first to know when we launch.
+                          </p>
+                        </div>
+                        <Button 
+                          variant="secondary" 
+                          className="whitespace-nowrap"
+                          onClick={() => openWhatsApp('support')}
+                        >
+                          <MessageCircle className="h-4 w-4 mr-2" />
+                          Join Waitlist
+                        </Button>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
               </div>
 
+              {/* Sidebar Cards */}
               <div className="space-y-6">
-                <Card className="border-primary/20 shadow-soft">
-                  <CardHeader>
-                    <CardTitle className="text-primary">Need Help?</CardTitle>
+                {/* Pune Pilot Support Card */}
+                <Card className="border-[#2C5F2D]/30 shadow-soft overflow-hidden">
+                  <div className="h-1 bg-[#2C5F2D]"></div>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-[#2C5F2D] flex items-center gap-2">
+                      <Phone className="h-5 w-5" />
+                      Pune Pilot Support
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <Phone className="h-5 w-5 text-secondary" />
+                      <div className="w-10 h-10 bg-[#2C5F2D]/10 rounded-full flex items-center justify-center">
+                        <Phone className="h-5 w-5 text-[#2C5F2D]" />
+                      </div>
                       <div>
-                        <p className="font-medium">Customer Support</p>
-                        <p className="text-sm text-muted-foreground">1800-123-4567</p>
+                        <p className="font-semibold text-foreground">1800-123-4567</p>
+                        <p className="text-sm text-[#2C5F2D] font-medium">Local Pune Team</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Clock className="h-5 w-5 text-secondary" />
+                      <div className="w-10 h-10 bg-[#2C5F2D]/10 rounded-full flex items-center justify-center">
+                        <Clock className="h-5 w-5 text-[#2C5F2D]" />
+                      </div>
                       <div>
-                        <p className="font-medium">Available</p>
-                        <p className="text-sm text-muted-foreground">Mon-Sat, 9 AM - 8 PM</p>
+                        <p className="font-medium text-foreground">Mon-Sat, 9 AM - 8 PM</p>
+                        <p className="text-sm text-muted-foreground">IST</p>
                       </div>
                     </div>
-                    <Button variant="outline" className="w-full">
-                      Contact Support
+                    <Button 
+                      variant="outline" 
+                      className="w-full border-[#2C5F2D]/50 text-[#2C5F2D] hover:bg-[#2C5F2D]/10"
+                      onClick={() => openWhatsApp('support')}
+                    >
+                      <MessageCircle className="h-4 w-4 mr-2" />
+                      Chat with Pune HQ
                     </Button>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-primary text-white border-0 shadow-golden">
-                  <CardContent className="p-6 text-center">
-                    <h3 className="font-bold text-lg mb-3">Special Offer</h3>
-                    <p className="text-white/90 mb-4 text-sm">
-                      Free delivery on orders above ₹500. Subscribe and save 15% on every order.
+                {/* Pune Citizen Privilege Card */}
+                <Card className="bg-gradient-primary text-white border-0 shadow-golden overflow-hidden relative">
+                  {/* Pilot City Ribbon */}
+                  <div className="absolute top-3 -right-8 bg-white/20 text-white text-[10px] font-bold px-8 py-1 rotate-45">
+                    PILOT CITY
+                  </div>
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-lg">🎖️</span>
+                      <h3 className="font-bold text-lg">Pune Citizen Privilege</h3>
+                    </div>
+                    <p className="text-white/90 text-sm mb-4">
+                      As a Pilot City resident, you are eligible for the <span className="font-semibold">Lokarth Subsidy</span> and <span className="font-semibold">Priority Delivery</span>.
                     </p>
+                    <div className="flex items-center gap-2 mb-4 bg-white/15 rounded-lg px-3 py-2">
+                      <CheckCircle className="h-4 w-4 text-white" />
+                      <span className="text-sm font-medium">Free Delivery across Pune & PCMC</span>
+                    </div>
                     <Button variant="secondary" size="sm" className="w-full">
-                      Subscribe & Save
+                      <ShoppingCart className="h-4 w-4 mr-2" />
+                      Order Now
                     </Button>
                   </CardContent>
                 </Card>
 
+                {/* 100% Authentic Card */}
                 <Card className="border-secondary/20 shadow-soft">
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-4">
