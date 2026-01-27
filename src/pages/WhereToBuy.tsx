@@ -166,33 +166,36 @@ const WhereToBuy = () => {
                   </div>
                 ) : products.length > 0 ? (
                   <div className="w-full max-w-sm relative">
-                    {/* Trial Pack Offer Badge - Clickable */}
+                    {/* Citizen Trial Badge - Premium Gold/White Design */}
                     <button 
                       onClick={handleTrialPackClick}
                       disabled={addingTrial}
-                      className="absolute -top-3 -right-3 z-10 animate-pulse hover:scale-110 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50 rounded-full"
-                      aria-label="Add Trial Pack to cart for ₹99"
+                      className="absolute -top-3 -right-3 z-10 hover:scale-105 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-2xl"
+                      aria-label="Add Citizen Trial Pack to cart"
                     >
                       <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 rounded-full blur-md opacity-75"></div>
-                        <div className="relative bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg flex flex-col items-center">
-                          <div className="text-xs font-medium">Trial Pack</div>
-                          <div className="text-lg font-bold flex items-center gap-1">
+                        {/* Premium glow - Gold tones */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary to-amber-400 rounded-2xl blur-md opacity-60"></div>
+                        <div className="relative bg-white text-foreground px-4 py-3 rounded-2xl shadow-lg border-2 border-primary/30 flex flex-col items-center min-w-[120px]">
+                          <div className="text-[10px] text-muted-foreground line-through">MRP ₹399</div>
+                          <div className="text-2xl font-bold text-primary flex items-center gap-1">
                             {addingTrial ? (
-                              <Loader2 className="h-4 w-4 animate-spin" />
+                              <Loader2 className="h-5 w-5 animate-spin" />
                             ) : (
-                              <>₹99 <ShoppingCart className="h-3 w-3" /></>
+                              <>₹99 <ShoppingCart className="h-4 w-4" /></>
                             )}
                           </div>
+                          <div className="text-xs font-medium text-secondary">Citizen Trial</div>
+                          <div className="text-[9px] text-muted-foreground">Save ₹300</div>
                         </div>
                       </div>
                     </button>
                     
-                    {/* Ribbon Badge */}
+                    {/* Ribbon Badge - Refined styling */}
                     <div className="absolute -left-2 top-6 z-10">
                       <div className="bg-secondary text-white px-4 py-1.5 text-sm font-bold shadow-lg" 
                            style={{ clipPath: 'polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%)' }}>
-                        🔥 LIMITED OFFER
+                        ✦ LIMITED ACCESS
                       </div>
                     </div>
                     
