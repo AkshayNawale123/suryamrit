@@ -188,7 +188,7 @@ const WhereToBuy = () => {
                   Get SuryAmrit™
                   <span className="block text-primary-glow">Delivered Today</span>
                 </h1>
-                <p className="text-lg text-black/90 mb-6 max-w-lg mx-auto lg:mx-0">
+                <p className="text-lg text-muted-foreground/90 mb-6 max-w-lg mx-auto lg:mx-0">
                   Order now and start your journey to better health with pure, natural Vitamin D3.
                 </p>
 
