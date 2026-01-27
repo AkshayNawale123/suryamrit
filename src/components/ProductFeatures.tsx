@@ -131,8 +131,8 @@ const ProductFeatures = () => {
                   <tbody>
                     {lichenVsAnimal.map((row, index) => (
                       <tr key={index} className="border-b hover:bg-primary/5 transition-colors">
-                        <td className="p-4 font-medium text-secondary">{row.aspect}</td>
-                        <td className="p-4 text-accent font-medium">{row.lichen}</td>
+                        <td className="p-4 font-semibold text-foreground tracking-tight">{row.aspect}</td>
+                        <td className="p-4 text-foreground font-medium">{row.lichen}</td>
                         <td className="p-4 text-muted-foreground">{row.animal}</td>
                       </tr>
                     ))}
