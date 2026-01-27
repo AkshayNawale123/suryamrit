@@ -1,266 +1,393 @@
 
 
-# Lokarth Alliance Partner Portal Implementation
+# Premium "Modern Vedic" Homepage Redesign
 
 ## Overview
-Create a unified Partner Portal at `/partners` that serves as the registration gateway for both Doctors and Distributors. The page features a "Smart Form" with conditional logic based on partner type selection, WhatsApp fast-track integration, and a manual approval workflow to protect wholesale pricing.
+Transform the homepage from an "E-commerce Store" aesthetic to a "National Health Movement" feel through refined color palette, sophisticated typography, subtle textures, glassmorphism, and premium micro-animations while preserving all existing content.
 
 ---
 
-## Design Specifications
+## 1. Color Palette Transformation: "Modern Vedic"
 
-**Color Palette**: Clinical, Professional, Exclusive
-- Primary: White background
-- Accent: Navy Blue (for professional feel) and Gold (for premium branding)
-- Existing brand colors from SuryAmrit will be incorporated
+### Current → New Color Variables
 
-**Typography**: 
-- Headlines: Playfair Display (existing serif font)
-- Body: Inter (existing sans font)
+| Element | Current HSL | New Hex/HSL | Purpose |
+|---------|-------------|-------------|---------|
+| **Background** | `45 40% 98%` | `#F9F9F7` / `45 20% 98%` | Premium "expensive paper" cream |
+| **Foreground** | `30 25% 15%` | `#0F172A` / `222 47% 11%` | Deep Midnight Blue (softer than black) |
+| **Primary** | `40 95% 52%` | `#D4AF37` / `43 65% 52%` | Muted Metallic Gold |
+| **Secondary** | `145 35% 45%` | `#1E3A5F` / `213 55% 25%` | Deep Navy Blue |
+| **Mission Accent** | N/A | `#2C5F2D` / `121 37% 27%` | Deep Forest Green (for Lokarth badges) |
+
+**File to Modify**: `src/index.css` (CSS custom properties in `:root`)
 
 ---
 
-## Page Architecture
+## 2. Typography Enhancement
+
+### Font Stack Updates
+- **Headings**: Already using `Playfair Display` (serif) ✓
+- **Body**: Already using `Inter` (sans-serif) ✓
+- **Enhancement**: Add `Cinzel` as an option for ceremonial headings
+
+**Letter Spacing Additions**:
+- Headlines: `tracking-tight` (already applied in some places)
+- Subtitles/Body: `tracking-wide` for elegant readability
+- Badges: `tracking-widest` for premium badge text
+
+**File to Modify**: `tailwind.config.ts` (add letter-spacing utilities)
+
+---
+
+## 3. Section-by-Section Visual Redesign
+
+### A. Navigation Bar → "Frosted Glass"
+
+**Current**: `bg-white/95 backdrop-blur-xl shadow-soft`
+
+**New Design**:
+- Frosted glass effect with enhanced blur
+- 1px golden border at bottom
+- Navy text with gold accents
 
 ```text
-+----------------------------------------------------------+
-|  HEADER: SuryAmrit Logo + "An Initiative by Lokarth"     |
-+----------------------------------------------------------+
-|                                                          |
-|  HERO SECTION (Full Width)                               |
-|  "Partner in the Fight Against Silent Hunger."           |
-|  Sub: Join the Lokarth Mission...                        |
-|  [Split Hero Image: Doctor + Clinical Cartons]           |
-|                                                          |
-+----------------------------------------------------------+
-|                                                          |
-|  TWO-COLUMN LAYOUT                                       |
-|  +-------------------------+  +------------------------+ |
-|  | LEFT: VALUE PROPOSITION |  | RIGHT: SMART FORM      | |
-|  |                         |  |                        | |
-|  | The SuryAmrit Advantage |  | [Login] / [Register]   | |
-|  |                         |  |                        | |
-|  | FOR DOCTORS:            |  | Name                   | |
-|  | * Better Compliance     |  | Mobile (WhatsApp)      | |
-|  | * Mission Aligned       |  | "I am joining as..."   | |
-|  | * Clinical Packs        |  |   [ ] Doctor/Clinic    | |
-|  |                         |  |   [ ] Distributor      | |
-|  | FOR PARTNERS:           |  |                        | |
-|  | * Zero Friction         |  | [Conditional Field]    | |
-|  | * High Velocity         |  | - Medical Reg No.  OR  | |
-|  | * Territory Protection  |  | - GST Number/Territory | |
-|  |                         |  |                        | |
-|  |                         |  | [Submit]               | |
-|  |                         |  |                        | |
-|  |                         |  | "Register to unlock    | |
-|  |                         |  |  Wholesale Pricing..." | |
-|  +-------------------------+  +------------------------+ |
-|                                                          |
-+----------------------------------------------------------+
-|  FLOATING WHATSAPP BUTTON                                |
-|  "Need Instant Access? Chat with our B2B Manager."       |
-+----------------------------------------------------------+
-|  FOOTER                                                  |
-+----------------------------------------------------------+
+┌──────────────────────────────────────────────────────────────────┐
+│ [Logo]  [Lokarth Badge]     Shop  Why Ghee?  Reviews  [ORDER] │
+│─────────────────────────────────────────────────────────────────│
+│                    ↑ 1px Golden Accent Line ↑                   │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+**File**: `src/components/Header.tsx`
+
+---
+
+### B. Hero Section → "The Jewel Reveal"
+
+**Current**: Light gradient with organic patterns
+
+**New Design**:
+- **Background**: Deep Navy/Charcoal gradient: `linear-gradient(135deg, #0F172A 0%, #1E293B 100%)`
+- **Text**: White/cream for maximum contrast
+- **Golden Sphere**: Enhanced "bobbing" animation
+- **Subtle Mandala/Sunburst**: 3% opacity watermark texture
+
+**Visual Layout**:
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│  DARK NAVY GRADIENT BACKGROUND                                  │
+│                                                                 │
+│  [WHITE TEXT]                              [FLOATING           │
+│  Combat India's Silent                      GOLDEN SPHERE      │
+│  VITAMIN D CRISIS                           ₹99 Badge          │
+│  (gold gradient)                            with "bob"         │
+│                                             animation]         │
+│                                                                 │
+│  [GOLDEN CTA BUTTON with shimmer]                               │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**File**: `src/pages/HomePage.tsx` (Hero Section lines 22-166)
+
+---
+
+### C. Problem Statement Cards → "Premium Cards"
+
+**Current**: Glass cards with gradients
+
+**New Design**:
+- White cards with soft shadow: `box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1)`
+- No full borders - use **left border accent** (4px gold line)
+- **Thin-line gold icons** instead of colored backgrounds
+- Subtle paper texture overlay
+
+```text
+┌────┬──────────────────────────────────────┐
+│    │  [Thin Gold Icon]                   │
+│ G  │  80%+ Deficient                     │
+│ O  │                                     │
+│ L  │  Over 80% of Indians have...        │
+│ D  │                                     │
+└────┴──────────────────────────────────────┘
+  ↑ 4px Left Border Accent
+```
+
+**File**: `src/pages/HomePage.tsx` (lines 168-233)
+
+---
+
+### D. Lokarth Mission Section → "Official Notice" Style
+
+**Current**: Sage green background with card
+
+**New Design**:
+- **Background**: Deep Forest Green block (`#2C5F2D`) or Rich Earthy Brown
+- **Card Style**: Double-line certificate border
+- **Typography**: Manifesto-style with signature element
+- **Layout**: "Official Letter" aesthetic
+
+```text
+╔═══════════════════════════════════════════════════════════════╗
+║  ╔═══════════════════════════════════════════════════════╗    ║
+║  ║                                                        ║    ║
+║  ║   WHY ₹99?                                            ║    ║
+║  ║   "We didn't cut costs. We cut barriers."             ║    ║
+║  ║                                                        ║    ║
+║  ║   [Price Breakdown with Gold accents]                  ║    ║
+║  ║                                                        ║    ║
+║  ║   ────────────────────                                 ║    ║
+║  ║   [Lokarth Founder Signature]                          ║    ║
+║  ║                                                        ║    ║
+║  ╚═══════════════════════════════════════════════════════╝    ║
+╚═══════════════════════════════════════════════════════════════╝
+  ↑ Double-line "certificate" border
+```
+
+**File**: `src/pages/HomePage.tsx` (lines 329-414)
+
+---
+
+## 4. Premium Animations & Micro-Interactions
+
+### New Keyframe Animations
+
+| Animation | Description | Usage |
+|-----------|-------------|-------|
+| `fade-up` | Translate 20px up + fade in | Scroll-reveal for sections |
+| `shimmer-gold` | White shine passing across | CTA buttons every 5s |
+| `bob` | Gentle 10px up/down float | Golden sphere in hero |
+| `parallax` | Slower background scroll | Texture backgrounds |
+
+**New CSS in `src/index.css`**:
+
+```css
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer-gold {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+```
+
+**Utility Classes**:
+- `.animate-fade-up`
+- `.animate-shimmer-gold`
+- `.animate-bob`
+
+---
+
+## 5. Background Textures
+
+### Texture Additions
+
+| Section | Texture | Implementation |
+|---------|---------|----------------|
+| Hero | Geometric Sunburst/Mandala | SVG at 3% opacity |
+| Education | Faint radial pattern | CSS radial-gradient |
+| Lokarth Mission | Grainy Paper | Noise texture overlay |
+| General White Areas | Subtle noise | Transparent PNG overlay |
+
+**New Utility Class in `src/index.css`**:
+
+```css
+.texture-noise {
+  position: relative;
+}
+.texture-noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,..."); /* noise pattern */
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+.texture-mandala {
+  background-image: url('/mandala-pattern.svg');
+  background-size: 600px;
+  background-position: center;
+  opacity: 0.03;
+}
 ```
 
 ---
 
-## Technical Implementation
+## 6. Image Concept Requirements
 
-### 1. Supabase Setup (Database)
+Three AI-generated images to replace/add:
 
-**New Table: `partner_applications`**
+| Image | Description | Placement |
+|-------|-------------|-----------|
+| **The Ingredient** | Hyper-realistic golden ghee drop creating crown splash on dark background | Hero or Why Ghee section |
+| **The Mission** | Indian hands with bangle holding SuryAmrit strip against morning sun | Lokarth Mission section |
+| **The Science** | Abstract minimalist: Gold circle (ghee) merging with blue circle (cell) | Science/Absorption section |
 
-| Column | Type | Description |
-|--------|------|-------------|
-| `id` | uuid | Primary key |
-| `name` | text | Partner's full name |
-| `phone` | text | WhatsApp-enabled mobile number |
-| `partner_type` | enum | 'doctor' or 'distributor' |
-| `registration_number` | text | Medical Reg No. (for doctors) |
-| `clinic_name` | text | Clinic name (for doctors) |
-| `gst_number` | text | GST number (for distributors) |
-| `territory` | text | Territory/region (for distributors) |
-| `status` | enum | 'pending', 'approved', 'rejected' |
-| `created_at` | timestamptz | Submission timestamp |
-| `updated_at` | timestamptz | Last update timestamp |
-| `approved_at` | timestamptz | Approval timestamp |
-| `approved_by` | text | Admin who approved |
-| `notes` | text | Internal notes |
+---
 
-**RLS Policies:**
-- Users can insert their own applications (public insert)
-- Only authenticated admins can view/update applications
+## 7. Files to Modify
 
-### 2. Files to Create
-
-| File | Purpose |
-|------|---------|
-| `src/pages/Partners.tsx` | Main Partner Portal page |
-| `src/lib/supabase.ts` | Supabase client configuration |
-| `src/components/PartnerForm.tsx` | Smart registration form component |
-| `src/components/WhatsAppFloatingButton.tsx` | Floating WhatsApp CTA |
-
-### 3. Files to Modify
+### Core Style Files
 
 | File | Changes |
 |------|---------|
-| `src/App.tsx` | Add `/partners` route |
-| `src/components/Header.tsx` | Optionally add "Partners" link in navigation |
-| `src/components/Footer.tsx` | Add "Become a Partner" link |
+| `src/index.css` | Update CSS variables for Modern Vedic palette; Add new animations; Add texture utilities |
+| `tailwind.config.ts` | Add extended colors (navy, forest); Letter-spacing utilities |
+| `index.html` | Add Cinzel font (optional) |
+
+### Component Files
+
+| File | Changes |
+|------|---------|
+| `src/components/Header.tsx` | Enhanced frosted glass; 1px gold bottom border; Navy text |
+| `src/pages/HomePage.tsx` | Hero dark theme; Card redesigns; Lokarth "letter" style; Animation classes |
+| `src/components/LokarthBadge.tsx` | Navy/Gold variant option |
 
 ---
 
-## Smart Form Logic
+## 8. Technical Implementation Details
 
-### Conditional Field Display
+### CSS Variable Updates (`src/index.css`)
 
-```text
-Partner Type Selection:
-  |
-  +-- "Doctor / Clinic" selected:
-  |     Show: "Medical Registration No. / Clinic Name" input
-  |
-  +-- "Distributor / Stockist" selected:
-        Show: "GST Number / Territory" input
-```
-
-### Form Validation (using Zod)
-
-- Name: Required, min 2 characters, max 100
-- Phone: Required, valid Indian mobile format (10 digits)
-- Partner Type: Required
-- Conditional fields: Required based on selection
-
-### Submission Flow
-
-1. User fills form and submits
-2. Form validates client-side with Zod
-3. Data is inserted into `partner_applications` table with status = 'pending'
-4. User sees "Pending Approval" confirmation message
-5. Admin manually verifies credentials
-6. Admin updates status to 'approved' or 'rejected'
-7. Approved partners receive WhatsApp/Email notification
-
----
-
-## WhatsApp Integration
-
-**Pre-filled Message Link:**
-```
-https://wa.me/918001234567?text=I%20am%20a%20Doctor%2FPartner%20interested%20in%20bulk%20buying.%20Please%20share%20details.
-```
-
-**Floating Button Placement:**
-- Position: Bottom-right corner
-- Style: Green WhatsApp branded button
-- Animation: Subtle pulse to draw attention
-
----
-
-## Hero Section Image
-
-**Split Image Concept:**
-- Left side: Doctor handing a strip to a patient (clinical setting)
-- Right side: Stack of 66-Strip Clinical Cartons (product focus)
-- Generated using AI image generation or placeholder with text overlay
-
----
-
-## Detailed Component Structure
-
-### Partners.tsx Page Structure
-
-```text
-<Partners>
-  <Header />
-  <HeroSection>
-    - Badge: "Lokarth Alliance"
-    - Headline: "Partner in the Fight Against Silent Hunger."
-    - Sub-headline
-    - Split hero image
-  </HeroSection>
+```css
+:root {
+  /* Modern Vedic Palette */
+  --background: 45 20% 98%;           /* #F9F9F7 Premium cream */
+  --foreground: 222 47% 11%;          /* #0F172A Midnight blue */
   
-  <MainContent className="two-column">
-    <LeftColumn>
-      <ValueProposition>
-        - "The SuryAmrit Advantage" heading
-        - For Doctors section (3 benefits with checkmarks)
-        - For Partners section (3 benefits with checkmarks)
-      </ValueProposition>
-    </LeftColumn>
-    
-    <RightColumn>
-      <PartnerForm>
-        - Login/Register toggle
-        - Form fields with conditional logic
-        - Submit button
-        - Teaser text
-      </PartnerForm>
-    </RightColumn>
-  </MainContent>
+  --primary: 43 65% 52%;              /* #D4AF37 Muted metallic gold */
+  --primary-foreground: 0 0% 100%;    /* White */
   
-  <WhatsAppFloatingButton />
-  <Footer />
-</Partners>
+  --secondary: 213 55% 25%;           /* #1E3A5F Deep navy */
+  --secondary-foreground: 0 0% 100%;  /* White */
+  
+  /* New: Mission/Trust Color */
+  --mission: 121 37% 27%;             /* #2C5F2D Deep forest green */
+  --mission-foreground: 0 0% 100%;
+  
+  /* Muted stays warm but refined */
+  --muted: 45 15% 94%;
+  --muted-foreground: 222 20% 45%;    /* Navy-tinted muted text */
+}
+```
+
+### Header Enhancement
+
+```tsx
+// Enhanced glass effect with gold accent
+<header className="bg-white/80 backdrop-blur-xl sticky top-0 z-50 border-b border-primary/30">
+  {/* Gold accent line */}
+  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
+  ...
+</header>
+```
+
+### Hero Dark Theme
+
+```tsx
+<section className="relative min-h-[90vh] flex items-center overflow-hidden">
+  {/* Dark Navy Gradient Background */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A]" />
+  
+  {/* Subtle Mandala Watermark */}
+  <div className="absolute inset-0 texture-mandala" />
+  
+  {/* Content with white text */}
+  <h1 className="text-white">
+    Combat India's Silent
+    <span className="text-primary">Vitamin D Crisis</span>
+  </h1>
+</section>
+```
+
+### Premium Card Component Pattern
+
+```tsx
+<Card className="relative bg-white rounded-2xl overflow-hidden shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] border-0">
+  {/* Gold Left Accent */}
+  <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary" />
+  
+  <CardContent className="pl-6">
+    {/* Thin-line gold icon */}
+    <div className="w-12 h-12 border-2 border-primary rounded-xl flex items-center justify-center">
+      <Sun className="h-6 w-6 text-primary stroke-[1.5]" />
+    </div>
+    ...
+  </CardContent>
+</Card>
 ```
 
 ---
 
-## Security Considerations
+## 9. Animation Implementation
 
-1. **No Auto-Approval**: All registrations start with 'pending' status
-2. **Input Validation**: Client-side (Zod) + Server-side (RLS policies)
-3. **Protected Pricing**: Wholesale prices only visible after manual approval
-4. **Phone Number Encoding**: Properly encode WhatsApp pre-filled messages
+### Scroll-Reveal with Fade-Up
 
----
+Add intersection observer hook for scroll animations:
 
-## Pending Approval UI
+```tsx
+// Utility hook for scroll reveal
+const useScrollReveal = () => {
+  // Implementation using IntersectionObserver
+  // Returns ref and isVisible state
+};
 
-After form submission, display:
+// Usage in sections
+<div className={cn(
+  "transition-all duration-700",
+  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+)}>
+```
 
-```text
-+------------------------------------------+
-|  [Checkmark Icon]                        |
-|                                          |
-|  Thank you, [Name]!                      |
-|                                          |
-|  Your Partner Application is             |
-|  Under Review                            |
-|                                          |
-|  Our team will verify your credentials   |
-|  and activate your wholesale account     |
-|  within 2 hours.                         |
-|                                          |
-|  [WhatsApp: Get Faster Approval]         |
-|                                          |
-+------------------------------------------+
+### Button Shimmer Effect
+
+```css
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.3),
+    transparent
+  );
+  animation: shimmer-pass 5s infinite;
+}
+
+@keyframes shimmer-pass {
+  0%, 80%, 100% { left: -100%; }
+  85%, 95% { left: 100%; }
+}
 ```
 
 ---
 
-## Implementation Steps
+## 10. Expected Visual Outcome
 
-1. **Enable Supabase** - Connect Lovable Cloud backend for database
-2. **Create Database Tables** - Set up `partner_applications` table with proper schema
-3. **Create Supabase Client** - Set up `src/lib/supabase.ts`
-4. **Build Form Component** - Create `PartnerForm.tsx` with conditional logic
-5. **Build WhatsApp Button** - Create floating CTA component
-6. **Build Partners Page** - Assemble full page with hero, content, and form
-7. **Add Routing** - Register `/partners` route in App.tsx
-8. **Add Navigation Links** - Update Header/Footer with Partner link
-9. **Generate Hero Image** - Create split hero image for the page
+After implementation:
 
----
-
-## Expected Outcome
-
-1. Professional Partner Portal at `/partners` matching brand aesthetics
-2. Smart registration form with conditional fields for Doctors vs Distributors
-3. All applications stored in Supabase with 'pending' status
-4. WhatsApp fast-track option for high-value leads
-5. Clear "Pending Approval" feedback to set expectations
-6. Secure workflow protecting wholesale pricing until manual verification
+1. **Color Shift**: From warm amber/sage to refined gold/navy - more "institution" less "shop"
+2. **Typography Feel**: Historic, trustworthy serif headlines with clean body text
+3. **Card Design**: Elegant left-accent cards replacing bordered boxes
+4. **Hero Impact**: Dark, dramatic backdrop making gold elements "pop"
+5. **Lokarth Section**: Looks like an official government/NGO notice
+6. **Animations**: Subtle, deliberate reveals that feel premium not playful
+7. **Overall Vibe**: "National Health Movement" rather than "Product Sales Page"
 
