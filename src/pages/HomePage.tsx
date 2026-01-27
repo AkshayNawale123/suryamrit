@@ -9,7 +9,7 @@ import Footer from '@/components/Footer';
 import D3DeficiencyMap from '@/components/D3DeficiencyMap';
 
 // Import generated images
-import sacredCowImage from '@/assets/sacred-cow-sunrise.jpg';
+import sacredCowImage from '@/assets/sacred-cow-sunrise.png';
 import vitaminDNatureImage from '@/assets/vitamin-d-nature.jpg';
 import healthAnatomyImage from '@/assets/health-anatomy.jpg';
 
@@ -259,8 +259,8 @@ const HomePage = () => {
               <div className="lg:col-span-2 image-frame group">
                 <img 
                   src={sacredCowImage} 
-                  alt="Sacred Indian cow in golden sunrise - representing pure, traditional source of ghee"
-                  className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt="Sacred Indian Gir cow with calf in golden sunrise - representing pure, traditional source of ghee"
+                  className="w-full h-[400px] object-contain bg-gradient-to-br from-primary/10 to-amber-100/30 transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 text-white">
