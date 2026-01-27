@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Search, Menu, X } from "lucide-react";
+import { Search } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import SearchComponent from "./SearchComponent";
@@ -76,48 +76,101 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center space-x-2">
+          <div className="lg:hidden flex items-center space-x-3">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsSearchOpen(true)}
-              className="text-muted-foreground hover:text-primary"
+              className="text-foreground/70 hover:text-primary h-10 w-10 p-0"
             >
-              <Search className="h-4 w-4" />
+              <Search className="h-5 w-5" />
             </Button>
             <CartDrawer />
-            <Button variant="ghost" size="sm" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              {isMobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="h-10 w-10 p-0 relative"
+            >
+              <div className="flex flex-col items-center justify-center gap-1.5">
+                <span 
+                  className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ease-out ${
+                    isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
+                  }`}
+                />
+                <span 
+                  className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ease-out ${
+                    isMobileMenuOpen ? 'opacity-0 scale-0' : ''
+                  }`}
+                />
+                <span 
+                  className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ease-out ${
+                    isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                  }`}
+                />
+              </div>
             </Button>
           </div>
         </div>
 
-        {/* Mobile Navigation Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-border">
-            <nav className="flex flex-col space-y-4 pt-4">
-              {navigationLinks.map((link) => (
+        {/* Mobile Navigation Menu - Premium Slide-Down */}
+        <div 
+          className={`lg:hidden overflow-hidden transition-all duration-400 ease-out ${
+            isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="pt-4 pb-6">
+            {/* Gold accent line */}
+            <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent mb-6" />
+            
+            <nav className="flex flex-col space-y-1">
+              {navigationLinks.map((link, index) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`font-medium transition-colors ${
+                  className={`group flex items-center py-3 px-4 rounded-xl transition-all duration-300 ${
                     location.pathname === link.path.split("#")[0]
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-primary"
+                      ? "bg-primary/10 text-primary"
+                      : "text-foreground hover:bg-muted/50 hover:text-primary"
                   }`}
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  {link.label}
+                  {/* Left gold accent for active */}
+                  <span 
+                    className={`w-1 h-6 rounded-full mr-3 transition-all duration-300 ${
+                      location.pathname === link.path.split("#")[0]
+                        ? 'bg-primary'
+                        : 'bg-transparent group-hover:bg-primary/30'
+                    }`}
+                  />
+                  <span className="font-medium tracking-wide text-base">
+                    {link.label}
+                  </span>
                 </Link>
               ))}
-              <Button asChild className="bg-gradient-primary hover:shadow-golden transition-all duration-300 mt-4">
+            </nav>
+
+            {/* CTA Button with shimmer */}
+            <div className="mt-6 px-4">
+              <Button 
+                asChild 
+                className="w-full bg-gradient-primary hover:shadow-golden transition-all duration-300 py-6 text-base font-semibold tracking-wide relative overflow-hidden group"
+              >
                 <Link to="/buy" onClick={() => setIsMobileMenuOpen(false)}>
-                  Order Now
+                  <span className="relative z-10">Order Now — ₹99</span>
+                  {/* Shimmer effect */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 </Link>
               </Button>
-            </nav>
+            </div>
+
+            {/* Lokarth Badge for mobile */}
+            <div className="mt-6 flex justify-center">
+              <LokarthBadge size="sm" variant="header" />
+            </div>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Search Component */}
