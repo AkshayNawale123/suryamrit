@@ -59,6 +59,18 @@ const WhereToBuy = () => {
     return sortedVariants[0]?.node;
   };
 
+  // Find family pack variant (highest price variant)
+  const getFamilyPackVariant = (product: ShopifyProduct) => {
+    const variants = product.node.variants.edges;
+    if (variants.length === 0) return null;
+
+    // Sort by price descending and get the most expensive (family pack)
+    const sortedVariants = [...variants].sort(
+      (a, b) => parseFloat(b.node.price.amount) - parseFloat(a.node.price.amount),
+    );
+    return sortedVariants[0]?.node;
+  };
+
   const handleTrialPackClick = () => {
     if (products.length === 0) return;
 
@@ -89,6 +101,42 @@ const WhereToBuy = () => {
 
     sonnerToast.success("Trial Pack added! 🎉", {
       description: `₹${parseFloat(trialVariant.price.amount).toFixed(0)} Trial Pack added to your cart.`,
+      position: "top-center",
+    });
+  };
+
+  const [addingFamily, setAddingFamily] = useState(false);
+
+  const handleFamilyPackClick = () => {
+    if (products.length === 0) return;
+
+    const product = products[0];
+    const familyVariant = getFamilyPackVariant(product);
+
+    if (!familyVariant || !familyVariant.availableForSale) {
+      sonnerToast.error("Family Pack unavailable", {
+        description: "Sorry, the family pack is currently out of stock.",
+        position: "top-center",
+      });
+      return;
+    }
+
+    setAddingFamily(true);
+
+    const cartItem: CartItem = {
+      product,
+      variantId: familyVariant.id,
+      variantTitle: familyVariant.title,
+      price: familyVariant.price,
+      quantity: 1,
+      selectedOptions: familyVariant.selectedOptions || [],
+    };
+
+    addItem(cartItem);
+    setAddingFamily(false);
+
+    sonnerToast.success("Family Pack added! 🎉", {
+      description: `₹${parseFloat(familyVariant.price.amount).toFixed(0)} Family Pack added to your cart.`,
       position: "top-center",
     });
   };
@@ -726,9 +774,19 @@ const WhereToBuy = () => {
                       <CheckCircle className="h-4 w-4 text-white" />
                       <span className="text-sm font-medium">Free Delivery across Pune & PCMC</span>
                     </div>
-                    <Button variant="secondary" size="sm" className="w-full">
-                      <ShoppingCart className="h-4 w-4 mr-2" />
-                      Order Now
+                    <Button 
+                      variant="secondary" 
+                      size="sm" 
+                      className="w-full"
+                      onClick={handleFamilyPackClick}
+                      disabled={addingFamily || loading || products.length === 0}
+                    >
+                      {addingFamily ? (
+                        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                      ) : (
+                        <ShoppingCart className="h-4 w-4 mr-2" />
+                      )}
+                      {addingFamily ? "Adding..." : "Order Now"}
                     </Button>
                   </CardContent>
                 </Card>
