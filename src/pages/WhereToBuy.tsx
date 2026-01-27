@@ -1,52 +1,70 @@
-import React, { useEffect, useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Truck, Shield, Clock, MapPin, Phone, Loader2, Mail, MessageCircle, Users, Award, ShoppingCart, Sun, ArrowRight, Heart, Sparkles, Leaf, CheckCircle } from 'lucide-react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { ProductCard } from '@/components/ProductCard';
-import { fetchProducts, ShopifyProduct } from '@/lib/shopify';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { useToast } from '@/hooks/use-toast';
-import { useCartStore } from '@/stores/cartStore';
-import { CartItem } from '@/lib/shopify';
-import { toast as sonnerToast } from 'sonner';
+import React, { useEffect, useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Truck,
+  Shield,
+  Clock,
+  MapPin,
+  Phone,
+  Loader2,
+  Mail,
+  MessageCircle,
+  Users,
+  Award,
+  ShoppingCart,
+  Sun,
+  ArrowRight,
+  Heart,
+  Sparkles,
+  Leaf,
+  CheckCircle,
+} from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { ProductCard } from "@/components/ProductCard";
+import { fetchProducts, ShopifyProduct } from "@/lib/shopify";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
+import { useCartStore } from "@/stores/cartStore";
+import { CartItem } from "@/lib/shopify";
+import { toast as sonnerToast } from "sonner";
 
 // 30-Day Promise Images
-import goldenStandardImage from '@/assets/golden-standard-promise.jpg';
-import honestAbsorptionImage from '@/assets/honest-absorption-promise.jpg';
-import sunlightInsideImage from '@/assets/sunlight-inside-promise.jpg';
-import lokarthLogo from '@/assets/lokarth-logo.png';
+import goldenStandardImage from "@/assets/golden-standard-promise.jpg";
+import honestAbsorptionImage from "@/assets/honest-absorption-promise.jpg";
+import sunlightInsideImage from "@/assets/sunlight-inside-promise.jpg";
+import lokarthLogo from "@/assets/lokarth-logo.png";
 
 const WhereToBuy = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [addingTrial, setAddingTrial] = useState(false);
   const { toast } = useToast();
-  const addItem = useCartStore(state => state.addItem);
+  const addItem = useCartStore((state) => state.addItem);
 
   // Find trial variant (lowest price variant, typically ₹99)
   const getTrialVariant = (product: ShopifyProduct) => {
     const variants = product.node.variants.edges;
     if (variants.length === 0) return null;
-    
+
     // Sort by price and get the cheapest (trial pack)
-    const sortedVariants = [...variants].sort((a, b) => 
-      parseFloat(a.node.price.amount) - parseFloat(b.node.price.amount)
+    const sortedVariants = [...variants].sort(
+      (a, b) => parseFloat(a.node.price.amount) - parseFloat(b.node.price.amount),
     );
     return sortedVariants[0]?.node;
   };
 
   const handleTrialPackClick = () => {
     if (products.length === 0) return;
-    
+
     const product = products[0];
     const trialVariant = getTrialVariant(product);
-    
+
     if (!trialVariant || !trialVariant.availableForSale) {
       sonnerToast.error("Trial Pack unavailable", {
         description: "Sorry, the trial pack is currently out of stock.",
@@ -56,36 +74,36 @@ const WhereToBuy = () => {
     }
 
     setAddingTrial(true);
-    
+
     const cartItem: CartItem = {
       product,
       variantId: trialVariant.id,
       variantTitle: trialVariant.title,
       price: trialVariant.price,
       quantity: 1,
-      selectedOptions: trialVariant.selectedOptions || []
+      selectedOptions: trialVariant.selectedOptions || [],
     };
-    
+
     addItem(cartItem);
     setAddingTrial(false);
-    
+
     sonnerToast.success("Trial Pack added! 🎉", {
       description: `₹${parseFloat(trialVariant.price.amount).toFixed(0)} Trial Pack added to your cart.`,
       position: "top-center",
     });
   };
-  
+
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-    consultationType: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    consultationType: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -94,16 +112,16 @@ const WhereToBuy = () => {
       title: "Message Sent!",
       description: "Thank you for reaching out. Our team will contact you within 24 hours.",
     });
-    setFormData({ name: '', email: '', phone: '', message: '', consultationType: '' });
+    setFormData({ name: "", email: "", phone: "", message: "", consultationType: "" });
   };
 
-  const openWhatsApp = (type: 'support' | 'consultation') => {
+  const openWhatsApp = (type: "support" | "consultation") => {
     const messages = {
       support: "Hello! I need help with SuryAmrit product inquiry.",
-      consultation: "Hello! I would like to book a consultation with your health expert."
+      consultation: "Hello! I would like to book a consultation with your health expert.",
     };
     const encodedMessage = encodeURIComponent(messages[type]);
-    window.open(`https://wa.me/918001234567?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/918001234567?text=${encodedMessage}`, "_blank");
   };
 
   useEffect(() => {
@@ -117,18 +135,45 @@ const WhereToBuy = () => {
   }, []);
 
   const cities = [
-    'Mumbai', 'Delhi', 'Bangalore', 'Chennai', 'Kolkata', 'Hyderabad',
-    'Pune', 'Ahmedabad', 'Jaipur', 'Lucknow', 'Kanpur', 'Nagpur',
-    'Indore', 'Thane', 'Bhopal', 'Visakhapatnam', 'Pimpri-Chinchwad',
-    'Patna', 'Vadodara', 'Ghaziabad', 'Ludhiana', 'Agra', 'Nashik',
-    'Faridabad', 'Meerut', 'Rajkot', 'Kalyan-Dombivali', 'Vasai-Virar',
-    'Varanasi', 'Srinagar', 'Aurangabad', 'Dhanbad', 'Amritsar'
+    "Mumbai",
+    "Delhi",
+    "Bangalore",
+    "Chennai",
+    "Kolkata",
+    "Hyderabad",
+    "Pune",
+    "Ahmedabad",
+    "Jaipur",
+    "Lucknow",
+    "Kanpur",
+    "Nagpur",
+    "Indore",
+    "Thane",
+    "Bhopal",
+    "Visakhapatnam",
+    "Pimpri-Chinchwad",
+    "Patna",
+    "Vadodara",
+    "Ghaziabad",
+    "Ludhiana",
+    "Agra",
+    "Nashik",
+    "Faridabad",
+    "Meerut",
+    "Rajkot",
+    "Kalyan-Dombivali",
+    "Vasai-Virar",
+    "Varanasi",
+    "Srinagar",
+    "Aurangabad",
+    "Dhanbad",
+    "Amritsar",
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero + Products Section - Above the Fold */}
       <section className="py-6 md:py-10 bg-gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4">
@@ -143,10 +188,10 @@ const WhereToBuy = () => {
                   Get SuryAmrit™
                   <span className="block text-primary-glow">Delivered Today</span>
                 </h1>
-                <p className="text-lg text-white/90 mb-6 max-w-lg mx-auto lg:mx-0">
+                <p className="text-lg text-black/90 mb-6 max-w-lg mx-auto lg:mx-0">
                   Order now and start your journey to better health with pure, natural Vitamin D3.
                 </p>
-                
+
                 {/* Compact Trust Indicators */}
                 <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm">
                   <div className="flex items-center gap-2 bg-white/10 px-3 py-2 rounded-full">
@@ -174,7 +219,7 @@ const WhereToBuy = () => {
                 ) : products.length > 0 ? (
                   <div className="w-full max-w-sm relative">
                     {/* Lokarth Allocation Badge - Premium Gold/White Design */}
-                    <button 
+                    <button
                       onClick={handleTrialPackClick}
                       disabled={addingTrial}
                       className="absolute -top-3 -right-3 z-10 hover:scale-105 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-2xl"
@@ -189,7 +234,9 @@ const WhereToBuy = () => {
                             {addingTrial ? (
                               <Loader2 className="h-5 w-5 animate-spin" />
                             ) : (
-                              <>₹99 <ShoppingCart className="h-4 w-4" /></>
+                              <>
+                                ₹99 <ShoppingCart className="h-4 w-4" />
+                              </>
                             )}
                           </div>
                           <div className="text-xs font-medium text-secondary">Lokarth Allocation</div>
@@ -197,24 +244,24 @@ const WhereToBuy = () => {
                         </div>
                       </div>
                     </button>
-                    
+
                     {/* Ribbon Badge - Refined styling */}
                     <div className="absolute -left-2 top-6 z-10">
-                      <div className="bg-secondary text-white px-4 py-1.5 text-sm font-bold shadow-lg" 
-                           style={{ clipPath: 'polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%)' }}>
+                      <div
+                        className="bg-secondary text-white px-4 py-1.5 text-sm font-bold shadow-lg"
+                        style={{ clipPath: "polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%)" }}
+                      >
                         ✦ HEALTH INITIATIVE
                       </div>
                     </div>
-                    
+
                     <ProductCard product={products[0]} />
                   </div>
                 ) : (
                   <div className="text-center py-12 px-8 bg-white/10 rounded-2xl backdrop-blur-sm">
                     <div className="text-5xl mb-4">📦</div>
                     <h3 className="text-lg font-semibold text-white mb-2">Coming Soon</h3>
-                    <p className="text-white/80 text-sm">
-                      Products are being added. Check back soon!
-                    </p>
+                    <p className="text-white/80 text-sm">Products are being added. Check back soon!</p>
                   </div>
                 )}
               </div>
@@ -263,17 +310,11 @@ const WhereToBuy = () => {
               {/* Header */}
               <div className="bg-gradient-to-r from-secondary/10 via-secondary/5 to-secondary/10 px-6 py-4 border-b border-secondary/20">
                 <div className="flex items-center gap-4">
-                  <img 
-                    src={lokarthLogo} 
-                    alt="Lokarth Foundation" 
-                    className="h-10 w-auto object-contain"
-                  />
-                  <h3 className="text-xl md:text-2xl font-serif font-bold text-foreground">
-                    The Lokarth Health Grant
-                  </h3>
+                  <img src={lokarthLogo} alt="Lokarth Foundation" className="h-10 w-auto object-contain" />
+                  <h3 className="text-xl md:text-2xl font-serif font-bold text-foreground">The Lokarth Health Grant</h3>
                 </div>
               </div>
-              
+
               <CardContent className="p-6 md:p-8 space-y-6">
                 {/* The Question */}
                 <div className="text-center">
@@ -281,21 +322,23 @@ const WhereToBuy = () => {
                     "Why Does Premium Cost So Little?"
                   </p>
                 </div>
-                
+
                 {/* The Story */}
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    This is a <span className="text-primary font-bold">₹399 Premium Ghee Softgel</span>. You only pay 
-                    <span className="text-primary font-bold"> ₹99</span> because 
-                    <span className="text-secondary font-semibold"> Lokarth Foundation</span> is investing the other 
-                    <span className="text-secondary font-bold"> ₹300</span> on your behalf to make India Vitamin D Efficient.
+                    This is a <span className="text-primary font-bold">₹399 Premium Ghee Softgel</span>. You only pay
+                    <span className="text-primary font-bold"> ₹99</span> because
+                    <span className="text-secondary font-semibold"> Lokarth Foundation</span> is investing the other
+                    <span className="text-secondary font-bold"> ₹300</span> on your behalf to make India Vitamin D
+                    Efficient.
                   </p>
                   <p>
-                    India's Vitamin D crisis affects <span className="text-foreground font-semibold">80% of our population</span>. 
-                    We believe <span className="text-secondary font-semibold">elite nutrition shouldn't be a luxury</span>.
+                    India's Vitamin D crisis affects{" "}
+                    <span className="text-foreground font-semibold">80% of our population</span>. We believe{" "}
+                    <span className="text-secondary font-semibold">elite nutrition shouldn't be a luxury</span>.
                   </p>
                 </div>
-                
+
                 {/* Price Breakdown Visualization */}
                 <div className="bg-muted/50 rounded-xl p-5 border border-primary/10">
                   <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 text-sm md:text-base">
@@ -317,11 +360,11 @@ const WhereToBuy = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* The Commitment */}
                 <div className="text-center pt-2 border-t border-border">
                   <p className="text-foreground font-medium mb-2">
-                    This is <span className="text-secondary font-bold">not a discount</span>. It's a 
+                    This is <span className="text-secondary font-bold">not a discount</span>. It's a
                     <span className="text-primary font-bold"> funded health campaign</span>.
                   </p>
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full text-sm">
@@ -355,12 +398,11 @@ const WhereToBuy = () => {
 
             {/* Promise Cards Grid */}
             <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-              
               {/* Promise 1: The Golden Standard */}
               <Card className="border-2 border-primary/20 shadow-golden overflow-hidden group hover:shadow-xl transition-all duration-300">
                 <div className="aspect-square overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800">
-                  <img 
-                    src={goldenStandardImage} 
+                  <img
+                    src={goldenStandardImage}
                     alt="Glowing golden spherical pill against dark background with sun and ghee iconography"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -378,7 +420,10 @@ const WhereToBuy = () => {
                     "30 Days to Fall in Love with the Habit"
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Most Vitamin D is dry and forgotten. SuryAmrit is designed to be absorbed. We promise that our <span className="text-primary font-semibold">Golden Ghee Matrix</span> will be the easiest, tastiest, and most digestible D3 you have ever taken. If you don't love the 'Honest Chew' experience by Day 30, we will refund you—no questions asked.
+                    Most Vitamin D is dry and forgotten. SuryAmrit is designed to be absorbed. We promise that our{" "}
+                    <span className="text-primary font-semibold">Golden Ghee Matrix</span> will be the easiest,
+                    tastiest, and most digestible D3 you have ever taken. If you don't love the 'Honest Chew' experience
+                    by Day 30, we will refund you—no questions asked.
                   </p>
                   <div className="flex items-center gap-2 pt-2 text-sm text-secondary">
                     <CheckCircle className="h-4 w-4" />
@@ -390,8 +435,8 @@ const WhereToBuy = () => {
               {/* Promise 2: The Honest Absorption */}
               <Card className="border-2 border-secondary/20 shadow-sage overflow-hidden group hover:shadow-xl transition-all duration-300">
                 <div className="aspect-square overflow-hidden bg-gradient-to-br from-gray-100 to-amber-50">
-                  <img 
-                    src={honestAbsorptionImage} 
+                  <img
+                    src={honestAbsorptionImage}
                     alt="Split comparison of crumbling dry tablet versus pristine golden spherical pill"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -405,11 +450,12 @@ const WhereToBuy = () => {
                       Science & Absorption
                     </Badge>
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-foreground">
-                    "The 'No-Burp' 30-Day Guarantee"
-                  </h3>
+                  <h3 className="text-xl font-serif font-bold text-foreground">"The 'No-Burp' 30-Day Guarantee"</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Vitamin D belongs in fat, not chalk. We promise our <span className="text-secondary font-semibold">Ghee-encapsulated D3</span> provides a smooth, gut-friendly experience without the acidity or burps caused by dry tablets. Experience the difference of Bio-Mimetic Absorption risk-free for 30 days.
+                    Vitamin D belongs in fat, not chalk. We promise our{" "}
+                    <span className="text-secondary font-semibold">Ghee-encapsulated D3</span> provides a smooth,
+                    gut-friendly experience without the acidity or burps caused by dry tablets. Experience the
+                    difference of Bio-Mimetic Absorption risk-free for 30 days.
                   </p>
                   <div className="flex items-center gap-2 pt-2 text-sm text-primary">
                     <CheckCircle className="h-4 w-4" />
@@ -421,8 +467,8 @@ const WhereToBuy = () => {
               {/* Promise 3: The Sunlight Inside */}
               <Card className="border-2 border-amber-300/40 shadow-warm overflow-hidden group hover:shadow-xl transition-all duration-300">
                 <div className="aspect-square overflow-hidden bg-gradient-to-br from-amber-100 to-amber-50">
-                  <img 
-                    src={sunlightInsideImage} 
+                  <img
+                    src={sunlightInsideImage}
                     alt="Golden spherical pill bathed in sunlight with organic woven fabric texture"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -436,11 +482,12 @@ const WhereToBuy = () => {
                       Lifestyle & Ayurveda
                     </Badge>
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-foreground">
-                    "Your Daily Ray of Sun, Guaranteed"
-                  </h3>
+                  <h3 className="text-xl font-serif font-bold text-foreground">"Your Daily Ray of Sun, Guaranteed"</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Pollution blocks the sun; we put it back in. We promise SuryAmrit fits seamlessly into your life—<span className="text-amber-700 font-semibold">no water needed, just one chew after a meal</span>. If you don't feel the ease of adding this Master Key to your daily routine within 30 days, it's on us.
+                    Pollution blocks the sun; we put it back in. We promise SuryAmrit fits seamlessly into your life—
+                    <span className="text-amber-700 font-semibold">no water needed, just one chew after a meal</span>.
+                    If you don't feel the ease of adding this Master Key to your daily routine within 30 days, it's on
+                    us.
                   </p>
                   <div className="flex items-center gap-2 pt-2 text-sm text-amber-700">
                     <CheckCircle className="h-4 w-4" />
@@ -448,7 +495,6 @@ const WhereToBuy = () => {
                   </div>
                 </CardContent>
               </Card>
-
             </div>
 
             {/* Bottom CTA */}
@@ -470,12 +516,8 @@ const WhereToBuy = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                  More Products
-                </h2>
-                <p className="text-muted-foreground">
-                  Explore our complete range of health supplements
-                </p>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">More Products</h2>
+                <p className="text-muted-foreground">Explore our complete range of health supplements</p>
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {products.slice(1).map((product) => (
@@ -492,9 +534,7 @@ const WhereToBuy = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Available Across India
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Available Across India</h2>
               <p className="text-lg text-muted-foreground">
                 We deliver to 500+ cities across all states and union territories
               </p>
@@ -512,8 +552,8 @@ const WhereToBuy = () => {
                   <CardContent>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                       {cities.map((city, index) => (
-                        <div 
-                          key={index} 
+                        <div
+                          key={index}
                           className="flex items-center gap-2 p-2 rounded-lg bg-muted/50 hover:bg-primary/10 transition-colors"
                         >
                           <div className="w-2 h-2 bg-secondary rounded-full"></div>
@@ -523,8 +563,8 @@ const WhereToBuy = () => {
                     </div>
                     <div className="mt-6 p-4 bg-gradient-subtle rounded-lg">
                       <p className="text-sm text-muted-foreground text-center">
-                        Don't see your city? Don't worry! We deliver to most pin codes across India. 
-                        Check availability during checkout.
+                        Don't see your city? Don't worry! We deliver to most pin codes across India. Check availability
+                        during checkout.
                       </p>
                     </div>
                   </CardContent>
@@ -561,8 +601,7 @@ const WhereToBuy = () => {
                   <CardContent className="p-6 text-center">
                     <h3 className="font-bold text-lg mb-3">Special Offer</h3>
                     <p className="text-white/90 mb-4 text-sm">
-                      Free delivery on orders above ₹500. 
-                      Subscribe and save 15% on every order.
+                      Free delivery on orders above ₹500. Subscribe and save 15% on every order.
                     </p>
                     <Button variant="secondary" size="sm" className="w-full">
                       Subscribe & Save
@@ -591,9 +630,7 @@ const WhereToBuy = () => {
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Need Help Before You Order?
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Need Help Before You Order?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Our experts are ready to answer your questions about SuryAmrit™
             </p>
@@ -650,7 +687,7 @@ const WhereToBuy = () => {
                       <Label htmlFor="consultationType">Inquiry Type</Label>
                       <Select
                         value={formData.consultationType}
-                        onValueChange={(value) => setFormData(prev => ({ ...prev, consultationType: value }))}
+                        onValueChange={(value) => setFormData((prev) => ({ ...prev, consultationType: value }))}
                       >
                         <SelectTrigger>
                           <SelectValue placeholder="Select type" />
@@ -694,11 +731,9 @@ const WhereToBuy = () => {
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold text-foreground mb-1">WhatsApp Support</h3>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        Get instant answers to your product queries
-                      </p>
+                      <p className="text-sm text-muted-foreground mb-3">Get instant answers to your product queries</p>
                       <Button
-                        onClick={() => openWhatsApp('support')}
+                        onClick={() => openWhatsApp("support")}
                         className="bg-green-500 hover:bg-green-600 text-white"
                       >
                         <MessageCircle className="h-4 w-4 mr-2" />
@@ -722,7 +757,7 @@ const WhereToBuy = () => {
                         Book a free consultation with our health experts
                       </p>
                       <Button
-                        onClick={() => openWhatsApp('consultation')}
+                        onClick={() => openWhatsApp("consultation")}
                         variant="outline"
                         className="border-blue-500 text-blue-600 hover:bg-blue-50"
                       >
