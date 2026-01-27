@@ -1,393 +1,219 @@
 
 
-# Premium "Modern Vedic" Homepage Redesign
+# Mission Roadmap Redesign: "Available Across India" Section
 
 ## Overview
-Transform the homepage from an "E-commerce Store" aesthetic to a "National Health Movement" feel through refined color palette, sophisticated typography, subtle textures, glassmorphism, and premium micro-animations while preserving all existing content.
+Transform the current "Availability" section into a strategic "Mission Roadmap" that positions the Pune-only delivery as an intentional Phase 1 launch rather than a limitation. This creates a "Velvet Rope" effect where users in other cities perceive exclusivity and demand.
 
 ---
 
-## 1. Color Palette Transformation: "Modern Vedic"
+## Current State Analysis
 
-### Current → New Color Variables
+**Location**: `src/pages/WhereToBuy.tsx` (Lines 551-646)
 
-| Element | Current HSL | New Hex/HSL | Purpose |
-|---------|-------------|-------------|---------|
-| **Background** | `45 40% 98%` | `#F9F9F7` / `45 20% 98%` | Premium "expensive paper" cream |
-| **Foreground** | `30 25% 15%` | `#0F172A` / `222 47% 11%` | Deep Midnight Blue (softer than black) |
-| **Primary** | `40 95% 52%` | `#D4AF37` / `43 65% 52%` | Muted Metallic Gold |
-| **Secondary** | `145 35% 45%` | `#1E3A5F` / `213 55% 25%` | Deep Navy Blue |
-| **Mission Accent** | N/A | `#2C5F2D` / `121 37% 27%` | Deep Forest Green (for Lokarth badges) |
-
-**File to Modify**: `src/index.css` (CSS custom properties in `:root`)
+**Current Structure**:
+- Section header: "Available Across India"
+- Left column (2/3): Card with 33 cities in a grid, all styled equally
+- Right column (1/3): Three sidebar cards:
+  1. "Need Help?" - Generic support card
+  2. "Special Offer" - Generic free delivery offer
+  3. "100% Authentic" - Trust badge
 
 ---
 
-## 2. Typography Enhancement
+## Redesign Implementation
 
-### Font Stack Updates
-- **Headings**: Already using `Playfair Display` (serif) ✓
-- **Body**: Already using `Inter` (sans-serif) ✓
-- **Enhancement**: Add `Cinzel` as an option for ceremonial headings
+### 1. Header & Sub-Header Update
 
-**Letter Spacing Additions**:
-- Headlines: `tracking-tight` (already applied in some places)
-- Subtitles/Body: `tracking-wide` for elegant readability
-- Badges: `tracking-widest` for premium badge text
+**Current**:
+```text
+"Available Across India"
+"We deliver to 500+ cities across all states and union territories"
+```
 
-**File to Modify**: `tailwind.config.ts` (add letter-spacing utilities)
+**New**:
+```text
+"Mission Roadmap: Phase 1 Active"
+"We are rolling out the 'Vitamin Efficient India' mission one city at a time. Currently exclusive to Pune & PCMC."
+```
+
+**Visual Enhancement**:
+- Add a `Badge` component showing "PHASE 1" in mission green (#2C5F2D)
+- Include a subtle roadmap/milestone icon
 
 ---
 
-## 3. Section-by-Section Visual Redesign
+### 2. City Grid Redesign: "Live vs. Upcoming"
 
-### A. Navigation Bar → "Frosted Glass"
+**Data Structure Update**:
+```typescript
+const cities = [
+  { name: "Pune", status: "live", label: "LIVE NOW" },
+  { name: "Pimpri-Chinchwad", status: "live", label: "LIVE NOW" },
+  { name: "Mumbai", status: "phase2", label: "Launching Phase 2" },
+  { name: "Bangalore", status: "phase2", label: "Launching Phase 2" },
+  { name: "Delhi", status: "waitlist", label: "Waitlist Open" },
+  { name: "Hyderabad", status: "waitlist", label: "Waitlist Open" },
+  // ... remaining cities as "upcoming"
+];
+```
 
-**Current**: `bg-white/95 backdrop-blur-xl shadow-soft`
+**Visual Styling by Status**:
 
-**New Design**:
-- Frosted glass effect with enhanced blur
-- 1px golden border at bottom
-- Navy text with gold accents
+| Status | Indicator | Text Style | Opacity | Badge |
+|--------|-----------|------------|---------|-------|
+| `live` | Green circle (#2C5F2D) | Bold, full color | 100% | "LIVE" badge in green |
+| `phase2` | Amber circle | Medium weight | 70% | "PHASE 2" text |
+| `waitlist` | Blue circle | Normal | 60% | "WAITLIST" text |
+| `upcoming` | Grey circle (#A0AEC0) | Light | 50% | None |
+
+**Card Title Update**:
+- From: "Major Cities We Serve"
+- To: "Mission Expansion Map"
+
+---
+
+### 3. Sidebar Cards Redesign
+
+#### Sidebar 1: "Pune Pilot Support" (Replaces "Need Help?")
 
 ```text
-┌──────────────────────────────────────────────────────────────────┐
-│ [Logo]  [Lokarth Badge]     Shop  Why Ghee?  Reviews  [ORDER] │
-│─────────────────────────────────────────────────────────────────│
-│                    ↑ 1px Golden Accent Line ↑                   │
-└──────────────────────────────────────────────────────────────────┘
+Title: Pune Pilot Support
+Icon: Headset/Support icon in mission green
+
+Content:
+- Phone: 1800-123-4567
+- Available: "Mon-Sat, 9 AM - 8 PM (Local Pune Team)"
+
+Button: "Chat with Pune HQ" (WhatsApp link)
 ```
 
-**File**: `src/components/Header.tsx`
+**Styling**:
+- Border accent in mission green (#2C5F2D)
+- "Local Pune Team" in green text for emphasis
 
 ---
 
-### B. Hero Section → "The Jewel Reveal"
-
-**Current**: Light gradient with organic patterns
-
-**New Design**:
-- **Background**: Deep Navy/Charcoal gradient: `linear-gradient(135deg, #0F172A 0%, #1E293B 100%)`
-- **Text**: White/cream for maximum contrast
-- **Golden Sphere**: Enhanced "bobbing" animation
-- **Subtle Mandala/Sunburst**: 3% opacity watermark texture
-
-**Visual Layout**:
-```text
-┌─────────────────────────────────────────────────────────────────┐
-│  DARK NAVY GRADIENT BACKGROUND                                  │
-│                                                                 │
-│  [WHITE TEXT]                              [FLOATING           │
-│  Combat India's Silent                      GOLDEN SPHERE      │
-│  VITAMIN D CRISIS                           ₹99 Badge          │
-│  (gold gradient)                            with "bob"         │
-│                                             animation]         │
-│                                                                 │
-│  [GOLDEN CTA BUTTON with shimmer]                               │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-**File**: `src/pages/HomePage.tsx` (Hero Section lines 22-166)
-
----
-
-### C. Problem Statement Cards → "Premium Cards"
-
-**Current**: Glass cards with gradients
-
-**New Design**:
-- White cards with soft shadow: `box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1)`
-- No full borders - use **left border accent** (4px gold line)
-- **Thin-line gold icons** instead of colored backgrounds
-- Subtle paper texture overlay
+#### Sidebar 2: "Pune Citizen Privilege" (Replaces "Special Offer")
 
 ```text
-┌────┬──────────────────────────────────────┐
-│    │  [Thin Gold Icon]                   │
-│ G  │  80%+ Deficient                     │
-│ O  │                                     │
-│ L  │  Over 80% of Indians have...        │
-│ D  │                                     │
-└────┴──────────────────────────────────────┘
-  ↑ 4px Left Border Accent
+Title: Pune Citizen Privilege
+Subtitle: 🎖️ Pilot City Benefits
+
+Content:
+"As a Pilot City resident, you are eligible for the Lokarth Subsidy and Priority Delivery."
+
+Highlight:
+"✓ Free Delivery across Pune & PCMC on all orders"
+
+Button: "Check My Pincode" or "Order Now"
 ```
 
-**File**: `src/pages/HomePage.tsx` (lines 168-233)
+**Styling**:
+- Keep the golden gradient background (bg-gradient-primary)
+- Add a subtle badge/ribbon saying "PILOT CITY"
+- Use gold and white color scheme
 
 ---
 
-### D. Lokarth Mission Section → "Official Notice" Style
+#### Sidebar 3: Keep "100% Authentic" Card
 
-**Current**: Sage green background with card
+- No changes needed - this trust badge is universal and relevant
 
-**New Design**:
-- **Background**: Deep Forest Green block (`#2C5F2D`) or Rich Earthy Brown
-- **Card Style**: Double-line certificate border
-- **Typography**: Manifesto-style with signature element
-- **Layout**: "Official Letter" aesthetic
+---
+
+### 4. Bottom Section Update
+
+**Current**:
+```text
+"Don't see your city? Don't worry! We deliver to most pin codes across India. Check availability during checkout."
+```
+
+**New**:
+```text
+"🚀 Phase 2 Coming Soon
+
+Not in Pune yet? Join the waitlist for your city and be the first to know when we launch the Lokarth Health Initiative in your area."
+
+[Join Waitlist] button
+```
+
+---
+
+## Technical Implementation
+
+### File: `src/pages/WhereToBuy.tsx`
+
+#### Step 1: Update City Data Structure (Lines 137-171)
+
+Replace the simple string array with an array of objects containing status information.
+
+#### Step 2: Redesign Section Header (Lines 555-560)
+
+- Update h2 text to "Mission Roadmap: Phase 1 Active"
+- Update paragraph to new subheading
+- Add "PHASE 1" badge component
+
+#### Step 3: Refactor City Grid (Lines 572-581)
+
+- Implement conditional styling based on city status
+- Add status badges for live cities
+- Apply opacity classes for non-live cities
+
+#### Step 4: Update Sidebar Cards (Lines 593-641)
+
+- Redesign "Need Help?" card to "Pune Pilot Support"
+- Redesign "Special Offer" card to "Pune Citizen Privilege"
+- Keep "100% Authentic" card unchanged
+
+#### Step 5: Update Bottom Message (Lines 583-588)
+
+- Change messaging to waitlist/coming soon narrative
+- Add waitlist CTA button
+
+---
+
+## Visual Summary
 
 ```text
-╔═══════════════════════════════════════════════════════════════╗
-║  ╔═══════════════════════════════════════════════════════╗    ║
-║  ║                                                        ║    ║
-║  ║   WHY ₹99?                                            ║    ║
-║  ║   "We didn't cut costs. We cut barriers."             ║    ║
-║  ║                                                        ║    ║
-║  ║   [Price Breakdown with Gold accents]                  ║    ║
-║  ║                                                        ║    ║
-║  ║   ────────────────────                                 ║    ║
-║  ║   [Lokarth Founder Signature]                          ║    ║
-║  ║                                                        ║    ║
-║  ╚═══════════════════════════════════════════════════════╝    ║
-╚═══════════════════════════════════════════════════════════════╝
-  ↑ Double-line "certificate" border
-```
-
-**File**: `src/pages/HomePage.tsx` (lines 329-414)
-
----
-
-## 4. Premium Animations & Micro-Interactions
-
-### New Keyframe Animations
-
-| Animation | Description | Usage |
-|-----------|-------------|-------|
-| `fade-up` | Translate 20px up + fade in | Scroll-reveal for sections |
-| `shimmer-gold` | White shine passing across | CTA buttons every 5s |
-| `bob` | Gentle 10px up/down float | Golden sphere in hero |
-| `parallax` | Slower background scroll | Texture backgrounds |
-
-**New CSS in `src/index.css`**:
-
-```css
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes shimmer-gold {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-@keyframes bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-```
-
-**Utility Classes**:
-- `.animate-fade-up`
-- `.animate-shimmer-gold`
-- `.animate-bob`
-
----
-
-## 5. Background Textures
-
-### Texture Additions
-
-| Section | Texture | Implementation |
-|---------|---------|----------------|
-| Hero | Geometric Sunburst/Mandala | SVG at 3% opacity |
-| Education | Faint radial pattern | CSS radial-gradient |
-| Lokarth Mission | Grainy Paper | Noise texture overlay |
-| General White Areas | Subtle noise | Transparent PNG overlay |
-
-**New Utility Class in `src/index.css`**:
-
-```css
-.texture-noise {
-  position: relative;
-}
-.texture-noise::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,..."); /* noise pattern */
-  opacity: 0.03;
-  pointer-events: none;
-}
-
-.texture-mandala {
-  background-image: url('/mandala-pattern.svg');
-  background-size: 600px;
-  background-position: center;
-  opacity: 0.03;
-}
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                         │
+│   [PHASE 1 Badge]  MISSION ROADMAP: PHASE 1 ACTIVE                     │
+│   Rolling out 'Vitamin Efficient India' one city at a time.            │
+│   Currently exclusive to Pune & PCMC.                                  │
+│                                                                         │
+├────────────────────────────────────────────┬────────────────────────────┤
+│                                            │                            │
+│   🗺️ MISSION EXPANSION MAP                │   PUNE PILOT SUPPORT       │
+│                                            │   ────────────────         │
+│   ┌─────────────────────────────────────┐  │   📞 1800-123-4567         │
+│   │ 🟢 Pune          LIVE              │  │   Local Pune Team          │
+│   │ 🟢 Pimpri-Chinchwad  LIVE          │  │                            │
+│   │ ⏳ Mumbai        Phase 2 (50% opacity)│  │   [Chat with Pune HQ]     │
+│   │ ⏳ Bangalore     Phase 2 (50% opacity)│  ├────────────────────────────┤
+│   │ 🔵 Delhi         Waitlist (60%)     │  │                            │
+│   │ 🔵 Hyderabad     Waitlist (60%)     │  │   ✨ PUNE CITIZEN          │
+│   │ ⚪ Chennai       (40% opacity)       │  │      PRIVILEGE             │
+│   │ ⚪ Kolkata       (40% opacity)       │  │                            │
+│   │ ⚪ ...           (40% opacity)       │  │   Pilot City Benefits:     │
+│   └─────────────────────────────────────┘  │   • Lokarth Subsidy         │
+│                                            │   • Priority Delivery       │
+│   🚀 Phase 2 Coming Soon!                  │   • Free Delivery           │
+│   Join waitlist for your city              │                            │
+│   [Join Waitlist Button]                   │   [Check My Pincode]       │
+│                                            │                            │
+└────────────────────────────────────────────┴────────────────────────────┘
 ```
 
 ---
 
-## 6. Image Concept Requirements
+## Color Reference
 
-Three AI-generated images to replace/add:
-
-| Image | Description | Placement |
-|-------|-------------|-----------|
-| **The Ingredient** | Hyper-realistic golden ghee drop creating crown splash on dark background | Hero or Why Ghee section |
-| **The Mission** | Indian hands with bangle holding SuryAmrit strip against morning sun | Lokarth Mission section |
-| **The Science** | Abstract minimalist: Gold circle (ghee) merging with blue circle (cell) | Science/Absorption section |
-
----
-
-## 7. Files to Modify
-
-### Core Style Files
-
-| File | Changes |
-|------|---------|
-| `src/index.css` | Update CSS variables for Modern Vedic palette; Add new animations; Add texture utilities |
-| `tailwind.config.ts` | Add extended colors (navy, forest); Letter-spacing utilities |
-| `index.html` | Add Cinzel font (optional) |
-
-### Component Files
-
-| File | Changes |
-|------|---------|
-| `src/components/Header.tsx` | Enhanced frosted glass; 1px gold bottom border; Navy text |
-| `src/pages/HomePage.tsx` | Hero dark theme; Card redesigns; Lokarth "letter" style; Animation classes |
-| `src/components/LokarthBadge.tsx` | Navy/Gold variant option |
-
----
-
-## 8. Technical Implementation Details
-
-### CSS Variable Updates (`src/index.css`)
-
-```css
-:root {
-  /* Modern Vedic Palette */
-  --background: 45 20% 98%;           /* #F9F9F7 Premium cream */
-  --foreground: 222 47% 11%;          /* #0F172A Midnight blue */
-  
-  --primary: 43 65% 52%;              /* #D4AF37 Muted metallic gold */
-  --primary-foreground: 0 0% 100%;    /* White */
-  
-  --secondary: 213 55% 25%;           /* #1E3A5F Deep navy */
-  --secondary-foreground: 0 0% 100%;  /* White */
-  
-  /* New: Mission/Trust Color */
-  --mission: 121 37% 27%;             /* #2C5F2D Deep forest green */
-  --mission-foreground: 0 0% 100%;
-  
-  /* Muted stays warm but refined */
-  --muted: 45 15% 94%;
-  --muted-foreground: 222 20% 45%;    /* Navy-tinted muted text */
-}
-```
-
-### Header Enhancement
-
-```tsx
-// Enhanced glass effect with gold accent
-<header className="bg-white/80 backdrop-blur-xl sticky top-0 z-50 border-b border-primary/30">
-  {/* Gold accent line */}
-  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
-  ...
-</header>
-```
-
-### Hero Dark Theme
-
-```tsx
-<section className="relative min-h-[90vh] flex items-center overflow-hidden">
-  {/* Dark Navy Gradient Background */}
-  <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A]" />
-  
-  {/* Subtle Mandala Watermark */}
-  <div className="absolute inset-0 texture-mandala" />
-  
-  {/* Content with white text */}
-  <h1 className="text-white">
-    Combat India's Silent
-    <span className="text-primary">Vitamin D Crisis</span>
-  </h1>
-</section>
-```
-
-### Premium Card Component Pattern
-
-```tsx
-<Card className="relative bg-white rounded-2xl overflow-hidden shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] border-0">
-  {/* Gold Left Accent */}
-  <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary" />
-  
-  <CardContent className="pl-6">
-    {/* Thin-line gold icon */}
-    <div className="w-12 h-12 border-2 border-primary rounded-xl flex items-center justify-center">
-      <Sun className="h-6 w-6 text-primary stroke-[1.5]" />
-    </div>
-    ...
-  </CardContent>
-</Card>
-```
-
----
-
-## 9. Animation Implementation
-
-### Scroll-Reveal with Fade-Up
-
-Add intersection observer hook for scroll animations:
-
-```tsx
-// Utility hook for scroll reveal
-const useScrollReveal = () => {
-  // Implementation using IntersectionObserver
-  // Returns ref and isVisible state
-};
-
-// Usage in sections
-<div className={cn(
-  "transition-all duration-700",
-  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-)}>
-```
-
-### Button Shimmer Effect
-
-```css
-.btn-shimmer {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-shimmer::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.3),
-    transparent
-  );
-  animation: shimmer-pass 5s infinite;
-}
-
-@keyframes shimmer-pass {
-  0%, 80%, 100% { left: -100%; }
-  85%, 95% { left: 100%; }
-}
-```
-
----
-
-## 10. Expected Visual Outcome
-
-After implementation:
-
-1. **Color Shift**: From warm amber/sage to refined gold/navy - more "institution" less "shop"
-2. **Typography Feel**: Historic, trustworthy serif headlines with clean body text
-3. **Card Design**: Elegant left-accent cards replacing bordered boxes
-4. **Hero Impact**: Dark, dramatic backdrop making gold elements "pop"
-5. **Lokarth Section**: Looks like an official government/NGO notice
-6. **Animations**: Subtle, deliberate reveals that feel premium not playful
-7. **Overall Vibe**: "National Health Movement" rather than "Product Sales Page"
+| Element | Color | Hex |
+|---------|-------|-----|
+| Live Status Indicator | Mission Green | `#2C5F2D` |
+| Phase 2 Indicator | Amber | Tailwind `amber-500` |
+| Waitlist Indicator | Blue | Tailwind `blue-500` |
+| Upcoming Indicator | Grey | `#A0AEC0` |
+| Pilot Badge Background | Gold Gradient | `bg-gradient-primary` |
 
