@@ -1,240 +1,266 @@
 
 
-# Lokarth Foundation Brand Integration Plan
+# Lokarth Alliance Partner Portal Implementation
 
 ## Overview
-Transform the pricing narrative from "cheap product" to "funded health campaign" by introducing Lokarth Foundation as the institutional benefactor. This elevates SuryAmrit from a discount brand to a mission-driven initiative backed by a credible foundation.
+Create a unified Partner Portal at `/partners` that serves as the registration gateway for both Doctors and Distributors. The page features a "Smart Form" with conditional logic based on partner type selection, WhatsApp fast-track integration, and a manual approval workflow to protect wholesale pricing.
 
 ---
 
-## The Narrative Shift
+## Design Specifications
+
+**Color Palette**: Clinical, Professional, Exclusive
+- Primary: White background
+- Accent: Navy Blue (for professional feel) and Gold (for premium branding)
+- Existing brand colors from SuryAmrit will be incorporated
+
+**Typography**: 
+- Headlines: Playfair Display (existing serif font)
+- Body: Inter (existing sans font)
+
+---
+
+## Page Architecture
 
 ```text
-BEFORE: "₹99 Trial Pack" → User thinks: "Cheap product"
-AFTER:  "₹99 (Subsidized by Lokarth)" → User thinks: "Great opportunity"
-```
-
-**Core Principle**: Replace the word "Discount" with "Subsidy" throughout the entire application.
-
----
-
-## Integration Points
-
-### 1. Lokarth Logo Asset
-Create or add a clean, professional Lokarth Foundation logo with the tagline:
-- **Text**: "Serve Together. Change Forever."
-- **Style**: Premium, institutional aesthetic (think Tata Trust/Gates Foundation)
-- **File**: `src/assets/lokarth-logo.png` (will need to be provided or generated)
-
----
-
-### 2. Header Integration - "Powered By" Badge
-
-**File**: `src/components/Header.tsx`
-
-Add a subtle "An Initiative by Lokarth" badge next to the SuryAmrit logo:
-
-```text
-[SuryAmrit Logo] [Lokarth Badge]
-```
-
-**Visual Treatment**:
-- Small, professional badge with Lokarth branding
-- Tooltip on hover explaining the foundation
-- Positioned to the right of the main logo
-
----
-
-### 3. Footer Integration - Foundation Section
-
-**File**: `src/components/Footer.tsx`
-
-Add a dedicated "Our Benefactor" section in the footer:
-
-```text
-┌─────────────────────────────────────┐
-│  [Lokarth Logo]                     │
-│  "An Initiative by Lokarth"         │
-│  Serve Together. Change Forever.    │
-│                                     │
-│  Eradicating Silent Hunger from     │
-│  India, one family at a time.       │
-└─────────────────────────────────────┘
-```
-
----
-
-### 4. Buy Page - "Mission Funding Breakdown" Card
-
-**File**: `src/pages/WhereToBuy.tsx`
-
-Transform the existing "Mission Subsidy Explained" section (lines 257-333) to explicitly feature Lokarth:
-
-**Current Title**: "Our Mission Subsidy"
-**New Title**: "The Lokarth Health Grant"
-
-**Updated Price Breakdown Visual**:
-```text
-┌────────────────────────────────────────────────────┐
-│  MRP (Market Value)         ₹399  (Greyed out)     │
-│  Lokarth Health Subsidy    -₹300  (Green/Gold)     │
-│  ─────────────────────────────────────────────────│
-│  Citizen Contribution       ₹99   (Bold Gold)      │
-└────────────────────────────────────────────────────┘
-```
-
-**Updated Story Copy**:
-> "This is a ₹399 Premium Ghee Softgel. You only pay ₹99 because Lokarth Foundation is investing the other ₹300 on your behalf to make India Vitamin D Efficient."
-
----
-
-### 5. Homepage - "Why ₹99? The Lokarth Vision" Section
-
-**File**: `src/pages/HomePage.tsx`
-
-Add a new section after the "Nature's Sacred Gift" section explaining the Lokarth vision:
-
-**Section Content**:
-```text
-┌─────────────────────────────────────────────────────────┐
-│        WHY ₹99? THE LOKARTH VISION                      │
-├─────────────────────────────────────────────────────────┤
-│                                                         │
-│  "We didn't cut costs. We cut barriers."                │
-│                                                         │
-│  Lokarth's Mission is to eradicate 'Silent Hunger'      │
-│  (Micronutrient Deficiency) from India. We believe      │
-│  elite nutrition shouldn't be a luxury.                 │
-│                                                         │
-│  Our Investment:                                        │
-│  We have invested in the R&D and Logistics so that      │
-│  every Indian family can access Gold-Standard Ghee D₃   │
-│  without breaking the bank.                             │
-│                                                         │
-│  [LOKARTH LOGO]                                         │
-│  Serve Together. Change Forever.                        │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
++----------------------------------------------------------+
+|  HEADER: SuryAmrit Logo + "An Initiative by Lokarth"     |
++----------------------------------------------------------+
+|                                                          |
+|  HERO SECTION (Full Width)                               |
+|  "Partner in the Fight Against Silent Hunger."           |
+|  Sub: Join the Lokarth Mission...                        |
+|  [Split Hero Image: Doctor + Clinical Cartons]           |
+|                                                          |
++----------------------------------------------------------+
+|                                                          |
+|  TWO-COLUMN LAYOUT                                       |
+|  +-------------------------+  +------------------------+ |
+|  | LEFT: VALUE PROPOSITION |  | RIGHT: SMART FORM      | |
+|  |                         |  |                        | |
+|  | The SuryAmrit Advantage |  | [Login] / [Register]   | |
+|  |                         |  |                        | |
+|  | FOR DOCTORS:            |  | Name                   | |
+|  | * Better Compliance     |  | Mobile (WhatsApp)      | |
+|  | * Mission Aligned       |  | "I am joining as..."   | |
+|  | * Clinical Packs        |  |   [ ] Doctor/Clinic    | |
+|  |                         |  |   [ ] Distributor      | |
+|  | FOR PARTNERS:           |  |                        | |
+|  | * Zero Friction         |  | [Conditional Field]    | |
+|  | * High Velocity         |  | - Medical Reg No.  OR  | |
+|  | * Territory Protection  |  | - GST Number/Territory | |
+|  |                         |  |                        | |
+|  |                         |  | [Submit]               | |
+|  |                         |  |                        | |
+|  |                         |  | "Register to unlock    | |
+|  |                         |  |  Wholesale Pricing..." | |
+|  +-------------------------+  +------------------------+ |
+|                                                          |
++----------------------------------------------------------+
+|  FLOATING WHATSAPP BUTTON                                |
+|  "Need Instant Access? Chat with our B2B Manager."       |
++----------------------------------------------------------+
+|  FOOTER                                                  |
++----------------------------------------------------------+
 ```
 
 ---
 
-### 6. Price Display Components Update
+## Technical Implementation
 
-**Files to modify**:
-- `src/components/PremiumPriceDisplay.tsx`
-- `src/components/ProductCard.tsx`
-- `src/components/StickyOrderButton.tsx`
+### 1. Supabase Setup (Database)
 
-**Language Changes**:
+**New Table: `partner_applications`**
 
-| Current Text | New Text |
-|--------------|----------|
-| "Mission Subsidy" | "Lokarth Health Subsidy" |
-| "Citizen Trial" | "Lokarth Grant Allocation" |
-| "Save ₹300" | "₹300 Funded by Lokarth" |
-| "Mission Subsidy Applied" | "Lokarth Grant Applied" |
-| "Direct-to-Consumer Pilot" | "Lokarth Health Initiative" |
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | uuid | Primary key |
+| `name` | text | Partner's full name |
+| `phone` | text | WhatsApp-enabled mobile number |
+| `partner_type` | enum | 'doctor' or 'distributor' |
+| `registration_number` | text | Medical Reg No. (for doctors) |
+| `clinic_name` | text | Clinic name (for doctors) |
+| `gst_number` | text | GST number (for distributors) |
+| `territory` | text | Territory/region (for distributors) |
+| `status` | enum | 'pending', 'approved', 'rejected' |
+| `created_at` | timestamptz | Submission timestamp |
+| `updated_at` | timestamptz | Last update timestamp |
+| `approved_at` | timestamptz | Approval timestamp |
+| `approved_by` | text | Admin who approved |
+| `notes` | text | Internal notes |
 
----
+**RLS Policies:**
+- Users can insert their own applications (public insert)
+- Only authenticated admins can view/update applications
 
-### 7. Visual Rules Implementation (Risk Mitigation)
+### 2. Files to Create
 
-**Color Changes** (No red strikethroughs):
-- MRP strikethrough: Use `text-muted-foreground` with gold/grey (NOT red)
-- Subsidy amount: Use `text-secondary` (green) or `text-primary` (gold)
-- Final price: Use `text-primary` (bold gold)
+| File | Purpose |
+|------|---------|
+| `src/pages/Partners.tsx` | Main Partner Portal page |
+| `src/lib/supabase.ts` | Supabase client configuration |
+| `src/components/PartnerForm.tsx` | Smart registration form component |
+| `src/components/WhatsAppFloatingButton.tsx` | Floating WhatsApp CTA |
 
-**Language Elevation**:
-Replace throughout the codebase:
-
-| Avoid | Use Instead |
-|-------|-------------|
-| Deal | Allocation |
-| Steal | Grant |
-| Cheap | Accessible |
-| Offer | Initiative |
-| Discount | Subsidy |
-| Sale | Campaign |
-
----
-
-### 8. Hero Section Updates
-
-**File**: `src/pages/HomePage.tsx`
-
-Update the hero badge and promotional elements:
-
-**Current**: "Citizen Trial"
-**New**: "Lokarth Health Grant"
-
-Update Mission Note (line 147-149):
-```text
-Current: "Mission Subsidy: We absorb the cost..."
-New: "Funded by Lokarth Foundation: Elite nutrition, accessible pricing"
-```
-
----
-
-### 9. Trial Badge Updates
-
-**File**: `src/pages/WhereToBuy.tsx`
-
-Update the Trial Pack Badge (lines 175-198):
-
-| Current | New |
-|---------|-----|
-| "Citizen Trial" | "Lokarth Allocation" |
-| "Save ₹300" | "₹300 Grant Applied" |
-| "LIMITED ACCESS" ribbon | "HEALTH INITIATIVE" ribbon |
-
----
-
-## Files to Modify
+### 3. Files to Modify
 
 | File | Changes |
 |------|---------|
-| `src/assets/lokarth-logo.png` | New - Lokarth Foundation logo |
-| `src/components/Header.tsx` | Add "Powered by Lokarth" badge |
-| `src/components/Footer.tsx` | Add Lokarth Foundation section |
-| `src/pages/HomePage.tsx` | Add "Why ₹99?" section, update hero messaging |
-| `src/pages/WhereToBuy.tsx` | Update Mission Subsidy section to Lokarth branding |
-| `src/components/PremiumPriceDisplay.tsx` | Update labels to Lokarth terminology |
-| `src/components/ProductCard.tsx` | Update "Mission Subsidy Applied" text |
-| `src/components/StickyOrderButton.tsx` | Update badge text to Lokarth branding |
+| `src/App.tsx` | Add `/partners` route |
+| `src/components/Header.tsx` | Optionally add "Partners" link in navigation |
+| `src/components/Footer.tsx` | Add "Become a Partner" link |
 
 ---
 
-## Technical Details
+## Smart Form Logic
 
-### Lokarth Badge Component
-Create a reusable badge component:
+### Conditional Field Display
 
-```tsx
-// src/components/LokarthBadge.tsx
-const LokarthBadge = ({ size = 'md' }) => (
-  <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/5 rounded-full border border-primary/20">
-    <img src={lokarthLogo} alt="Lokarth" className="h-4 w-auto" />
-    <span className="text-xs font-medium text-primary">
-      An Initiative by Lokarth
-    </span>
-  </div>
-);
+```text
+Partner Type Selection:
+  |
+  +-- "Doctor / Clinic" selected:
+  |     Show: "Medical Registration No. / Clinic Name" input
+  |
+  +-- "Distributor / Stockist" selected:
+        Show: "GST Number / Territory" input
 ```
 
-### Color System (No Red)
-- **MRP (crossed out)**: `text-muted-foreground` with `line-through`
-- **Subsidy (-₹300)**: `text-secondary` (sage green) with subtle gold accent
-- **Final Price (₹99)**: `text-primary` (gold) with `font-bold`
+### Form Validation (using Zod)
+
+- Name: Required, min 2 characters, max 100
+- Phone: Required, valid Indian mobile format (10 digits)
+- Partner Type: Required
+- Conditional fields: Required based on selection
+
+### Submission Flow
+
+1. User fills form and submits
+2. Form validates client-side with Zod
+3. Data is inserted into `partner_applications` table with status = 'pending'
+4. User sees "Pending Approval" confirmation message
+5. Admin manually verifies credentials
+6. Admin updates status to 'approved' or 'rejected'
+7. Approved partners receive WhatsApp/Email notification
+
+---
+
+## WhatsApp Integration
+
+**Pre-filled Message Link:**
+```
+https://wa.me/918001234567?text=I%20am%20a%20Doctor%2FPartner%20interested%20in%20bulk%20buying.%20Please%20share%20details.
+```
+
+**Floating Button Placement:**
+- Position: Bottom-right corner
+- Style: Green WhatsApp branded button
+- Animation: Subtle pulse to draw attention
+
+---
+
+## Hero Section Image
+
+**Split Image Concept:**
+- Left side: Doctor handing a strip to a patient (clinical setting)
+- Right side: Stack of 66-Strip Clinical Cartons (product focus)
+- Generated using AI image generation or placeholder with text overlay
+
+---
+
+## Detailed Component Structure
+
+### Partners.tsx Page Structure
+
+```text
+<Partners>
+  <Header />
+  <HeroSection>
+    - Badge: "Lokarth Alliance"
+    - Headline: "Partner in the Fight Against Silent Hunger."
+    - Sub-headline
+    - Split hero image
+  </HeroSection>
+  
+  <MainContent className="two-column">
+    <LeftColumn>
+      <ValueProposition>
+        - "The SuryAmrit Advantage" heading
+        - For Doctors section (3 benefits with checkmarks)
+        - For Partners section (3 benefits with checkmarks)
+      </ValueProposition>
+    </LeftColumn>
+    
+    <RightColumn>
+      <PartnerForm>
+        - Login/Register toggle
+        - Form fields with conditional logic
+        - Submit button
+        - Teaser text
+      </PartnerForm>
+    </RightColumn>
+  </MainContent>
+  
+  <WhatsAppFloatingButton />
+  <Footer />
+</Partners>
+```
+
+---
+
+## Security Considerations
+
+1. **No Auto-Approval**: All registrations start with 'pending' status
+2. **Input Validation**: Client-side (Zod) + Server-side (RLS policies)
+3. **Protected Pricing**: Wholesale prices only visible after manual approval
+4. **Phone Number Encoding**: Properly encode WhatsApp pre-filled messages
+
+---
+
+## Pending Approval UI
+
+After form submission, display:
+
+```text
++------------------------------------------+
+|  [Checkmark Icon]                        |
+|                                          |
+|  Thank you, [Name]!                      |
+|                                          |
+|  Your Partner Application is             |
+|  Under Review                            |
+|                                          |
+|  Our team will verify your credentials   |
+|  and activate your wholesale account     |
+|  within 2 hours.                         |
+|                                          |
+|  [WhatsApp: Get Faster Approval]         |
+|                                          |
++------------------------------------------+
+```
+
+---
+
+## Implementation Steps
+
+1. **Enable Supabase** - Connect Lovable Cloud backend for database
+2. **Create Database Tables** - Set up `partner_applications` table with proper schema
+3. **Create Supabase Client** - Set up `src/lib/supabase.ts`
+4. **Build Form Component** - Create `PartnerForm.tsx` with conditional logic
+5. **Build WhatsApp Button** - Create floating CTA component
+6. **Build Partners Page** - Assemble full page with hero, content, and form
+7. **Add Routing** - Register `/partners` route in App.tsx
+8. **Add Navigation Links** - Update Header/Footer with Partner link
+9. **Generate Hero Image** - Create split hero image for the page
 
 ---
 
 ## Expected Outcome
 
-After implementation:
-1. Users see Lokarth as an institutional benefactor (like Tata Trust)
-2. The ₹99 price is framed as a "funded allocation," not a discount
-3. Premium quality perception is maintained despite low price
-4. Clear differentiation: "This is a health campaign, not a sale"
-5. Institutional credibility bridges the price-trust gap
+1. Professional Partner Portal at `/partners` matching brand aesthetics
+2. Smart registration form with conditional fields for Doctors vs Distributors
+3. All applications stored in Supabase with 'pending' status
+4. WhatsApp fast-track option for high-value leads
+5. Clear "Pending Approval" feedback to set expectations
+6. Secure workflow protecting wholesale pricing until manual verification
 
