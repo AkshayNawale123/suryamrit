@@ -74,11 +74,11 @@ const ProductFeatures = () => {
         <div className="grid lg:grid-cols-2 gap-8 mb-20">
           <div className="relative group">
             <div className="absolute -inset-4 bg-gradient-warm rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
-            <div className="relative rounded-2xl overflow-hidden shadow-warm">
+            <div className="relative rounded-2xl overflow-hidden shadow-warm bg-gradient-to-br from-primary/10 to-amber-100/30">
               <img 
                 src={sacredCow} 
-                alt="Sacred Indian Gir cow at sunrise" 
-                className="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500"
+                alt="Sacred Indian Gir cow with calf at sunrise" 
+                className="w-full h-80 object-contain transform group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
