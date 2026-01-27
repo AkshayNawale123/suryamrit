@@ -7,72 +7,77 @@
 
 @layer base {
   :root {
-    /* Warm cream/off-white background inspired by ghee */
-    --background: 45 40% 98%;
-    --foreground: 30 25% 15%;
+    /* Modern Vedic Palette - Premium "Expensive Paper" Cream */
+    --background: 45 20% 98%;           /* #F9F9F7 */
+    --foreground: 222 47% 11%;          /* #0F172A Midnight blue */
 
-    --card: 45 35% 97%;
-    --card-foreground: 30 25% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 45 35% 99%;
-    --popover-foreground: 30 25% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    /* SuryAmrit Brand - Warm Amber Gold (from sunrise/ghee imagery) */
-    --primary: 40 95% 52%;
-    --primary-foreground: 30 25% 10%;
-    --primary-glow: 45 100% 60%;
+    /* SuryAmrit Brand - Muted Metallic Gold */
+    --primary: 43 65% 52%;              /* #D4AF37 */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 45 70% 60%;
 
-    /* Sage Green Secondary (from herbs/nature imagery) */
-    --secondary: 145 35% 45%;
+    /* Deep Navy Blue Secondary */
+    --secondary: 213 55% 25%;           /* #1E3A5F */
     --secondary-foreground: 0 0% 100%;
 
-    /* Warm Earth Muted Tones */
-    --muted: 45 25% 94%;
-    --muted-foreground: 30 15% 45%;
+    /* Refined Muted Tones */
+    --muted: 45 15% 94%;
+    --muted-foreground: 222 20% 45%;    /* Navy-tinted muted text */
 
-    /* Sage accent */
-    --accent: 145 30% 92%;
-    --accent-foreground: 145 35% 35%;
+    /* Sage accent - refined */
+    --accent: 145 25% 93%;
+    --accent-foreground: 145 35% 30%;
 
     --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Warm borders */
-    --border: 40 30% 88%;
-    --input: 45 30% 95%;
-    --ring: 40 95% 52%;
+    /* Refined borders */
+    --border: 45 20% 88%;
+    --input: 45 20% 95%;
+    --ring: 43 65% 52%;
+
+    /* Mission/Trust Color - Deep Forest Green */
+    --mission: 121 37% 27%;             /* #2C5F2D */
+    --mission-foreground: 0 0% 100%;
 
     /* Warm Earth Brown (for accents) */
     --earth: 25 55% 35%;
-    --earth-foreground: 45 40% 98%;
+    --earth-foreground: 45 20% 98%;
 
     /* Soft Mint (for highlights) */
     --mint: 150 40% 88%;
     --mint-foreground: 145 35% 30%;
 
-    /* Gradients - Warm & Natural */
-    --gradient-primary: linear-gradient(135deg, hsl(40 95% 52%), hsl(45 100% 60%));
-    --gradient-secondary: linear-gradient(135deg, hsl(145 35% 45%), hsl(150 40% 55%));
-    --gradient-sunset: linear-gradient(135deg, hsl(40 95% 52%) 0%, hsl(25 90% 50%) 50%, hsl(45 100% 60%) 100%);
-    --gradient-sage: linear-gradient(180deg, hsl(145 30% 92%), hsl(150 25% 96%));
-    --gradient-warm: linear-gradient(180deg, hsl(45 40% 98%), hsl(40 35% 95%));
+    /* Gradients - Premium Metallic */
+    --gradient-primary: linear-gradient(135deg, hsl(43 65% 52%), hsl(45 70% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(213 55% 25%), hsl(213 55% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 11%) 0%, hsl(215 50% 15%) 50%, hsl(222 47% 11%) 100%);
+    --gradient-sunset: linear-gradient(135deg, hsl(43 65% 52%) 0%, hsl(35 70% 50%) 50%, hsl(45 70% 60%) 100%);
+    --gradient-sage: linear-gradient(180deg, hsl(145 25% 93%), hsl(150 20% 96%));
+    --gradient-warm: linear-gradient(180deg, hsl(45 20% 98%), hsl(45 15% 95%));
 
-    /* Natural Shadows */
-    --shadow-golden: 0 10px 40px -10px hsl(40 95% 52% / 0.35);
-    --shadow-sage: 0 10px 40px -10px hsl(145 35% 45% / 0.25);
-    --shadow-soft: 0 4px 20px -4px hsl(40 50% 80% / 0.35);
+    /* Premium Shadows */
+    --shadow-golden: 0 10px 40px -10px hsl(43 65% 52% / 0.35);
+    --shadow-navy: 0 10px 40px -10px hsl(213 55% 25% / 0.25);
+    --shadow-soft: 0 10px 30px -10px hsl(222 47% 11% / 0.1);
     --shadow-warm: 0 8px 30px -8px hsl(25 55% 35% / 0.2);
 
     --radius: 1rem;
 
-    --sidebar-background: 45 35% 97%;
-    --sidebar-foreground: 30 25% 25%;
-    --sidebar-primary: 40 95% 52%;
-    --sidebar-primary-foreground: 30 25% 10%;
-    --sidebar-accent: 145 30% 92%;
-    --sidebar-accent-foreground: 30 20% 15%;
-    --sidebar-border: 40 30% 88%;
-    --sidebar-ring: 40 95% 52%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 43 65% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 145 25% 93%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 45 20% 88%;
+    --sidebar-ring: 43 65% 52%;
   }
 
   .dark {
@@ -133,26 +138,58 @@
   }
 }
 
-/* Natural Warmth Utility Classes */
+/* Modern Vedic Utility Classes */
 @layer utilities {
   .glass {
-    @apply backdrop-blur-xl bg-card/90 border border-primary/15 shadow-sm;
+    @apply backdrop-blur-xl bg-white/90 border border-primary/15 shadow-sm;
   }
   
   .glass-card {
-    @apply backdrop-blur-xl bg-card/95 border border-primary/10 shadow-lg;
+    @apply backdrop-blur-xl bg-white/95 border border-primary/10 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)];
   }
   
   .warm-glow {
-    text-shadow: 0 0 20px hsl(40 95% 52% / 0.4), 0 0 40px hsl(40 95% 52% / 0.2);
+    text-shadow: 0 0 20px hsl(43 65% 52% / 0.4), 0 0 40px hsl(43 65% 52% / 0.2);
   }
   
   .sage-border {
-    box-shadow: inset 0 0 15px hsl(145 35% 45% / 0.08), 0 0 25px hsl(145 35% 45% / 0.1);
+    box-shadow: inset 0 0 15px hsl(121 37% 27% / 0.08), 0 0 25px hsl(121 37% 27% / 0.1);
   }
   
   .golden-border {
-    box-shadow: inset 0 0 15px hsl(40 95% 52% / 0.1), 0 0 25px hsl(40 95% 52% / 0.12);
+    box-shadow: inset 0 0 15px hsl(43 65% 52% / 0.1), 0 0 25px hsl(43 65% 52% / 0.12);
+  }
+  
+  /* Premium Card Styles */
+  .premium-card {
+    @apply relative bg-white rounded-2xl overflow-hidden border-0;
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+  }
+  
+  .premium-card-accent {
+    @apply absolute left-0 top-0 bottom-0 w-1 bg-primary;
+  }
+  
+  /* Certificate/Official Notice Style */
+  .certificate-border {
+    border: 3px double hsl(43 65% 52% / 0.4);
+    box-shadow: inset 0 0 0 1px hsl(43 65% 52% / 0.2);
+  }
+  
+  /* Texture Overlays */
+  .texture-noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+  }
+  
+  .texture-mandala {
+    background-image: radial-gradient(circle at center, hsl(43 65% 52% / 0.03) 0%, transparent 50%),
+                      radial-gradient(circle at 25% 25%, hsl(43 65% 52% / 0.02) 0%, transparent 40%),
+                      radial-gradient(circle at 75% 75%, hsl(43 65% 52% / 0.02) 0%, transparent 40%);
   }
   
   .animate-pulse-glow {
@@ -168,25 +205,33 @@
     animation: gradient-shift 8s ease infinite;
   }
   
+  .animate-bob {
+    animation: bob 4s ease-in-out infinite;
+  }
+  
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out forwards;
+  }
+  
   .organic-pattern {
     background-image: 
-      radial-gradient(hsl(145 35% 45% / 0.05) 1px, transparent 1px),
-      radial-gradient(hsl(40 95% 52% / 0.04) 1px, transparent 1px);
+      radial-gradient(hsl(121 37% 27% / 0.04) 1px, transparent 1px),
+      radial-gradient(hsl(43 65% 52% / 0.03) 1px, transparent 1px);
     background-size: 40px 40px, 60px 60px;
     background-position: 0 0, 20px 30px;
   }
   
   .radial-glow {
-    background: radial-gradient(ellipse at center, hsl(40 95% 52% / 0.1) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, hsl(43 65% 52% / 0.1) 0%, transparent 70%);
   }
   
   .radial-sage {
-    background: radial-gradient(ellipse at center, hsl(145 35% 45% / 0.08) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, hsl(121 37% 27% / 0.08) 0%, transparent 70%);
   }
   
   .image-frame {
     @apply relative rounded-3xl overflow-hidden shadow-lg;
-    border: 3px solid hsl(145 35% 45% / 0.2);
+    border: 3px solid hsl(121 37% 27% / 0.2);
   }
   
   .image-frame::before {
@@ -194,19 +239,41 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: linear-gradient(135deg, hsl(40 95% 52% / 0.1), transparent 50%, hsl(145 35% 45% / 0.08));
+    background: linear-gradient(135deg, hsl(43 65% 52% / 0.1), transparent 50%, hsl(121 37% 27% / 0.08));
     pointer-events: none;
+  }
+  
+  /* Button Shimmer Effect */
+  .btn-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.3),
+      transparent
+    );
+    animation: shimmer-pass 5s infinite;
   }
 }
 
 @keyframes pulse-glow {
   0%, 100% {
     opacity: 1;
-    filter: drop-shadow(0 0 15px hsl(40 95% 52% / 0.3));
+    filter: drop-shadow(0 0 15px hsl(43 65% 52% / 0.3));
   }
   50% {
     opacity: 0.95;
-    filter: drop-shadow(0 0 25px hsl(40 95% 52% / 0.5));
+    filter: drop-shadow(0 0 25px hsl(43 65% 52% / 0.5));
   }
 }
 
@@ -219,6 +286,27 @@
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fade-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes shimmer-pass {
+  0%, 80%, 100% { left: -100%; }
+  85%, 95% { left: 100%; }
 }
 
 /* Promotional Badge Animations */
@@ -237,11 +325,11 @@
 @keyframes flash-scale {
   0%, 100% { 
     transform: scale(1);
-    box-shadow: 0 0 20px hsl(40 95% 52% / 0.4);
+    box-shadow: 0 0 20px hsl(43 65% 52% / 0.4);
   }
   50% { 
     transform: scale(1.02);
-    box-shadow: 0 0 40px hsl(40 95% 52% / 0.7);
+    box-shadow: 0 0 40px hsl(43 65% 52% / 0.7);
   }
 }
 
@@ -281,11 +369,11 @@
 .animate-shimmer {
   background: linear-gradient(
     90deg,
-    hsl(40 95% 52%) 0%,
-    hsl(45 100% 70%) 25%,
-    hsl(40 95% 52%) 50%,
-    hsl(45 100% 70%) 75%,
-    hsl(40 95% 52%) 100%
+    hsl(43 65% 52%) 0%,
+    hsl(45 70% 60%) 25%,
+    hsl(43 65% 52%) 50%,
+    hsl(45 70% 60%) 75%,
+    hsl(43 65% 52%) 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -312,15 +400,15 @@
   inset: -8px;
   background: conic-gradient(
     from 0deg,
-    hsl(40 95% 52% / 0.8),
-    hsl(45 100% 60% / 0.3),
-    hsl(40 95% 52% / 0.8),
-    hsl(45 100% 60% / 0.3),
-    hsl(40 95% 52% / 0.8),
-    hsl(45 100% 60% / 0.3),
-    hsl(40 95% 52% / 0.8),
-    hsl(45 100% 60% / 0.3),
-    hsl(40 95% 52% / 0.8)
+    hsl(43 65% 52% / 0.8),
+    hsl(45 70% 60% / 0.3),
+    hsl(43 65% 52% / 0.8),
+    hsl(45 70% 60% / 0.3),
+    hsl(43 65% 52% / 0.8),
+    hsl(45 70% 60% / 0.3),
+    hsl(43 65% 52% / 0.8),
+    hsl(45 70% 60% / 0.3),
+    hsl(43 65% 52% / 0.8)
   );
   border-radius: 50%;
   animation: spin-slow 8s linear infinite;
@@ -328,7 +416,7 @@
 }
 
 .urgency-banner {
-  background: linear-gradient(135deg, hsl(40 95% 52%), hsl(25 90% 50%), hsl(45 100% 60%));
+  background: linear-gradient(135deg, hsl(43 65% 52%), hsl(35 70% 50%), hsl(45 70% 60%));
   background-size: 200% 200%;
   animation: gradient-shift 3s ease infinite, flash-scale 2s ease-in-out infinite;
 }
