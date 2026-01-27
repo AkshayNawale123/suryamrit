@@ -328,7 +328,7 @@ const WhereToBuy = () => {
                   <p>
                     This is a <span className="text-primary font-bold">₹399 Premium Ghee Softgel</span>. You only pay
                     <span className="text-primary font-bold"> ₹99</span> because
-                    <span className="text-secondary font-semibold"> Lokarth Foundation</span> is investing the other
+                    <a href="https://lokarth.in/" target="_blank" rel="noopener noreferrer" className="text-secondary font-semibold hover:underline"> Lokarth Foundation</a> is investing the other
                     <span className="text-secondary font-bold"> ₹300</span> on your behalf to make India Vitamin D
                     Efficient.
                   </p>
