@@ -40,10 +40,26 @@ import honestAbsorptionImage from "@/assets/honest-absorption-promise.jpg";
 import sunlightInsideImage from "@/assets/sunlight-inside-promise.jpg";
 import lokarthLogo from "@/assets/lokarth-logo.png";
 
+// Valid Pune & PCMC pincodes for delivery
+const PUNE_PCMC_PINCODES = [
+  // Pune City
+  "411001", "411002", "411003", "411004", "411005", "411006", "411007", "411008", "411009",
+  "411011", "411012", "411013", "411014", "411015", "411016", "411017", "411018", "411019",
+  "411020", "411021", "411022", "411023", "411024", "411025", "411026", "411027", "411028",
+  "411029", "411030", "411031", "411032", "411033", "411034", "411035", "411036", "411037",
+  "411038", "411039", "411040", "411041", "411042", "411043", "411044", "411045", "411046",
+  "411047", "411048", "411051", "411052", "411057", "411058", "411060", "411061", "411062",
+  // PCMC (Pimpri-Chinchwad)
+  "411017", "411018", "411019", "411033", "411044", "411057", "411062",
+  "412101", "412105", "412114", "412115",
+];
+
 const WhereToBuy = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [addingTrial, setAddingTrial] = useState(false);
+  const [pincode, setPincode] = useState("");
+  const [pincodeStatus, setPincodeStatus] = useState<"idle" | "checking" | "available" | "unavailable">("idle");
   const { toast } = useToast();
   const addItem = useCartStore((state) => state.addItem);
 
@@ -163,10 +179,11 @@ const WhereToBuy = () => {
     setFormData({ name: "", email: "", phone: "", message: "", consultationType: "" });
   };
 
-  const openWhatsApp = (type: "support" | "consultation") => {
+  const openWhatsApp = (type: "support" | "consultation" | "waitlist") => {
     const messages = {
       support: "Hello! I need help with SuryAmrit product inquiry.",
       consultation: "Hello! I would like to book a consultation with your health expert.",
+      waitlist: "Hello! I would like to join the waitlist for SuryAmrit delivery in my city.",
     };
     const encodedMessage = encodeURIComponent(messages[type]);
     window.open(`https://wa.me/918001234567?text=${encodedMessage}`, "_blank");
@@ -770,6 +787,66 @@ const WhereToBuy = () => {
                     <p className="text-white/90 text-sm mb-4">
                       As a Pilot City resident, you are eligible for the <span className="font-semibold">Lokarth Subsidy</span> and <span className="font-semibold">Priority Delivery</span>.
                     </p>
+                    
+                    {/* Pincode Checker */}
+                    <div className="mb-4">
+                      <label className="text-white/80 text-xs font-medium mb-1.5 block">Check Delivery Availability</label>
+                      <div className="flex gap-2">
+                        <Input
+                          type="text"
+                          placeholder="Enter pincode"
+                          value={pincode}
+                          onChange={(e) => {
+                            const value = e.target.value.replace(/\D/g, "").slice(0, 6);
+                            setPincode(value);
+                            if (value.length < 6) setPincodeStatus("idle");
+                          }}
+                          className="bg-white/20 border-white/30 text-white placeholder:text-white/50 h-9 text-sm"
+                          maxLength={6}
+                        />
+                        <Button
+                          variant="secondary"
+                          size="sm"
+                          className="h-9 px-3"
+                          onClick={() => {
+                            if (pincode.length !== 6) {
+                              sonnerToast.error("Invalid pincode", {
+                                description: "Please enter a valid 6-digit pincode.",
+                                position: "top-center",
+                              });
+                              return;
+                            }
+                            setPincodeStatus("checking");
+                            setTimeout(() => {
+                              const isAvailable = PUNE_PCMC_PINCODES.includes(pincode);
+                              setPincodeStatus(isAvailable ? "available" : "unavailable");
+                            }, 500);
+                          }}
+                          disabled={pincodeStatus === "checking" || pincode.length !== 6}
+                        >
+                          {pincodeStatus === "checking" ? (
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                          ) : (
+                            "Check"
+                          )}
+                        </Button>
+                      </div>
+                      
+                      {/* Pincode Status Feedback */}
+                      {pincodeStatus === "available" && (
+                        <div className="flex items-center gap-2 mt-2 bg-white/20 rounded-lg px-3 py-2 animate-fade-in">
+                          <CheckCircle className="h-4 w-4 text-white" />
+                          <span className="text-sm font-medium">🎉 Delivery available! Free shipping to {pincode}</span>
+                        </div>
+                      )}
+                      {pincodeStatus === "unavailable" && (
+                        <div className="flex items-center gap-2 mt-2 bg-white/10 rounded-lg px-3 py-2 animate-fade-in">
+                          <MapPin className="h-4 w-4 text-white/70" />
+                          <span className="text-sm text-white/80">Not in Phase 1 area. <button className="underline font-medium" onClick={() => openWhatsApp('waitlist')}>Join waitlist</button></span>
+                        </div>
+                      )}
+                    </div>
+
                     <div className="flex items-center gap-2 mb-4 bg-white/15 rounded-lg px-3 py-2">
                       <CheckCircle className="h-4 w-4 text-white" />
                       <span className="text-sm font-medium">Free Delivery across Pune & PCMC</span>
