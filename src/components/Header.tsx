@@ -12,11 +12,11 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigationLinks = [
-    { path: '/buy', label: 'Shop' },
-    { path: '/product#science', label: 'Science' },
-    { path: '/endorsements', label: 'Reviews' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/faq', label: 'FAQ' }
+    { path: "/buy", label: "Shop" },
+    { path: "/product#science", label: "Why Ghee?" },
+    { path: "/endorsements", label: "Reviews" },
+    { path: "/blog", label: "Blog" },
+    { path: "/faq", label: "FAQ" },
   ];
 
   return (
@@ -26,9 +26,9 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img 
-              src={suryamritLogo} 
-              alt="Ayurbramh SuryAmrit - Natural Daily D3 with Ghee" 
+            <img
+              src={suryamritLogo}
+              alt="Ayurbramh SuryAmrit - Natural Daily D3 with Ghee"
               className="h-12 md:h-14 w-auto object-contain"
             />
           </Link>
@@ -40,9 +40,9 @@ const Header = () => {
                 key={link.path}
                 to={link.path}
                 className={`font-medium transition-colors ${
-                  location.pathname === link.path.split('#')[0]
-                    ? 'text-primary' 
-                    : 'text-muted-foreground hover:text-primary'
+                  location.pathname === link.path.split("#")[0]
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
                 }`}
               >
                 {link.label}
@@ -61,7 +61,10 @@ const Header = () => {
               <Search className="h-4 w-4" />
             </Button>
             <CartDrawer />
-            <Button asChild className="bg-gradient-primary hover:shadow-golden transition-all duration-300 px-6 font-semibold">
+            <Button
+              asChild
+              className="bg-gradient-primary hover:shadow-golden transition-all duration-300 px-6 font-semibold"
+            >
               <Link to="/buy">Order Now</Link>
             </Button>
           </div>
@@ -77,11 +80,7 @@ const Header = () => {
               <Search className="h-4 w-4" />
             </Button>
             <CartDrawer />
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
+            <Button variant="ghost" size="sm" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               {isMobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </Button>
           </div>
@@ -97,9 +96,9 @@ const Header = () => {
                   to={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`font-medium transition-colors ${
-                    location.pathname === link.path.split('#')[0]
-                      ? 'text-primary' 
-                      : 'text-muted-foreground hover:text-primary'
+                    location.pathname === link.path.split("#")[0]
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-primary"
                   }`}
                 >
                   {link.label}
@@ -116,10 +115,7 @@ const Header = () => {
       </div>
 
       {/* Search Component */}
-      <SearchComponent 
-        isOpen={isSearchOpen} 
-        onClose={() => setIsSearchOpen(false)} 
-      />
+      <SearchComponent isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </header>
   );
 };
