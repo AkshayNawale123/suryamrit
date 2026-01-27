@@ -5,6 +5,7 @@ import { useState } from "react";
 import SearchComponent from "./SearchComponent";
 import { CartDrawer } from "./CartDrawer";
 import suryamritLogo from "@/assets/suryamrit-logo.png";
+import LokarthBadge from "./LokarthBadge";
 
 const Header = () => {
   const location = useLocation();
@@ -24,14 +25,19 @@ const Header = () => {
       {/* Main header */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img
-              src={suryamritLogo}
-              alt="Ayurbramh SuryAmrit - Natural Daily D3 with Ghee"
-              className="h-12 md:h-14 w-auto object-contain"
-            />
-          </Link>
+          {/* Logo + Lokarth Badge */}
+          <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center">
+              <img
+                src={suryamritLogo}
+                alt="Ayurbramh SuryAmrit - Natural Daily D3 with Ghee"
+                className="h-12 md:h-14 w-auto object-contain"
+              />
+            </Link>
+            <div className="hidden md:block">
+              <LokarthBadge size="sm" variant="header" />
+            </div>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">

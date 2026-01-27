@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube, Heart } from "lucide-react";
 import suryamritLogo from "@/assets/suryamrit-logo.png";
+import lokarthLogo from "@/assets/lokarth-logo.png";
 
 const Footer = () => {
   return (
@@ -66,27 +67,34 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Our Benefactor - Lokarth Foundation */}
           <div>
-            <h4 className="text-xl font-bold mb-6">Contact Us</h4>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-primary-glow" />
-                <span className="text-white/80">1800-XXX-XXXX</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-primary-glow" />
-                <span className="text-white/80">info@ayurbramh.com</span>
-              </div>
-              <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-primary-glow mt-1" />
-                <span className="text-white/80">Available across India<br />PAN India Distribution</span>
+            <h4 className="text-xl font-bold mb-6">Our Benefactor</h4>
+            <div className="bg-white/10 rounded-2xl p-4 border border-white/20 backdrop-blur-sm">
+              <img 
+                src={lokarthLogo} 
+                alt="Lokarth Foundation" 
+                className="h-12 w-auto object-contain mb-3"
+              />
+              <p className="text-sm text-white/80 mb-2">
+                Eradicating 'Silent Hunger' from India, one family at a time.
+              </p>
+              <div className="flex items-center gap-2 text-primary-glow text-xs font-medium">
+                <Heart className="h-3 w-3" />
+                <span>Serve Together. Change Forever.</span>
               </div>
             </div>
-
-            <Button asChild className="mt-6 bg-gradient-to-r from-primary to-primary-glow text-primary-foreground hover:shadow-golden transition-all duration-300 rounded-xl">
-              <Link to="/buy">Order Now - Free Delivery</Link>
-            </Button>
+            
+            <div className="mt-4 space-y-3">
+              <div className="flex items-center space-x-3">
+                <Phone className="h-4 w-4 text-primary-glow" />
+                <span className="text-white/80 text-sm">1800-XXX-XXXX</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="h-4 w-4 text-primary-glow" />
+                <span className="text-white/80 text-sm">info@ayurbramh.com</span>
+              </div>
+            </div>
           </div>
         </div>
 

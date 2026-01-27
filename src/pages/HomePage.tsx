@@ -12,6 +12,7 @@ import D3DeficiencyMap from '@/components/D3DeficiencyMap';
 import sacredCowImage from '@/assets/sacred-cow-sunrise.png';
 import vitaminDNatureImage from '@/assets/vitamin-d-nature.jpg';
 import healthAnatomyImage from '@/assets/health-anatomy.jpg';
+import lokarthLogo from '@/assets/lokarth-logo.png';
 
 const HomePage = () => {
   return (
@@ -103,7 +104,7 @@ const HomePage = () => {
                 className="group flex items-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-primary via-primary to-amber-500 text-primary-foreground font-bold text-lg shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer border-2 border-primary-foreground/20"
               >
                 <ShoppingCart className="h-6 w-6" />
-                <span>Start Your Citizen Trial</span>
+                <span>Claim Your Lokarth Allocation</span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform" />
               </Link>
 
@@ -130,10 +131,10 @@ const HomePage = () => {
                       ₹99
                     </div>
                     <div className="text-xs font-semibold text-secondary mt-1">
-                      Citizen Trial
+                      Lokarth Allocation
                     </div>
                     <div className="text-[10px] text-muted-foreground mt-1">
-                      You save ₹300
+                      ₹300 Funded by Lokarth
                     </div>
                   </div>
                 </div>
@@ -145,7 +146,7 @@ const HomePage = () => {
 
               {/* Mission Note */}
               <p className="text-center text-muted-foreground text-sm max-w-[220px] leading-relaxed">
-                <span className="font-medium text-secondary">Mission Subsidy:</span> We absorb the cost so you can feel the difference
+                <span className="font-medium text-secondary">Funded by Lokarth Foundation:</span> Elite nutrition, accessible pricing
               </p>
             </div>
           </div>
@@ -320,6 +321,93 @@ const HomePage = () => {
                   <span className="font-medium text-foreground">{item.text}</span>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY ₹99? THE LOKARTH VISION */}
+      <section className="py-20 relative bg-gradient-to-b from-background via-secondary/5 to-background overflow-hidden">
+        <div className="absolute inset-0 organic-pattern opacity-20" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl -translate-y-1/2" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-secondary/15 text-secondary border-secondary/30">
+                <Heart className="w-4 h-4 mr-2" />
+                The Lokarth Vision
+              </Badge>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                Why ₹99?
+              </h2>
+              <p className="text-xl md:text-2xl font-serif italic text-muted-foreground">
+                "We didn't cut costs. We cut barriers."
+              </p>
+            </div>
+            
+            {/* Content Card */}
+            <Card className="border-2 border-secondary/20 shadow-soft overflow-hidden">
+              <CardContent className="p-8 md:p-12 space-y-8">
+                {/* The Story */}
+                <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+                  <p>
+                    <span className="text-foreground font-semibold">Lokarth's Mission</span> is to eradicate 
+                    <span className="text-secondary font-bold"> 'Silent Hunger' </span> 
+                    (Micronutrient Deficiency) from India. We believe 
+                    <span className="text-primary font-semibold"> elite nutrition shouldn't be a luxury</span>.
+                  </p>
+                  <p>
+                    <span className="text-foreground font-semibold">Our Investment:</span> We have invested in the R&D and Logistics 
+                    so that every Indian family can access <span className="text-primary font-bold">Gold-Standard Ghee D₃</span> without 
+                    breaking the bank.
+                  </p>
+                </div>
+                
+                {/* Price Breakdown Visualization */}
+                <div className="bg-muted/50 rounded-xl p-6 border border-primary/10">
+                  <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-base">
+                    <div className="flex flex-col items-center px-5 py-3 bg-card rounded-xl border border-border">
+                      <span className="text-muted-foreground text-xs">MRP (Market Value)</span>
+                      <span className="text-xl font-bold text-muted-foreground line-through">₹399</span>
+                    </div>
+                    <ArrowRight className="h-6 w-6 text-primary hidden md:block" />
+                    <span className="text-primary text-2xl md:hidden">→</span>
+                    <div className="flex flex-col items-center px-5 py-3 bg-secondary/10 rounded-xl border border-secondary/30">
+                      <span className="text-secondary text-xs font-medium">Lokarth Health Subsidy</span>
+                      <span className="text-xl font-bold text-secondary">-₹300</span>
+                    </div>
+                    <ArrowRight className="h-6 w-6 text-primary hidden md:block" />
+                    <span className="text-primary text-2xl md:hidden">→</span>
+                    <div className="flex flex-col items-center px-5 py-3 bg-primary/10 rounded-xl border-2 border-primary/40">
+                      <span className="text-primary text-xs font-medium">Citizen Contribution</span>
+                      <span className="text-3xl font-bold text-primary">₹99</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Lokarth Logo + Tagline */}
+                <div className="flex flex-col items-center pt-6 border-t border-border">
+                  <img 
+                    src={lokarthLogo} 
+                    alt="Lokarth Foundation" 
+                    className="h-16 md:h-20 w-auto object-contain mb-4"
+                  />
+                  <p className="text-secondary font-serif italic text-lg">
+                    "Serve Together. Change Forever."
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+            
+            {/* CTA */}
+            <div className="text-center mt-10">
+              <Button asChild size="lg" className="bg-gradient-to-r from-secondary to-secondary/90 hover:shadow-[0_10px_40px_-10px_hsl(145_35%_45%_/_0.4)] text-secondary-foreground rounded-xl px-8 py-6 text-lg">
+                <Link to="/buy">
+                  Claim Your Allocation <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
