@@ -1,11 +1,11 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Star, Quote, Award, Users, Heart, CheckCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Star, Quote, Award, Users, Heart, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const Endorsements = () => {
   const expertEndorsements = [
@@ -14,37 +14,41 @@ const Endorsements = () => {
       title: "MBBS, MD (Endocrinology)",
       hospital: "AIIMS, New Delhi",
       image: "👩‍⚕️",
-      quote: "SuryAmrit™ represents a breakthrough in Vitamin D supplementation for Indian families. The lichen-based D3 in a ghee matrix ensures optimal absorption while respecting our vegetarian traditions.",
+      quote:
+        "SuryAmrit™ represents a breakthrough in Vitamin D supplementation for Indian families. The lichen-based D3 in a ghee matrix ensures optimal absorption while respecting our vegetarian traditions.",
       rating: 5,
-      specialty: "Endocrinologist"
+      specialty: "Endocrinologist",
     },
     {
       name: "Dr. Rajesh Kumar",
       title: "MD (Pediatrics), DCH",
       hospital: "Rainbow Children's Hospital",
       image: "👨‍⚕️",
-      quote: "I've been recommending SuryAmrit™ to my pediatric patients for over 2 years. The soft, chewable format makes it easy for children, and parents love that it's 100% natural.",
+      quote:
+        "I've been recommending SuryAmrit™ to my pediatric patients for over 2 years. The soft, chewable format makes it easy for children, and parents love that it's 100% natural.",
       rating: 5,
-      specialty: "Pediatrician"
+      specialty: "Pediatrician",
     },
     {
       name: "Dr. Meera Patel",
       title: "BHMS, MD (Homeopathy)",
       hospital: "Homeopathic Medical College",
       image: "👩‍⚕️",
-      quote: "As a homeopathic practitioner, I appreciate SuryAmrit's natural approach. The Ayurvedic principles combined with modern science make it perfect for holistic health management.",
+      quote:
+        "As a homeopathic practitioner, I appreciate SuryAmrit's natural approach. The Ayurvedic principles combined with modern science make it perfect for holistic health management.",
       rating: 5,
-      specialty: "Homeopath"
+      specialty: "Homeopath",
     },
     {
       name: "Dr. Arjun Singh",
       title: "MBBS, MS (Orthopedics)",
       hospital: "Fortis Hospital, Mumbai",
       image: "👨‍⚕️",
-      quote: "I've seen remarkable improvement in bone density among patients using SuryAmrit™. It's particularly effective for preventing osteoporosis in middle-aged adults.",
+      quote:
+        "I've seen remarkable improvement in bone density among patients using SuryAmrit™. It's particularly effective for preventing osteoporosis in middle-aged adults.",
       rating: 5,
-      specialty: "Orthopedic Surgeon"
-    }
+      specialty: "Orthopedic Surgeon",
+    },
   ];
 
   const customerStories = [
@@ -53,89 +57,89 @@ const Endorsements = () => {
       age: 42,
       location: "Delhi",
       image: "👩",
-      story: "After 6 months of using SuryAmrit™, my vitamin D levels increased from 8 ng/ml to 32 ng/ml. My energy levels are much better, and my joint pain has significantly reduced.",
+      story:
+        "After 6 months of using SuryAmrit™, my vitamin D levels increased from 8 ng/ml to 32 ng/ml. My energy levels are much better, and my joint pain has significantly reduced.",
       beforeAfter: { before: "8 ng/ml", after: "32 ng/ml" },
-      duration: "6 months"
+      duration: "6 months",
     },
     {
       name: "Rakesh Malhotra",
       age: 38,
       location: "Bangalore",
       image: "👨",
-      story: "As a software engineer working from home, I had severe vitamin D deficiency. SuryAmrit™ helped me get back to normal levels without any side effects.",
+      story:
+        "As a software engineer working from home, I had severe vitamin D deficiency. SuryAmrit™ helped me get back to normal levels without any side effects.",
       beforeAfter: { before: "12 ng/ml", after: "28 ng/ml" },
-      duration: "4 months"
+      duration: "4 months",
     },
     {
       name: "Priya & Family",
       age: 35,
       location: "Mumbai",
       image: "👪",
-      story: "Our entire family takes SuryAmrit™. My kids love the taste, and we've all stayed healthier this winter. No more frequent colds and infections!",
+      story:
+        "Our entire family takes SuryAmrit™. My kids love the taste, and we've all stayed healthier this winter. No more frequent colds and infections!",
       beforeAfter: { before: "Frequent illness", after: "Strong immunity" },
-      duration: "8 months"
-    }
+      duration: "8 months",
+    },
   ];
 
   const certifications = [
     {
       name: "ISO 22000:2018",
       description: "Food Safety Management",
-      icon: "🏆"
+      icon: "🏆",
     },
     {
       name: "GMP Certified",
       description: "Good Manufacturing Practice",
-      icon: "✅"
+      icon: "✅",
     },
     {
       name: "FSSAI Approved",
       description: "Food Safety Standards Authority",
-      icon: "🛡️"
+      icon: "🛡️",
     },
     {
       name: "Third-Party Tested",
       description: "Independent Quality Verification",
-      icon: "🔬"
-    }
+      icon: "🔬",
+    },
   ];
 
   const awards = [
     {
       title: "Best Vitamin D Supplement 2023",
       organization: "Health & Nutrition Awards",
-      year: "2023"
+      year: "2023",
     },
     {
       title: "Innovation in Natural Health",
       organization: "Indian Nutraceutical Association",
-      year: "2023"
+      year: "2023",
     },
     {
       title: "Customer Choice Award",
       organization: "Online Health Platform",
-      year: "2022"
-    }
+      year: "2022",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="py-20 bg-gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-white/20 text-white border-white/30">
-              Trusted by Experts
-            </Badge>
+            <Badge className="mb-6 bg-white/20 text-white border-white/30">Trusted by Experts</Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              What Health Experts &
-              <span className="block text-primary-glow">Customers Say</span>
+              What Health Experts &<span className="block text-primary-glow">Customers Say</span>
             </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Don't just take our word for it. See what leading healthcare professionals 
-              and satisfied customers say about SuryAmrit™.
+            <p className="text-xl text-muted-foreground/90 max-w-3xl mx-auto">
+              Don't just take our word for it. See what leading healthcare professionals and satisfied customers say
+              about SuryAmrit™.
             </p>
           </div>
         </div>
@@ -180,7 +184,10 @@ const Endorsements = () => {
 
             <div className="grid md:grid-cols-2 gap-8">
               {expertEndorsements.map((expert, index) => (
-                <Card key={index} className="border-primary/20 shadow-soft hover:shadow-golden transition-all duration-300">
+                <Card
+                  key={index}
+                  className="border-primary/20 shadow-soft hover:shadow-golden transition-all duration-300"
+                >
                   <CardHeader>
                     <div className="flex items-start gap-4">
                       <div className="text-4xl">{expert.image}</div>
@@ -204,9 +211,7 @@ const Endorsements = () => {
                   <CardContent>
                     <div className="relative">
                       <Quote className="h-8 w-8 text-primary/20 absolute -top-2 -left-2" />
-                      <p className="text-muted-foreground italic pl-6">
-                        "{expert.quote}"
-                      </p>
+                      <p className="text-muted-foreground italic pl-6">"{expert.quote}"</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -221,9 +226,7 @@ const Endorsements = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Real Stories, Real Results
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Real Stories, Real Results</h2>
               <p className="text-lg text-muted-foreground">
                 See how SuryAmrit™ has transformed the health of families across India
               </p>
@@ -240,10 +243,8 @@ const Endorsements = () => {
                     </p>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <p className="text-muted-foreground text-sm italic">
-                      "{story.story}"
-                    </p>
-                    
+                    <p className="text-muted-foreground text-sm italic">"{story.story}"</p>
+
                     <div className="bg-gradient-subtle rounded-lg p-4">
                       <h4 className="font-semibold text-foreground mb-2">Results in {story.duration}:</h4>
                       <div className="flex justify-between items-center">
@@ -271,9 +272,7 @@ const Endorsements = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Certified Quality & Recognition
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Certified Quality & Recognition</h2>
               <p className="text-lg text-muted-foreground">
                 Our commitment to quality is recognized by leading industry bodies
               </p>
@@ -282,9 +281,7 @@ const Endorsements = () => {
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Certifications */}
               <div>
-                <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
-                  Quality Certifications
-                </h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Quality Certifications</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   {certifications.map((cert, index) => (
                     <Card key={index} className="text-center border-primary/20 shadow-soft">
@@ -300,9 +297,7 @@ const Endorsements = () => {
 
               {/* Awards */}
               <div>
-                <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
-                  Awards & Recognition
-                </h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Awards & Recognition</h3>
                 <div className="space-y-4">
                   {awards.map((award, index) => (
                     <Card key={index} className="border-primary/20 shadow-soft">
@@ -314,9 +309,7 @@ const Endorsements = () => {
                           <div className="flex-1">
                             <h4 className="font-semibold text-foreground">{award.title}</h4>
                             <p className="text-sm text-muted-foreground">{award.organization}</p>
-                            <Badge className="mt-1 bg-primary/10 text-primary border-primary/20">
-                              {award.year}
-                            </Badge>
+                            <Badge className="mt-1 bg-primary/10 text-primary border-primary/20">{award.year}</Badge>
                           </div>
                         </div>
                       </CardContent>
@@ -344,14 +337,12 @@ const Endorsements = () => {
               Join Thousands of Satisfied Customers
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Experience the difference that quality, natural Vitamin D₃ supplementation 
-              can make in your life. Start your health journey today.
+              Experience the difference that quality, natural Vitamin D₃ supplementation can make in your life. Start
+              your health journey today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="shadow-golden">
-                <Link to="/product">
-                  Learn About SuryAmrit™
-                </Link>
+                <Link to="/product">Learn About SuryAmrit™</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link to="/buy">Where to Buy</Link>
