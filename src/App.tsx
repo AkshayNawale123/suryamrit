@@ -10,6 +10,7 @@ import WhereToBuy from "./pages/WhereToBuy";
 import Endorsements from "./pages/Endorsements";
 import Blog from "./pages/Blog";
 import FAQ from "./pages/FAQ";
+import Partners from "./pages/Partners";
 import NotFound from "./pages/NotFound";
 import StickyOrderButton from "./components/StickyOrderButton";
 import ScrollToTop from "./components/ScrollToTop";
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/endorsements" element={<Endorsements />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/partners" element={<Partners />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
