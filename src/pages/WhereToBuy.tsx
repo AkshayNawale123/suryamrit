@@ -328,7 +328,16 @@ const WhereToBuy = () => {
                   <p>
                     This is a <span className="text-primary font-bold">₹399 Premium Ghee Softgel</span>. You only pay
                     <span className="text-primary font-bold"> ₹99</span> because
-                    <a href="https://lokarth.in/" target="_blank" rel="noopener noreferrer" className="text-secondary font-semibold hover:underline"> Lokarth Foundation</a> is investing the other
+                    <a
+                      href="https://lokarth.in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-secondary font-semibold hover:underline"
+                    >
+                      {" "}
+                      Lokarth Foundation
+                    </a>{" "}
+                    is investing the other
                     <span className="text-secondary font-bold"> ₹300</span> on your behalf to make India Vitamin D
                     Efficient.
                   </p>
@@ -369,7 +378,17 @@ const WhereToBuy = () => {
                   </p>
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full text-sm">
                     <Heart className="h-4 w-4 text-secondary" />
-                    <span className="text-secondary font-semibold">Lokarth Health Initiative</span>
+                    <span className="text-secondary font-semibold">
+                      <a
+                        href="https://lokarth.in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-secondary font-semibold hover:underline"
+                      >
+                        {" "}
+                        Lokarth Health Initiative
+                      </a>
+                    </span>
                   </div>
                 </div>
               </CardContent>
