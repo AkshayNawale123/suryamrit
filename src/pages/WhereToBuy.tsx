@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Truck, Shield, Clock, MapPin, Phone, Loader2, Mail, MessageCircle, Users, Award, ShoppingCart, Sun, ArrowRight, Heart } from 'lucide-react';
+import { Truck, Shield, Clock, MapPin, Phone, Loader2, Mail, MessageCircle, Users, Award, ShoppingCart, Sun, ArrowRight, Heart, Sparkles, Leaf, CheckCircle } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ProductCard } from '@/components/ProductCard';
@@ -15,6 +15,12 @@ import { useToast } from '@/hooks/use-toast';
 import { useCartStore } from '@/stores/cartStore';
 import { CartItem } from '@/lib/shopify';
 import { toast as sonnerToast } from 'sonner';
+
+// 30-Day Promise Images
+import goldenStandardImage from '@/assets/golden-standard-promise.jpg';
+import honestAbsorptionImage from '@/assets/honest-absorption-promise.jpg';
+import sunlightInsideImage from '@/assets/sunlight-inside-promise.jpg';
+
 const WhereToBuy = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
@@ -322,6 +328,135 @@ const WhereToBuy = () => {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* 30-Day Promises Section */}
+      <section className="py-12 md:py-16 bg-gradient-to-b from-background to-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            {/* Section Header */}
+            <div className="text-center mb-10">
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+                <Sparkles className="h-3 w-3 mr-1" />
+                Risk-Free Experience
+              </Badge>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-3">
+                Our 30-Day Promises
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                We stand behind every golden sphere. Experience the difference risk-free.
+              </p>
+            </div>
+
+            {/* Promise Cards Grid */}
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              
+              {/* Promise 1: The Golden Standard */}
+              <Card className="border-2 border-primary/20 shadow-golden overflow-hidden group hover:shadow-xl transition-all duration-300">
+                <div className="aspect-square overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800">
+                  <img 
+                    src={goldenStandardImage} 
+                    alt="Glowing golden spherical pill against dark background with sun and ghee iconography"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
+                      <Sun className="h-4 w-4 text-white" />
+                    </div>
+                    <Badge variant="outline" className="border-primary/30 text-primary text-xs">
+                      Logic & Education
+                    </Badge>
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-foreground">
+                    "30 Days to Fall in Love with the Habit"
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Most Vitamin D is dry and forgotten. SuryAmrit is designed to be absorbed. We promise that our <span className="text-primary font-semibold">Golden Ghee Matrix</span> will be the easiest, tastiest, and most digestible D3 you have ever taken. If you don't love the 'Honest Chew' experience by Day 30, we will refund you—no questions asked.
+                  </p>
+                  <div className="flex items-center gap-2 pt-2 text-sm text-secondary">
+                    <CheckCircle className="h-4 w-4" />
+                    <span className="font-medium">The Golden Standard Guarantee</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Promise 2: The Honest Absorption */}
+              <Card className="border-2 border-secondary/20 shadow-sage overflow-hidden group hover:shadow-xl transition-all duration-300">
+                <div className="aspect-square overflow-hidden bg-gradient-to-br from-gray-100 to-amber-50">
+                  <img 
+                    src={honestAbsorptionImage} 
+                    alt="Split comparison of crumbling dry tablet versus pristine golden spherical pill"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 bg-gradient-secondary rounded-full flex items-center justify-center">
+                      <Shield className="h-4 w-4 text-white" />
+                    </div>
+                    <Badge variant="outline" className="border-secondary/30 text-secondary text-xs">
+                      Science & Absorption
+                    </Badge>
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-foreground">
+                    "The 'No-Burp' 30-Day Guarantee"
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Vitamin D belongs in fat, not chalk. We promise our <span className="text-secondary font-semibold">Ghee-encapsulated D3</span> provides a smooth, gut-friendly experience without the acidity or burps caused by dry tablets. Experience the difference of Bio-Mimetic Absorption risk-free for 30 days.
+                  </p>
+                  <div className="flex items-center gap-2 pt-2 text-sm text-primary">
+                    <CheckCircle className="h-4 w-4" />
+                    <span className="font-medium">Honest Absorption Promise</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Promise 3: The Sunlight Inside */}
+              <Card className="border-2 border-amber-300/40 shadow-warm overflow-hidden group hover:shadow-xl transition-all duration-300">
+                <div className="aspect-square overflow-hidden bg-gradient-to-br from-amber-100 to-amber-50">
+                  <img 
+                    src={sunlightInsideImage} 
+                    alt="Golden spherical pill bathed in sunlight with organic woven fabric texture"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center">
+                      <Leaf className="h-4 w-4 text-white" />
+                    </div>
+                    <Badge variant="outline" className="border-amber-400/40 text-amber-700 text-xs">
+                      Lifestyle & Ayurveda
+                    </Badge>
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-foreground">
+                    "Your Daily Ray of Sun, Guaranteed"
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Pollution blocks the sun; we put it back in. We promise SuryAmrit fits seamlessly into your life—<span className="text-amber-700 font-semibold">no water needed, just one chew after a meal</span>. If you don't feel the ease of adding this Master Key to your daily routine within 30 days, it's on us.
+                  </p>
+                  <div className="flex items-center gap-2 pt-2 text-sm text-amber-700">
+                    <CheckCircle className="h-4 w-4" />
+                    <span className="font-medium">Sunlight Inside Promise</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+            </div>
+
+            {/* Bottom CTA */}
+            <div className="text-center mt-10">
+              <div className="inline-flex items-center gap-3 px-6 py-3 bg-primary/10 rounded-full border border-primary/20">
+                <Shield className="h-5 w-5 text-primary" />
+                <span className="text-foreground font-medium">
+                  All promises backed by our <span className="text-primary font-bold">100% Money-Back Guarantee</span>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
