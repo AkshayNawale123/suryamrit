@@ -20,6 +20,7 @@ import { toast as sonnerToast } from 'sonner';
 import goldenStandardImage from '@/assets/golden-standard-promise.jpg';
 import honestAbsorptionImage from '@/assets/honest-absorption-promise.jpg';
 import sunlightInsideImage from '@/assets/sunlight-inside-promise.jpg';
+import lokarthLogo from '@/assets/lokarth-logo.png';
 
 const WhereToBuy = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
@@ -172,12 +173,12 @@ const WhereToBuy = () => {
                   </div>
                 ) : products.length > 0 ? (
                   <div className="w-full max-w-sm relative">
-                    {/* Citizen Trial Badge - Premium Gold/White Design */}
+                    {/* Lokarth Allocation Badge - Premium Gold/White Design */}
                     <button 
                       onClick={handleTrialPackClick}
                       disabled={addingTrial}
                       className="absolute -top-3 -right-3 z-10 hover:scale-105 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-2xl"
-                      aria-label="Add Citizen Trial Pack to cart"
+                      aria-label="Add Lokarth Allocation Pack to cart"
                     >
                       <div className="relative">
                         {/* Premium glow - Gold tones */}
@@ -191,8 +192,8 @@ const WhereToBuy = () => {
                               <>₹99 <ShoppingCart className="h-4 w-4" /></>
                             )}
                           </div>
-                          <div className="text-xs font-medium text-secondary">Citizen Trial</div>
-                          <div className="text-[9px] text-muted-foreground">Save ₹300</div>
+                          <div className="text-xs font-medium text-secondary">Lokarth Allocation</div>
+                          <div className="text-[9px] text-muted-foreground">₹300 Grant Applied</div>
                         </div>
                       </div>
                     </button>
@@ -201,7 +202,7 @@ const WhereToBuy = () => {
                     <div className="absolute -left-2 top-6 z-10">
                       <div className="bg-secondary text-white px-4 py-1.5 text-sm font-bold shadow-lg" 
                            style={{ clipPath: 'polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%)' }}>
-                        ✦ LIMITED ACCESS
+                        ✦ HEALTH INITIATIVE
                       </div>
                     </div>
                     
@@ -254,19 +255,21 @@ const WhereToBuy = () => {
         </div>
       </section>
 
-      {/* Mission Subsidy Explained Section */}
+      {/* The Lokarth Health Grant Section */}
       <section className="py-10 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <Card className="border-2 border-primary/30 shadow-golden overflow-hidden">
               {/* Header */}
-              <div className="bg-gradient-to-r from-primary/10 via-amber-100/50 to-primary/10 px-6 py-4 border-b border-primary/20">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-amber-500 rounded-full flex items-center justify-center shadow-lg">
-                    <Sun className="h-5 w-5 text-white" />
-                  </div>
+              <div className="bg-gradient-to-r from-secondary/10 via-secondary/5 to-secondary/10 px-6 py-4 border-b border-secondary/20">
+                <div className="flex items-center gap-4">
+                  <img 
+                    src={lokarthLogo} 
+                    alt="Lokarth Foundation" 
+                    className="h-10 w-auto object-contain"
+                  />
                   <h3 className="text-xl md:text-2xl font-serif font-bold text-foreground">
-                    Our Mission Subsidy
+                    The Lokarth Health Grant
                   </h3>
                 </div>
               </div>
@@ -282,15 +285,14 @@ const WhereToBuy = () => {
                 {/* The Story */}
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    SuryAmrit is crafted with <span className="text-foreground font-semibold">pure A2 Ghee</span> and 
-                    authentic Ayurvedic formulation — ingredients that cost us <span className="text-primary font-bold">₹350+ per unit</span>.
+                    This is a <span className="text-primary font-bold">₹399 Premium Ghee Softgel</span>. You only pay 
+                    <span className="text-primary font-bold"> ₹99</span> because 
+                    <span className="text-secondary font-semibold"> Lokarth Foundation</span> is investing the other 
+                    <span className="text-secondary font-bold"> ₹300</span> on your behalf to make India Vitamin D Efficient.
                   </p>
                   <p>
-                    But India's Vitamin D crisis affects <span className="text-foreground font-semibold">80% of our population</span>. 
-                    We believe <span className="text-secondary font-semibold">health shouldn't be a luxury</span>.
-                  </p>
-                  <p className="font-medium text-foreground">
-                    So we absorb most of the cost ourselves.
+                    India's Vitamin D crisis affects <span className="text-foreground font-semibold">80% of our population</span>. 
+                    We believe <span className="text-secondary font-semibold">elite nutrition shouldn't be a luxury</span>.
                   </p>
                 </div>
                 
@@ -298,19 +300,19 @@ const WhereToBuy = () => {
                 <div className="bg-muted/50 rounded-xl p-5 border border-primary/10">
                   <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 text-sm md:text-base">
                     <div className="flex flex-col items-center px-4 py-2 bg-card rounded-lg border border-border">
-                      <span className="text-muted-foreground text-xs">MRP</span>
-                      <span className="text-lg font-bold text-foreground">₹399</span>
+                      <span className="text-muted-foreground text-xs">MRP (Market Value)</span>
+                      <span className="text-lg font-bold text-muted-foreground line-through">₹399</span>
                     </div>
                     <ArrowRight className="h-5 w-5 text-primary hidden md:block" />
                     <span className="text-primary md:hidden">→</span>
                     <div className="flex flex-col items-center px-4 py-2 bg-secondary/10 rounded-lg border border-secondary/30">
-                      <span className="text-secondary text-xs font-medium">Our Subsidy</span>
+                      <span className="text-secondary text-xs font-medium">Lokarth Health Subsidy</span>
                       <span className="text-lg font-bold text-secondary">-₹300</span>
                     </div>
                     <ArrowRight className="h-5 w-5 text-primary hidden md:block" />
                     <span className="text-primary md:hidden">→</span>
                     <div className="flex flex-col items-center px-4 py-2 bg-primary/10 rounded-lg border-2 border-primary/40">
-                      <span className="text-primary text-xs font-medium">You Pay</span>
+                      <span className="text-primary text-xs font-medium">Citizen Contribution</span>
                       <span className="text-2xl font-bold text-primary">₹99</span>
                     </div>
                   </div>
@@ -319,11 +321,12 @@ const WhereToBuy = () => {
                 {/* The Commitment */}
                 <div className="text-center pt-2 border-t border-border">
                   <p className="text-foreground font-medium mb-2">
-                    This is <span className="text-primary font-bold">not a discount</span>. It's our commitment to making premium health accessible.
+                    This is <span className="text-secondary font-bold">not a discount</span>. It's a 
+                    <span className="text-primary font-bold"> funded health campaign</span>.
                   </p>
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full text-sm">
                     <Heart className="h-4 w-4 text-secondary" />
-                    <span className="text-secondary font-semibold">Direct-to-Consumer Pilot Program</span>
+                    <span className="text-secondary font-semibold">Lokarth Health Initiative</span>
                   </div>
                 </div>
               </CardContent>

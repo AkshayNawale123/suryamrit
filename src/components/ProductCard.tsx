@@ -70,7 +70,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             {price.currencyCode} {parseFloat(price.amount).toFixed(0)}
           </p>
           <p className="text-xs text-secondary font-medium">
-            Mission Subsidy Applied
+            Lokarth Grant Applied
           </p>
         </div>
       </CardContent>

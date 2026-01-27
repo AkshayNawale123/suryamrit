@@ -41,9 +41,9 @@ const StickyOrderButton = () => {
           <ShoppingCart className="h-5 w-5 text-primary" />
           <div className="flex flex-col items-start">
             <span className="text-xs text-muted-foreground line-through">MRP ₹399</span>
-            <span className="text-primary font-bold">₹99 Trial</span>
+            <span className="text-primary font-bold">₹99 Allocation</span>
           </div>
-          <span className="bg-secondary/15 text-secondary px-2 py-1 rounded-lg text-xs font-semibold">Save ₹300</span>
+          <span className="bg-secondary/15 text-secondary px-2 py-1 rounded-lg text-xs font-semibold">₹300 Funded</span>
         </Link>
       </Button>
     </div>

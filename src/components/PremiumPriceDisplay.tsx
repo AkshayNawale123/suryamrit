@@ -13,7 +13,7 @@ interface PremiumPriceDisplayProps {
 
 /**
  * Premium Price Display Component
- * Shows: MRP ₹399 → Mission Subsidy -₹300 → You Pay ₹99
+ * Shows: MRP ₹399 → Lokarth Health Subsidy -₹300 → Citizen Contribution ₹99
  * Implements the "Transparency Pricing" model to bridge the Premium + Social narrative
  */
 const PremiumPriceDisplay: React.FC<PremiumPriceDisplayProps> = ({
@@ -21,7 +21,7 @@ const PremiumPriceDisplay: React.FC<PremiumPriceDisplayProps> = ({
   subsidyAmount,
   finalPrice,
   currency = '₹',
-  label = 'Citizen Trial',
+  label = 'Lokarth Grant Allocation',
   compact = false,
   className,
 }) => {
@@ -35,7 +35,7 @@ const PremiumPriceDisplay: React.FC<PremiumPriceDisplayProps> = ({
           {currency}{finalPrice}
         </div>
         <div className="text-xs text-secondary font-medium">
-          {label} • Save {currency}{subsidyAmount}
+          {label} • {currency}{subsidyAmount} Funded by Lokarth
         </div>
       </div>
     );
@@ -54,29 +54,29 @@ const PremiumPriceDisplay: React.FC<PremiumPriceDisplayProps> = ({
       <div className="space-y-2">
         {/* MRP Row */}
         <div className="flex justify-between items-center text-sm">
-          <span className="text-muted-foreground">MRP</span>
+          <span className="text-muted-foreground">MRP (Market Value)</span>
           <span className="text-muted-foreground line-through">{currency}{originalPrice}</span>
         </div>
         
         {/* Subsidy Row */}
         <div className="flex justify-between items-center text-sm">
-          <span className="text-secondary font-medium">Mission Subsidy</span>
+          <span className="text-secondary font-medium">Lokarth Health Subsidy</span>
           <span className="text-secondary font-bold">-{currency}{subsidyAmount}</span>
         </div>
         
         {/* Divider */}
         <div className="border-t border-dashed border-primary/30 my-2" />
         
-        {/* You Pay Row */}
+        {/* Citizen Contribution Row */}
         <div className="flex justify-between items-center">
-          <span className="text-foreground font-semibold">You Pay</span>
+          <span className="text-foreground font-semibold">Citizen Contribution</span>
           <span className="text-2xl font-bold text-primary">{currency}{finalPrice}</span>
         </div>
       </div>
       
       {/* Mission Note */}
       <p className="text-xs text-muted-foreground text-center mt-3 leading-relaxed">
-        Direct-to-Consumer Pilot • We absorb the cost so you can feel the difference
+        Lokarth Health Initiative • Elite nutrition, accessible pricing
       </p>
     </div>
   );
