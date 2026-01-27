@@ -22,9 +22,9 @@
     --primary-foreground: 0 0% 100%;
     --primary-glow: 45 70% 60%;
 
-    /* Deep Navy Blue Secondary */
-    --secondary: 213 55% 25%;           /* #1E3A5F */
-    --secondary-foreground: 0 0% 100%;
+    /* Muted Warm Gray Secondary */
+    --secondary: 45 15% 94%;            /* Matches muted tone */
+    --secondary-foreground: 222 47% 11%;
 
     /* Refined Muted Tones */
     --muted: 45 15% 94%;
