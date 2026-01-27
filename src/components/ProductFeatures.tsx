@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Leaf, Award, Globe, Droplets, Sparkles } from "lucide-react";
-import sacredCow from "@/assets/sacred-cow-sunrise.jpg";
+import sacredCow from "@/assets/sacred-cow-sunrise.png";
 import vitaminNature from "@/assets/vitamin-d-nature.jpg";
 
 const ProductFeatures = () => {
