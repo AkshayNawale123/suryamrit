@@ -18,9 +18,9 @@ const Hero = () => {
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
-        {/* Light cream overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-background/60" />
+        {/* Light cream overlay for readability - fully covers dark video */}
+        <div className="absolute inset-0 bg-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
       </div>
 
       {/* Content */}
