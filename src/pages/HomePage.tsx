@@ -19,23 +19,51 @@ const HomePage = () => {
     <div className="min-h-screen bg-background overflow-hidden">
       <Header />
       
-      {/* Hero Section - Warm Natural Theme */}
+      {/* Hero Section - Warm Natural Theme with Indian Tricolor */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         {/* Warm Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-background to-accent/30" />
         <div className="absolute inset-0 organic-pattern opacity-60" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] radial-glow" />
         
-        {/* Floating Organic Orbs */}
-        <div className="absolute top-20 left-[10%] w-40 h-40 rounded-full bg-gradient-to-br from-primary/25 to-transparent blur-3xl animate-float-slow" />
-        <div className="absolute bottom-32 right-[15%] w-56 h-56 rounded-full bg-gradient-to-br from-secondary/15 to-transparent blur-3xl animate-float-slow" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/3 right-[20%] w-32 h-32 rounded-full bg-accent/30 blur-2xl animate-float-slow" style={{ animationDelay: '4s' }} />
-        
-        {/* Soft Vertical Lines */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/15 to-transparent" />
-          <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-secondary/10 to-transparent" />
+        {/* Indian Tricolor Animated Stripes - Left Edge */}
+        <div className="absolute left-0 top-0 bottom-0 w-2 md:w-3 flex flex-col overflow-hidden">
+          <div className="flex-1 bg-gradient-to-b from-[#FF9933] via-[#FF9933] to-[#FF9933]/80 animate-pulse" style={{ animationDuration: '3s' }} />
+          <div className="flex-1 bg-gradient-to-b from-white via-white to-white/90" />
+          <div className="flex-1 bg-gradient-to-b from-[#138808]/80 via-[#138808] to-[#138808] animate-pulse" style={{ animationDuration: '3s', animationDelay: '1.5s' }} />
         </div>
+        
+        {/* Indian Tricolor Animated Stripes - Right Edge */}
+        <div className="absolute right-0 top-0 bottom-0 w-2 md:w-3 flex flex-col overflow-hidden">
+          <div className="flex-1 bg-gradient-to-b from-[#FF9933]/80 via-[#FF9933] to-[#FF9933] animate-pulse" style={{ animationDuration: '3s', animationDelay: '0.5s' }} />
+          <div className="flex-1 bg-gradient-to-b from-white/90 via-white to-white" />
+          <div className="flex-1 bg-gradient-to-b from-[#138808] via-[#138808] to-[#138808]/80 animate-pulse" style={{ animationDuration: '3s', animationDelay: '2s' }} />
+        </div>
+        
+        {/* Floating Tricolor Orbs */}
+        <div className="absolute top-20 left-[10%] w-40 h-40 rounded-full bg-gradient-to-br from-[#FF9933]/30 to-transparent blur-3xl animate-float-slow" />
+        <div className="absolute bottom-32 right-[15%] w-56 h-56 rounded-full bg-gradient-to-br from-[#138808]/20 to-transparent blur-3xl animate-float-slow" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/3 right-[20%] w-32 h-32 rounded-full bg-white/40 blur-2xl animate-float-slow" style={{ animationDelay: '4s' }} />
+        
+        {/* Tricolor Ribbon Animation - Top */}
+        <div className="absolute top-0 left-0 right-0 h-1 flex overflow-hidden">
+          <div className="flex-1 bg-[#FF9933] animate-shimmer-tricolor" />
+          <div className="flex-1 bg-white" />
+          <div className="flex-1 bg-[#138808] animate-shimmer-tricolor" style={{ animationDelay: '0.5s' }} />
+        </div>
+        
+        {/* Soft Vertical Lines with Tricolor Tint */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#FF9933]/20 to-transparent" />
+          <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-[#138808]/15 to-transparent" />
+        </div>
+        
+        {/* Floating Tricolor Particles */}
+        <div className="absolute top-1/4 left-[5%] w-3 h-3 rounded-full bg-[#FF9933]/60 animate-float-particle" />
+        <div className="absolute top-2/3 left-[8%] w-2 h-2 rounded-full bg-white/80 animate-float-particle" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-[3%] w-2 h-2 rounded-full bg-[#138808]/60 animate-float-particle" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/3 right-[5%] w-3 h-3 rounded-full bg-[#FF9933]/50 animate-float-particle" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute top-3/4 right-[7%] w-2 h-2 rounded-full bg-[#138808]/50 animate-float-particle" style={{ animationDelay: '1.5s' }} />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-5 gap-8 items-center">
