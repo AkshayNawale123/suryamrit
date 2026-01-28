@@ -94,15 +94,53 @@ const VitaminPathway = () => {
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6">
             {[
               { icon: "🧈", title: "Ghee Base", desc: "Enhances Vitamin D₃ Absorption", gradient: "bg-gradient-warm" },
-              { icon: "600", title: "600 IU Natural D₃", desc: "Scientifically Safe, RDA-Aligned", gradient: "bg-gradient-natural" },
-              { icon: "🌿", title: "Soft Chewable", desc: "Water-Free, Anytime-Anywhere", gradient: "bg-gradient-warm" },
-              { icon: "🎯", title: "High Compliance", desc: "Easy to Chew = Higher Adoption", gradient: "bg-gradient-natural" },
-              { icon: "🌱", title: "Plant Based Shell", desc: "100% Animal-Free and Gut-friendly", gradient: "bg-gradient-warm" },
-              { icon: "☀️", title: "Indian Lifestyle", desc: "Matches Sunlight & Climate Profiles", gradient: "bg-gradient-natural" },
-              { icon: "👨‍👩‍👧‍👦", title: "All Ages Safe", desc: "Safe for Kids 1+, Adults, Elderly", gradient: "bg-gradient-warm" },
-              { icon: "⚡", title: "Ayurvedic Logic", desc: "Supports Agni, Ojas, and Dhatu", gradient: "bg-gradient-natural" }
+              {
+                icon: "600",
+                title: "600 IU Natural D₃",
+                desc: "Scientifically Safe, RDA-Aligned",
+                gradient: "bg-gradient-natural",
+              },
+              {
+                icon: "🌿",
+                title: "Soft Chewable",
+                desc: "Water-Free, Anytime-Anywhere",
+                gradient: "bg-gradient-warm",
+              },
+              {
+                icon: "🎯",
+                title: "High Compliance",
+                desc: "Easy to Chew = Higher Adoption",
+                gradient: "bg-gradient-natural",
+              },
+              {
+                icon: "🌱",
+                title: "Plant Based Shell",
+                desc: "100% Animal-Free and Gut-friendly",
+                gradient: "bg-gradient-warm",
+              },
+              {
+                icon: "☀️",
+                title: "Indian Lifestyle",
+                desc: "Matches Sunlight & Climate Profiles",
+                gradient: "bg-gradient-natural",
+              },
+              {
+                icon: "👨‍👩‍👧‍👦",
+                title: "All Ages Safe",
+                desc: "Safe for Kids 1+, Adults, Elderly",
+                gradient: "bg-gradient-warm",
+              },
+              {
+                icon: "⚡",
+                title: "Ayurvedic Logic",
+                desc: "Supports Agni, Ojas, and Dhatu",
+                gradient: "bg-gradient-natural",
+              },
             ].map((item, index) => (
-              <Card key={index} className={`group border-none ${item.gradient} hover:shadow-warm transition-all duration-300 hover:scale-105`}>
+              <Card
+                key={index}
+                className={`group border-none ${item.gradient} hover:shadow-warm transition-all duration-300 hover:scale-105`}
+              >
                 <CardContent className="p-6 text-center">
                   <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
                     {item.icon === "600" ? (
@@ -126,9 +164,7 @@ const VitaminPathway = () => {
               <Leaf className="w-4 h-4 mr-2 inline" />
               Health Benefits
             </Badge>
-            <h3 className="text-3xl font-bold text-secondary mb-4">
-              Organ-wise Vitamin D₃ Impact
-            </h3>
+            <h3 className="text-3xl font-bold text-secondary mb-4">Organ-wise Vitamin D₃ Impact</h3>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               See how Vitamin D₃ benefits every organ system across all life stages
             </p>
@@ -143,9 +179,9 @@ const VitaminPathway = () => {
                   <Tooltip delayDuration={300}>
                     <TooltipTrigger asChild>
                       <div className="relative mx-auto w-48 h-64 bg-gradient-warm rounded-xl shadow-warm overflow-hidden cursor-pointer group/image">
-                        <img 
-                          src="/lovable-uploads/7551353f-d8ef-4b55-bb2d-63bfdad95f0b.png" 
-                          alt="Child anatomy showing organ systems" 
+                        <img
+                          src="/lovable-uploads/7551353f-d8ef-4b55-bb2d-63bfdad95f0b.png"
+                          alt="Child anatomy showing organ systems"
                           className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover/image:scale-110"
                         />
                         <div className="absolute top-2 right-2 bg-primary rounded-full p-1 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300">
@@ -153,8 +189,8 @@ const VitaminPathway = () => {
                         </div>
                       </div>
                     </TooltipTrigger>
-                    <TooltipContent 
-                      side="top" 
+                    <TooltipContent
+                      side="top"
                       className="w-80 p-4 bg-white border border-primary/20 shadow-warm z-[60]"
                       sideOffset={15}
                     >
@@ -193,9 +229,9 @@ const VitaminPathway = () => {
                   <Tooltip delayDuration={300}>
                     <TooltipTrigger asChild>
                       <div className="relative mx-auto w-48 h-64 bg-gradient-natural rounded-xl shadow-natural overflow-hidden cursor-pointer group/image">
-                        <img 
-                          src="/lovable-uploads/71d77fd3-3ffe-49be-af8f-5882615635ef.png" 
-                          alt="Adult male anatomy showing organ systems" 
+                        <img
+                          src="/lovable-uploads/71d77fd3-3ffe-49be-af8f-5882615635ef.png"
+                          alt="Adult male anatomy showing organ systems"
                           className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover/image:scale-110"
                         />
                         <div className="absolute top-2 right-2 bg-accent rounded-full p-1 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300">
@@ -203,8 +239,8 @@ const VitaminPathway = () => {
                         </div>
                       </div>
                     </TooltipTrigger>
-                    <TooltipContent 
-                      side="top" 
+                    <TooltipContent
+                      side="top"
                       className="w-80 p-4 bg-white border border-accent/20 shadow-natural z-[60]"
                       sideOffset={15}
                     >
@@ -222,7 +258,7 @@ const VitaminPathway = () => {
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="bg-gradient-natural rounded-lg p-4">
-                    <h5 className="font-semibold text-accent mb-2">Key Benefits:</h5>
+                    <h5 className="font-semibold text-primary mb-2">Key Benefits:</h5>
                     <ul className="text-sm text-muted-foreground space-y-1">
                       <li>• Cognitive function support</li>
                       <li>• Heart health protection</li>
@@ -243,9 +279,9 @@ const VitaminPathway = () => {
                   <Tooltip delayDuration={300}>
                     <TooltipTrigger asChild>
                       <div className="relative mx-auto w-48 h-64 bg-gradient-warm rounded-xl shadow-warm overflow-hidden cursor-pointer group/image">
-                        <img 
-                          src="/lovable-uploads/14855da8-65a6-4354-817a-b11d11497033.png" 
-                          alt="Adult female anatomy showing organ systems" 
+                        <img
+                          src="/lovable-uploads/14855da8-65a6-4354-817a-b11d11497033.png"
+                          alt="Adult female anatomy showing organ systems"
                           className="w-full h-full object-contain p-2 transition-transform duration-300 group-hover/image:scale-110"
                         />
                         <div className="absolute top-2 right-2 bg-primary rounded-full p-1 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300">
@@ -253,8 +289,8 @@ const VitaminPathway = () => {
                         </div>
                       </div>
                     </TooltipTrigger>
-                    <TooltipContent 
-                      side="top" 
+                    <TooltipContent
+                      side="top"
                       className="w-80 p-4 bg-white border border-primary/20 shadow-warm z-[60]"
                       sideOffset={15}
                     >
@@ -294,7 +330,7 @@ const VitaminPathway = () => {
                 <div>
                   <h4 className="text-2xl font-bold text-secondary mb-4">Complete Body Wellness</h4>
                   <p className="text-muted-foreground mb-6">
-                    Vitamin D₃ is essential for over 200 genes in your body. Combined with the bioavailability-enhancing 
+                    Vitamin D₃ is essential for over 200 genes in your body. Combined with the bioavailability-enhancing
                     properties of pure ghee, SuryAmrit™ delivers comprehensive health support for every organ system.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
@@ -310,9 +346,9 @@ const VitaminPathway = () => {
                 </div>
                 <div className="relative group">
                   <div className="absolute -inset-4 bg-gradient-natural rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
-                  <img 
-                    src={healthAnatomy} 
-                    alt="Human health anatomy with vitamin D benefits" 
+                  <img
+                    src={healthAnatomy}
+                    alt="Human health anatomy with vitamin D benefits"
                     className="relative w-full h-80 object-cover rounded-2xl shadow-natural"
                   />
                 </div>
