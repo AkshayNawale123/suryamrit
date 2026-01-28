@@ -18,6 +18,7 @@ const Header = () => {
     { path: "/product#science", label: "Why Ghee?" },
     { path: "/endorsements", label: "Reviews" },
     { path: "/faq", label: "FAQ" },
+    { path: "/partners", label: "Partners" },
   ];
 
   return (
