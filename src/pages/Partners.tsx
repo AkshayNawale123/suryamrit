@@ -17,7 +17,7 @@ const Partners = () => {
         {/* Background Effects */}
         <div className="absolute inset-0 organic-pattern opacity-30" />
         <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12">
             {/* Badge */}
@@ -27,8 +27,7 @@ const Partners = () => {
             </Badge>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
-              Partner in the Fight Against{" "}
-              <span className="text-primary">Silent Hunger</span>
+              Partner in Building a <span className="text-primary">Vitamin D3 Sufficient India.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -54,7 +53,6 @@ const Partners = () => {
       <section className="py-16 md:py-24 bg-gradient-warm">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            
             {/* Left Column - Value Proposition */}
             <div className="space-y-10">
               <div>
@@ -140,9 +138,7 @@ const Partners = () => {
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-foreground">Territory Protection</span>
-                      <p className="text-sm text-muted-foreground">
-                        Be the exclusive Lokarth partner in your zone.
-                      </p>
+                      <p className="text-sm text-muted-foreground">Be the exclusive Lokarth partner in your zone.</p>
                     </div>
                   </li>
                 </ul>
