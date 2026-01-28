@@ -108,15 +108,11 @@ const Footer = () => {
               Manufactured By
             </h4>
             <div className="text-sm text-white/70 space-y-1">
-              <p className="font-semibold text-white/90">
-                GELNOVA LABORATORIES (INDIA) PVT. LTD.
-              </p>
+              <p className="font-semibold text-white/90">GELNOVA LABORATORIES (INDIA) PVT. LTD.</p>
               <p>C-125, TTC Industrial Area,</p>
               <p>Mahape, Navi Mumbai,</p>
               <p>Maharashtra, 400 703 INDIA</p>
-              <p className="text-xs mt-3 text-primary-glow font-medium">
-                FSSAI Lic. No. 10013022002314
-              </p>
+              <p className="text-xs mt-3 text-primary-glow font-medium">FSSAI Lic. No. 10013022002314</p>
             </div>
           </div>
 
@@ -127,34 +123,31 @@ const Footer = () => {
               Marketed By
             </h4>
             <div className="text-sm text-white/70 space-y-1">
-              <p className="font-semibold text-white/90">LOKPEETH FOUNDATION</p>
+              <p className="font-semibold text-white/90">
+                LOKPEETH FOUNDATION <br>LOKARTH</br>
+              </p>
               <p>1774, Block B1, Vasant Kunj,</p>
               <p>New Delhi - 110070 INDIA</p>
               <div className="mt-3 space-y-2">
-                <a 
-                  href="tel:9373228844" 
-                  className="flex items-center gap-2 hover:text-primary-glow transition-colors"
-                >
+                <a href="tel:9373228844" className="flex items-center gap-2 hover:text-primary-glow transition-colors">
                   <Phone className="h-3 w-3" /> 9373228844
                 </a>
-                <a 
-                  href="mailto:info@suryamrit.org" 
+                <a
+                  href="mailto:info@suryamrit.org"
                   className="flex items-center gap-2 hover:text-primary-glow transition-colors"
                 >
-                  <Mail className="h-3 w-3" /> info@suryamrit.org
+                  <Mail className="h-3 w-3" /> lokarthinnovations@gmail.com
                 </a>
-                <a 
-                  href="https://www.suryamrit.org" 
-                  target="_blank" 
+                <a
+                  href="https://www.suryamrit.org"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-primary-glow transition-colors"
                 >
-                  <Globe className="h-3 w-3" /> www.suryamrit.org
+                  <Globe className="h-3 w-3" /> https://www.lokarth.in/
                 </a>
               </div>
-              <p className="text-xs mt-3 text-primary-glow font-medium">
-                FSSAI Lic. No. 21525083005916
-              </p>
+              <p className="text-xs mt-3 text-primary-glow font-medium">FSSAI Lic. No. 21525083005916</p>
             </div>
           </div>
         </div>
