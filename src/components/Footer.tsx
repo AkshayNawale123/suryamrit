@@ -133,13 +133,13 @@ const Footer = () => {
                   <Phone className="h-3 w-3" /> 9373228844
                 </a>
                 <a
-                  href="mailto:info@suryamrit.org"
+                  href="mailto:lokarthinnovations@gmail.com"
                   className="flex items-center gap-2 hover:text-primary-glow transition-colors"
                 >
                   <Mail className="h-3 w-3" /> lokarthinnovations@gmail.com
                 </a>
                 <a
-                  href="https://www.suryamrit.org"
+                  href="https://www.lokarth.in"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-primary-glow transition-colors"
