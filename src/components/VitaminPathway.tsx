@@ -339,7 +339,7 @@ const VitaminPathway = () => {
                       <p className="text-sm text-muted-foreground">Genes Supported</p>
                     </div>
                     <div className="bg-gradient-natural rounded-xl p-4 text-center">
-                      <span className="text-3xl font-bold text-accent">82%</span>
+                      <span className="text-3xl font-bold text-primary">82%</span>
                       <p className="text-sm text-muted-foreground">Indians Deficient</p>
                     </div>
                   </div>
