@@ -123,9 +123,7 @@ const Footer = () => {
               Marketed By
             </h4>
             <div className="text-sm text-white/70 space-y-1">
-              <p className="font-semibold text-white/90">
-                LOKPEETH FOUNDATION <br>LOKARTH</br>
-              </p>
+              <p className="font-semibold text-white/90">LOKPEETH FOUNDATION (LOKARTH)</p>
               <p>1774, Block B1, Vasant Kunj,</p>
               <p>New Delhi - 110070 INDIA</p>
               <div className="mt-3 space-y-2">
