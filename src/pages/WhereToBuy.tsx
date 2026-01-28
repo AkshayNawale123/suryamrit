@@ -43,15 +43,72 @@ import lokarthLogo from "@/assets/lokarth-logo.png";
 // Valid Pune & PCMC pincodes for delivery
 const PUNE_PCMC_PINCODES = [
   // Pune City
-  "411001", "411002", "411003", "411004", "411005", "411006", "411007", "411008", "411009",
-  "411011", "411012", "411013", "411014", "411015", "411016", "411017", "411018", "411019",
-  "411020", "411021", "411022", "411023", "411024", "411025", "411026", "411027", "411028",
-  "411029", "411030", "411031", "411032", "411033", "411034", "411035", "411036", "411037",
-  "411038", "411039", "411040", "411041", "411042", "411043", "411044", "411045", "411046",
-  "411047", "411048", "411051", "411052", "411057", "411058", "411060", "411061", "411062",
+  "411001",
+  "411002",
+  "411003",
+  "411004",
+  "411005",
+  "411006",
+  "411007",
+  "411008",
+  "411009",
+  "411011",
+  "411012",
+  "411013",
+  "411014",
+  "411015",
+  "411016",
+  "411017",
+  "411018",
+  "411019",
+  "411020",
+  "411021",
+  "411022",
+  "411023",
+  "411024",
+  "411025",
+  "411026",
+  "411027",
+  "411028",
+  "411029",
+  "411030",
+  "411031",
+  "411032",
+  "411033",
+  "411034",
+  "411035",
+  "411036",
+  "411037",
+  "411038",
+  "411039",
+  "411040",
+  "411041",
+  "411042",
+  "411043",
+  "411044",
+  "411045",
+  "411046",
+  "411047",
+  "411048",
+  "411051",
+  "411052",
+  "411057",
+  "411058",
+  "411060",
+  "411061",
+  "411062",
   // PCMC (Pimpri-Chinchwad)
-  "411017", "411018", "411019", "411033", "411044", "411057", "411062",
-  "412101", "412105", "412114", "412115",
+  "411017",
+  "411018",
+  "411019",
+  "411033",
+  "411044",
+  "411057",
+  "411062",
+  "412101",
+  "412105",
+  "412114",
+  "412115",
 ];
 
 const WhereToBuy = () => {
@@ -200,8 +257,8 @@ const WhereToBuy = () => {
   }, []);
 
   // City data with mission status
-  type CityStatus = 'live' | 'phase2' | 'waitlist' | 'upcoming';
-  
+  type CityStatus = "live" | "phase2" | "waitlist" | "upcoming";
+
   interface CityData {
     name: string;
     status: CityStatus;
@@ -247,28 +304,40 @@ const WhereToBuy = () => {
   // Helper functions for city styling
   const getStatusIndicatorColor = (status: CityStatus): string => {
     switch (status) {
-      case 'live': return 'bg-[#2C5F2D]';
-      case 'phase2': return 'bg-amber-500';
-      case 'waitlist': return 'bg-blue-500';
-      case 'upcoming': return 'bg-[#A0AEC0]';
+      case "live":
+        return "bg-[#2C5F2D]";
+      case "phase2":
+        return "bg-amber-500";
+      case "waitlist":
+        return "bg-blue-500";
+      case "upcoming":
+        return "bg-[#A0AEC0]";
     }
   };
 
   const getStatusTextStyle = (status: CityStatus): string => {
     switch (status) {
-      case 'live': return 'font-bold text-foreground opacity-100';
-      case 'phase2': return 'font-medium text-foreground/70';
-      case 'waitlist': return 'text-foreground/60';
-      case 'upcoming': return 'text-foreground/50';
+      case "live":
+        return "font-bold text-foreground opacity-100";
+      case "phase2":
+        return "font-medium text-foreground/70";
+      case "waitlist":
+        return "text-foreground/60";
+      case "upcoming":
+        return "text-foreground/50";
     }
   };
 
   const getStatusBadgeStyle = (status: CityStatus): string => {
     switch (status) {
-      case 'live': return 'bg-[#2C5F2D] text-white';
-      case 'phase2': return 'bg-amber-500/20 text-amber-700 border-amber-500/30';
-      case 'waitlist': return 'bg-blue-500/20 text-blue-700 border-blue-500/30';
-      default: return '';
+      case "live":
+        return "bg-[#2C5F2D] text-white";
+      case "phase2":
+        return "bg-amber-500/20 text-amber-700 border-amber-500/30";
+      case "waitlist":
+        return "bg-blue-500/20 text-blue-700 border-blue-500/30";
+      default:
+        return "";
     }
   };
 
@@ -283,8 +352,8 @@ const WhereToBuy = () => {
             <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center">
               {/* Left: Marketing Copy */}
               <div className="text-center lg:text-left">
-                <Badge className="mb-4 bg-white/20 text-white border-white/30">
-                  Available Nationwide • Free Delivery on ₹500+
+                <Badge className="mb-4 bg-white/20 text-muted-foreground border-white/30">
+                  Free Delivery across Pune & PCMC
                 </Badge>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                   Get SuryAmrit™
@@ -657,16 +726,15 @@ const WhereToBuy = () => {
             {/* Section Header with Phase Badge */}
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <Badge className="bg-[#2C5F2D] text-white border-0 px-4 py-1.5 text-sm font-bold">
-                  PHASE 1
-                </Badge>
+                <Badge className="bg-[#2C5F2D] text-white border-0 px-4 py-1.5 text-sm font-bold">PHASE 1</Badge>
               </div>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
                 Mission Roadmap: Phase 1 Active
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                We are rolling out the <span className="text-[#2C5F2D] font-semibold">'Vitamin Efficient India'</span> mission one city at a time. 
-                Currently exclusive to <span className="text-primary font-semibold">Pune & PCMC</span>.
+                We are rolling out the <span className="text-[#2C5F2D] font-semibold">'Vitamin Efficient India'</span>{" "}
+                mission one city at a time. Currently exclusive to{" "}
+                <span className="text-primary font-semibold">Pune & PCMC</span>.
               </p>
             </div>
 
@@ -686,9 +754,7 @@ const WhereToBuy = () => {
                         <div
                           key={index}
                           className={`flex items-center justify-between gap-2 p-2.5 rounded-lg transition-colors ${
-                            city.status === 'live' 
-                              ? 'bg-[#2C5F2D]/10 border border-[#2C5F2D]/30' 
-                              : 'bg-muted/50'
+                            city.status === "live" ? "bg-[#2C5F2D]/10 border border-[#2C5F2D]/30" : "bg-muted/50"
                           }`}
                         >
                           <div className="flex items-center gap-2">
@@ -696,17 +762,17 @@ const WhereToBuy = () => {
                             <span className={`text-sm ${getStatusTextStyle(city.status)}`}>{city.name}</span>
                           </div>
                           {city.label && (
-                            <Badge 
-                              variant="outline" 
+                            <Badge
+                              variant="outline"
                               className={`text-[10px] px-1.5 py-0 h-5 ${getStatusBadgeStyle(city.status)}`}
                             >
-                              {city.status === 'live' ? 'LIVE' : city.label}
+                              {city.status === "live" ? "LIVE" : city.label}
                             </Badge>
                           )}
                         </div>
                       ))}
                     </div>
-                    
+
                     {/* Phase 2 Coming Soon */}
                     <div className="mt-6 p-5 bg-gradient-to-r from-[#2C5F2D]/5 via-primary/5 to-[#2C5F2D]/5 rounded-xl border border-[#2C5F2D]/20">
                       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -718,10 +784,10 @@ const WhereToBuy = () => {
                             Not in Pune yet? Join the waitlist for your city and be the first to know when we launch.
                           </p>
                         </div>
-                        <Button 
-                          variant="secondary" 
+                        <Button
+                          variant="secondary"
                           className="whitespace-nowrap"
-                          onClick={() => openWhatsApp('support')}
+                          onClick={() => openWhatsApp("support")}
                         >
                           <MessageCircle className="h-4 w-4 mr-2" />
                           Join Waitlist
@@ -762,10 +828,10 @@ const WhereToBuy = () => {
                         <p className="text-sm text-muted-foreground">IST</p>
                       </div>
                     </div>
-                    <Button 
-                      variant="outline" 
+                    <Button
+                      variant="outline"
                       className="w-full border-[#2C5F2D]/50 text-[#2C5F2D] hover:bg-[#2C5F2D]/10"
-                      onClick={() => openWhatsApp('support')}
+                      onClick={() => openWhatsApp("support")}
                     >
                       <MessageCircle className="h-4 w-4 mr-2" />
                       Chat with Pune HQ
@@ -785,12 +851,16 @@ const WhereToBuy = () => {
                       <h3 className="font-bold text-lg">Pune Citizen Privilege</h3>
                     </div>
                     <p className="text-white/90 text-sm mb-4">
-                      As a Pilot City resident, you are eligible for the <span className="font-semibold">Lokarth Subsidy</span> and <span className="font-semibold">Priority Delivery</span>.
+                      As a Pilot City resident, you are eligible for the{" "}
+                      <span className="font-semibold">Lokarth Subsidy</span> and{" "}
+                      <span className="font-semibold">Priority Delivery</span>.
                     </p>
-                    
+
                     {/* Pincode Checker */}
                     <div className="mb-4">
-                      <label className="text-white/80 text-xs font-medium mb-1.5 block">Check Delivery Availability</label>
+                      <label className="text-white/80 text-xs font-medium mb-1.5 block">
+                        Check Delivery Availability
+                      </label>
                       <div className="flex gap-2">
                         <Input
                           type="text"
@@ -824,14 +894,10 @@ const WhereToBuy = () => {
                           }}
                           disabled={pincodeStatus === "checking" || pincode.length !== 6}
                         >
-                          {pincodeStatus === "checking" ? (
-                            <Loader2 className="h-4 w-4 animate-spin" />
-                          ) : (
-                            "Check"
-                          )}
+                          {pincodeStatus === "checking" ? <Loader2 className="h-4 w-4 animate-spin" /> : "Check"}
                         </Button>
                       </div>
-                      
+
                       {/* Pincode Status Feedback */}
                       {pincodeStatus === "available" && (
                         <div className="flex items-center gap-2 mt-2 bg-white/20 rounded-lg px-3 py-2 animate-fade-in">
@@ -842,7 +908,12 @@ const WhereToBuy = () => {
                       {pincodeStatus === "unavailable" && (
                         <div className="flex items-center gap-2 mt-2 bg-white/10 rounded-lg px-3 py-2 animate-fade-in">
                           <MapPin className="h-4 w-4 text-white/70" />
-                          <span className="text-sm text-white/80">Not in Phase 1 area. <button className="underline font-medium" onClick={() => openWhatsApp('waitlist')}>Join waitlist</button></span>
+                          <span className="text-sm text-white/80">
+                            Not in Phase 1 area.{" "}
+                            <button className="underline font-medium" onClick={() => openWhatsApp("waitlist")}>
+                              Join waitlist
+                            </button>
+                          </span>
                         </div>
                       )}
                     </div>
@@ -851,9 +922,9 @@ const WhereToBuy = () => {
                       <CheckCircle className="h-4 w-4 text-white" />
                       <span className="text-sm font-medium">Free Delivery across Pune & PCMC</span>
                     </div>
-                    <Button 
-                      variant="secondary" 
-                      size="sm" 
+                    <Button
+                      variant="secondary"
+                      size="sm"
                       className="w-full"
                       onClick={handleFamilyPackClick}
                       disabled={addingFamily || loading || products.length === 0}
