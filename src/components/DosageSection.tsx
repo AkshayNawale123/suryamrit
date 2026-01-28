@@ -144,7 +144,7 @@ const DosageSection = () => {
                     <Badge variant="outline" className="mb-2 border-primary/20 text-primary bg-primary/5">
                       {item.condition}
                     </Badge>
-                    <p className="text-sm text-accent font-medium">{item.rationale}</p>
+                    <p className="text-sm text-secondary font-medium">{item.rationale}</p>
                   </div>
                 </CardContent>
               </Card>
