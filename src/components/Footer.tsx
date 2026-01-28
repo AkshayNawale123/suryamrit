@@ -144,7 +144,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-primary-glow transition-colors"
                 >
-                  <Globe className="h-3 w-3" /> https://www.lokarth.in/
+                  <Globe className="h-3 w-3" /> www.lokarth.in
                 </a>
               </div>
               <p className="text-xs mt-3 text-primary-glow font-medium">FSSAI Lic. No. 21525083005916</p>
