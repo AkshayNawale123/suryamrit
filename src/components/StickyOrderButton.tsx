@@ -35,7 +35,7 @@ const StickyOrderButton = () => {
       <Button
         asChild
         size="lg"
-        className="group relative px-6 py-6 text-base font-bold bg-white text-foreground rounded-2xl shadow-2xl border-2 border-primary/30 transition-all duration-300 hover:scale-105"
+        className="group relative px-6 py-6 text-base font-bold bg-white text-foreground rounded-2xl shadow-2xl border-2 border-primary/30 hover:shadow-[0_10px_40px_-10px_hsl(40_95%_52%_/_0.8)] transition-all duration-300 hover:scale-105"
       >
         <Link to="/buy" className="flex items-center gap-3">
           <ShoppingCart className="h-5 w-5 text-primary" />
