@@ -258,7 +258,7 @@ const FAQ = () => {
               <Button asChild size="lg" variant="secondary">
                 <Link to="/product">Explore SuryAmrit</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/80">
+              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/90">
                 <Link to="/buy">Where to Buy</Link>
               </Button>
             </div>
