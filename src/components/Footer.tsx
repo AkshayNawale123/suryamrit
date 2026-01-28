@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube, Heart } from "lucide-react";
+import { Phone, Mail, Facebook, Twitter, Instagram, Youtube, Building2, Store, Globe } from "lucide-react";
 import suryamritLogo from "@/assets/suryamrit-logo.png";
-import lokarthLogo from "@/assets/lokarth-logo.png";
 
 const Footer = () => {
   return (
@@ -15,8 +13,8 @@ const Footer = () => {
       <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
-          {/* Company Info */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
+          {/* Column 1: Brand */}
           <div>
             <div className="mb-6">
               <img
@@ -25,7 +23,7 @@ const Footer = () => {
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <p className="text-white/80 mb-4">
+            <p className="text-white/80 mb-4 text-sm">
               Natural Daily D₃ with Ghee - The Grace of Ghee with the Power of Sun, in One Honest Chew.
             </p>
             <div className="flex space-x-3">
@@ -44,103 +42,119 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Column 2: Quick Links */}
           <div>
-            <h4 className="text-xl font-bold mb-6">Quick Links</h4>
+            <h4 className="text-lg font-bold mb-4">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <a href="/buy" className="text-white/80 hover:text-primary-glow transition-colors">
+                <Link to="/buy" className="text-white/80 hover:text-primary-glow transition-colors text-sm">
                   Shop
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/product#science" className="text-white/80 hover:text-primary-glow transition-colors">
+                <Link to="/product" className="text-white/80 hover:text-primary-glow transition-colors text-sm">
+                  Product
+                </Link>
+              </li>
+              <li>
+                <Link to="/product#science" className="text-white/80 hover:text-primary-glow transition-colors text-sm">
                   Science
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/endorsements" className="text-white/80 hover:text-primary-glow transition-colors">
-                  Reviews
-                </a>
-              </li>
-              <li>
-                <a href="/partners" className="text-white/80 hover:text-primary-glow transition-colors">
-                  Become a Partner
-                </a>
-              </li>
-              <li>
-                <a href="/faq" className="text-white/80 hover:text-primary-glow transition-colors">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a href="/about" className="text-white/80 hover:text-primary-glow transition-colors">
+                <Link to="/about" className="text-white/80 hover:text-primary-glow transition-colors text-sm">
                   About Us
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link to="/endorsements" className="text-white/80 hover:text-primary-glow transition-colors text-sm">
+                  Endorsements
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Product Info */}
+          {/* Column 3: Support */}
           <div>
-            <h4 className="text-xl font-bold mb-6">Product Information</h4>
+            <h4 className="text-lg font-bold mb-4">Support</h4>
             <ul className="space-y-3">
               <li>
-                <span className="text-white/80">
-                  <span className="text-primary-glow">✓</span> 600 IU Natural Vitamin D₃
-                </span>
+                <Link to="/faq" className="text-white/80 hover:text-primary-glow transition-colors text-sm">
+                  FAQ
+                </Link>
               </li>
               <li>
-                <span className="text-white/80">
-                  <span className="text-primary-glow">✓</span> Enhanced with Pure Ghee
-                </span>
+                <Link to="/self-assessment" className="text-white/80 hover:text-primary-glow transition-colors text-sm">
+                  Self Assessment
+                </Link>
               </li>
               <li>
-                <span className="text-white/80">
-                  <span className="text-primary-glow">✓</span> Lichen-sourced (100% Vegan)
-                </span>
+                <Link to="/partners" className="text-white/80 hover:text-primary-glow transition-colors text-sm">
+                  Become a Partner
+                </Link>
               </li>
               <li>
-                <span className="text-white/80">
-                  <span className="text-primary-glow">✓</span> Soft Chewable Capsules
-                </span>
-              </li>
-              <li>
-                <span className="text-white/80">
-                  <span className="text-primary-glow">✓</span> FSSAI Approved
-                </span>
-              </li>
-              <li>
-                <span className="text-white/80">
-                  <span className="text-primary-glow">✓</span> No Water Required
-                </span>
+                <a href="tel:9373228844" className="text-white/80 hover:text-primary-glow transition-colors text-sm">
+                  Contact Us
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Our Benefactor - Lokarth Foundation */}
+          {/* Column 4: Manufactured By */}
           <div>
-            <h4 className="text-xl font-bold mb-6">Our Benefactor</h4>
-            <div className="bg-white/10 rounded-2xl p-4 border border-white/20 backdrop-blur-sm">
-              <img src={lokarthLogo} alt="Lokarth Foundation" className="h-12 w-auto object-contain mb-3" />
-              <p className="text-sm text-white/80 mb-2">
-                Make Vitamin D3 Sufficient India Mission, one family at a time.
+            <h4 className="text-lg font-bold mb-4 flex items-center gap-2">
+              <Building2 className="h-4 w-4 text-primary-glow" />
+              Manufactured By
+            </h4>
+            <div className="text-sm text-white/70 space-y-1">
+              <p className="font-semibold text-white/90">
+                GELNOVA LABORATORIES (INDIA) PVT. LTD.
               </p>
-              <div className="flex items-center gap-2 text-primary-glow text-xs font-medium">
-                <Heart className="h-3 w-3" />
-                <span>Serve Together. Change Forever.</span>
-              </div>
+              <p>C-125, TTC Industrial Area,</p>
+              <p>Mahape, Navi Mumbai,</p>
+              <p>Maharashtra, 400 703 INDIA</p>
+              <p className="text-xs mt-3 text-primary-glow font-medium">
+                FSSAI Lic. No. 10013022002314
+              </p>
             </div>
+          </div>
 
-            <div className="mt-4 space-y-3">
-              <div className="flex items-center space-x-3">
-                <Phone className="h-4 w-4 text-primary-glow" />
-                <span className="text-white/80 text-sm">1800-XXX-XXXX</span>
+          {/* Column 5: Marketed By */}
+          <div>
+            <h4 className="text-lg font-bold mb-4 flex items-center gap-2">
+              <Store className="h-4 w-4 text-primary-glow" />
+              Marketed By
+            </h4>
+            <div className="text-sm text-white/70 space-y-1">
+              <p className="font-semibold text-white/90">LOKPEETH FOUNDATION</p>
+              <p>1774, Block B1, Vasant Kunj,</p>
+              <p>New Delhi - 110070 INDIA</p>
+              <div className="mt-3 space-y-2">
+                <a 
+                  href="tel:9373228844" 
+                  className="flex items-center gap-2 hover:text-primary-glow transition-colors"
+                >
+                  <Phone className="h-3 w-3" /> 9373228844
+                </a>
+                <a 
+                  href="mailto:info@suryamrit.org" 
+                  className="flex items-center gap-2 hover:text-primary-glow transition-colors"
+                >
+                  <Mail className="h-3 w-3" /> info@suryamrit.org
+                </a>
+                <a 
+                  href="https://www.suryamrit.org" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-primary-glow transition-colors"
+                >
+                  <Globe className="h-3 w-3" /> www.suryamrit.org
+                </a>
               </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4 text-primary-glow" />
-                <span className="text-white/80 text-sm">info@suryamrit.org</span>
-              </div>
+              <p className="text-xs mt-3 text-primary-glow font-medium">
+                FSSAI Lic. No. 21525083005916
+              </p>
             </div>
           </div>
         </div>
@@ -153,7 +167,7 @@ const Footer = () => {
                 © 2026 SuryAmrit™. All rights reserved. | FSSAI Health Supplement - Not for Medicinal Use
               </p>
             </div>
-            <div className="text-right">
+            <div className="text-left md:text-right">
               <p className="text-white/60 text-sm">
                 <strong className="text-white/80">
                   Sunlight alone cannot guarantee adequate D₃ levels due to pollution, clothing, skin tone, and time of
@@ -168,4 +182,5 @@ const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;
