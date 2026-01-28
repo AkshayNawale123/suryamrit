@@ -14,9 +14,9 @@ const Header = () => {
 
   const navigationLinks = [
     { path: "/buy", label: "Shop" },
+    { path: "/self-assessment", label: "Self Assessment" },
     { path: "/product#science", label: "Why Ghee?" },
     { path: "/endorsements", label: "Reviews" },
-    { path: "/partners", label: "Partners" },
     { path: "/faq", label: "FAQ" },
   ];
 
