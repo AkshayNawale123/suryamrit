@@ -11,6 +11,7 @@ import Endorsements from "./pages/Endorsements";
 import Blog from "./pages/Blog";
 import FAQ from "./pages/FAQ";
 import Partners from "./pages/Partners";
+import SelfAssessment from "./pages/SelfAssessment";
 import NotFound from "./pages/NotFound";
 import StickyOrderButton from "./components/StickyOrderButton";
 import ScrollToTop from "./components/ScrollToTop";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/partners" element={<Partners />} />
+          <Route path="/self-assessment" element={<SelfAssessment />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
