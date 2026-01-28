@@ -18,7 +18,7 @@ const About = () => {
       <section className="py-20 bg-gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-white/20 text-white border-white/30">Our Story</Badge>
+            <Badge className="mb-6 bg-white/20 text-muted-foreground border-white/30">Our Story</Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Illuminating Lives with the Power of
               <span className="block text-primary-glow">Vitamin D₃</span>
