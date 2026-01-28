@@ -63,7 +63,7 @@ const ProductFeatures = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <Badge className="mb-4 bg-primary/10 text-accent border-accent/20 px-4 py-2">
+          <Badge className="mb-4 bg-accent/10 text-muted-foreground border-accent/20 px-4 py-2">
             <Leaf className="w-4 h-4 mr-2 inline" />
             Nature's Wisdom
           </Badge>
