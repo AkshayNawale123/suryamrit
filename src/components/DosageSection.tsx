@@ -4,18 +4,38 @@ import { Clock, Shield, TrendingUp, Calendar, CheckCircle, XCircle, Sun } from "
 
 const DosageSection = () => {
   const clinicalIndications = [
-    { specialty: "Orthopedics / GP", condition: "Osteoporosis, fractures, delayed healing", rationale: "Bone strength restoration" },
+    {
+      specialty: "Orthopedics / GP",
+      condition: "Osteoporosis, fractures, delayed healing",
+      rationale: "Bone strength restoration",
+    },
     { specialty: "Pediatrics", condition: "Rickets, delayed growth", rationale: "Growth & skeletal support" },
-    { specialty: "Obstetrics", condition: "Pregnancy, lactation, fetal health", rationale: "Prevent maternal-fetal deficiency" },
-    { specialty: "Geriatrics", condition: "Falls, sarcopenia, vertebral collapse", rationale: "Mobility and fracture prevention" },
-    { specialty: "Psychiatry / Neuro", condition: "Depression, cognitive decline", rationale: "Neuroendocrine balance" },
+    {
+      specialty: "Obstetrics",
+      condition: "Pregnancy, lactation, fetal health",
+      rationale: "Prevent maternal-fetal deficiency",
+    },
+    {
+      specialty: "Geriatrics",
+      condition: "Falls, sarcopenia, vertebral collapse",
+      rationale: "Mobility and fracture prevention",
+    },
+    {
+      specialty: "Psychiatry / Neuro",
+      condition: "Depression, cognitive decline",
+      rationale: "Neuroendocrine balance",
+    },
     { specialty: "Endocrinology", condition: "Diabetes, PCOS", rationale: "Glucose metabolism improvement" },
-    { specialty: "Cardiology", condition: "Hypertension, arterial stiffness", rationale: "Endothelial function enhancement" },
+    {
+      specialty: "Cardiology",
+      condition: "Hypertension, arterial stiffness",
+      rationale: "Endothelial function enhancement",
+    },
     { specialty: "Pulmonology", condition: "Post-COVID fatigue", rationale: "Recovery and immune modulation" },
     { specialty: "Gastro/Hepato", condition: "IBD, liver disease", rationale: "Correct fat-soluble deficiencies" },
     { specialty: "Immunology", condition: "RA, SLE, MS", rationale: "Autoimmune risk reduction" },
     { specialty: "Oncology", condition: "Fatigue, bone metastasis", rationale: "Bone and immune resilience" },
-    { specialty: "Dentistry", condition: "Periodontitis, delayed dentition", rationale: "Oral bone health" }
+    { specialty: "Dentistry", condition: "Periodontitis, delayed dentition", rationale: "Oral bone health" },
   ];
 
   const comparisonData = [
@@ -23,7 +43,7 @@ const DosageSection = () => {
     { factor: "Tolerability", daily: "Ghee Supports Gut & Liver", monthly: "Often Irritates System" },
     { factor: "Safety", daily: "Low-Dose = Low Toxicity", monthly: "High-Dose Risks Exist" },
     { factor: "Memory & Habit", daily: "Easy Daily Habit", monthly: "Easy to Skip/forget" },
-    { factor: "Bioavailability", daily: "Maximized by Fat Synergy", monthly: "Rapid Clearance" }
+    { factor: "Bioavailability", daily: "Maximized by Fat Synergy", monthly: "Rapid Clearance" },
   ];
 
   return (
@@ -39,9 +59,7 @@ const DosageSection = () => {
             <Sun className="w-4 h-4 mr-2 inline" />
             Daily Nourishment
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
-            Like The Sun, D₃ Must Rise Daily
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-6">Like The Sun, D₃ Must Rise Daily</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Understanding the optimal dosing strategy for maximum health benefits
           </p>
@@ -67,7 +85,7 @@ const DosageSection = () => {
                     </div>
                     <div>
                       <div className="font-medium text-secondary mb-1">{item.factor}</div>
-                      <div className="text-accent font-medium">{item.daily}</div>
+                      <div className="text-secondary font-medium">{item.daily}</div>
                     </div>
                   </div>
                 ))}
@@ -109,7 +127,10 @@ const DosageSection = () => {
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {clinicalIndications.map((item, index) => (
-              <Card key={index} className="border-none bg-white shadow-warm hover:shadow-lg transition-all duration-300 group hover:scale-105">
+              <Card
+                key={index}
+                className="border-none bg-white shadow-warm hover:shadow-lg transition-all duration-300 group hover:scale-105"
+              >
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg text-secondary flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-warm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -120,7 +141,9 @@ const DosageSection = () => {
                 </CardHeader>
                 <CardContent className="pt-0">
                   <div className="space-y-2">
-                    <Badge variant="outline" className="mb-2 border-primary/20 text-primary bg-primary/5">{item.condition}</Badge>
+                    <Badge variant="outline" className="mb-2 border-primary/20 text-primary bg-primary/5">
+                      {item.condition}
+                    </Badge>
                     <p className="text-sm text-accent font-medium">{item.rationale}</p>
                   </div>
                 </CardContent>
@@ -181,9 +204,7 @@ const DosageSection = () => {
           <p className="text-center text-xl font-medium">
             Daily micro-dosing of Vitamin D₃ offers significantly better outcomes than large weekly or monthly doses.
           </p>
-          <p className="text-center text-sm mt-3 opacity-80">
-            - The Lancet, 2023 | NEJM, 2022
-          </p>
+          <p className="text-center text-sm mt-3 opacity-80">- The Lancet, 2023 | NEJM, 2022</p>
         </div>
       </div>
     </section>
