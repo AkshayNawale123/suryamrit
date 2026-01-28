@@ -10,43 +10,48 @@ const ProductFeatures = () => {
     { aspect: "Source", lichen: "Lichen (fungus + algae)", animal: "Sheep's wool grease (lanolin)" },
     { aspect: "Regulatory Approval", lichen: "Approved by the EU, US, and FSSAI", animal: "Widely approved" },
     { aspect: "Vegetarian", lichen: "100% Vegetarian", animal: "Animal-derived" },
-    { aspect: "Allergen-Free", lichen: "Free from animal proteins, lanolin, or allergens", animal: "May contain lanolin residues" },
+    {
+      aspect: "Allergen-Free",
+      lichen: "Free from animal proteins, lanolin, or allergens",
+      animal: "May contain lanolin residues",
+    },
     { aspect: "Stability", lichen: "Highly stable when microencapsulated", animal: "Stable" },
     { aspect: "Sustainability", lichen: "Environment-friendly; no harm to nature", animal: "Animal welfare concerns" },
-    { aspect: "Ideal For", lichen: "Ethical consumers, vegans, and sensitive users", animal: "Omnivorous populations" }
+    { aspect: "Ideal For", lichen: "Ethical consumers, vegans, and sensitive users", animal: "Omnivorous populations" },
   ];
 
   const matrixFeatures = [
     {
       title: "Ghee-Based Nutrient Delivery System",
-      description: "A next-gen oral delivery matrix powered by 125 mg Ghee and 600 IU Vegan D₃ (Lichen Source). Scientifically designed for maximum absorption, great taste, and clean compliance.",
-      icon: Droplets
+      description:
+        "A next-gen oral delivery matrix powered by 125 mg Ghee and 600 IU Vegan D₃ (Lichen Source). Scientifically designed for maximum absorption, great taste, and clean compliance.",
+      icon: Droplets,
     },
     {
       title: "Fat-Soluble Absorption",
       description: "Ghee enhances D₃ bioavailability via lymphatic transport.",
-      icon: Sparkles
+      icon: Sparkles,
     },
     {
       title: "Stable Emulsion Matrix",
       description: "Carrageenan + Glycerin support dispersion and shelf life.",
-      icon: CheckCircle
+      icon: CheckCircle,
     },
     {
       title: "Taste & Feel Optimized",
       description: "Cinnamon / Cardamom / Lemon Peppermint / Orange.",
-      icon: Sparkles
+      icon: Sparkles,
     },
     {
       title: "Zero-Glycemic Sweetening",
       description: "Sweetening with Sucralose & Sorbitol - Diabetic-Safe",
-      icon: CheckCircle
+      icon: CheckCircle,
     },
     {
       title: "Antioxidant Protection",
       description: "Vitamin E stabilizes active compounds.",
-      icon: Leaf
-    }
+      icon: Leaf,
+    },
   ];
 
   return (
@@ -58,13 +63,11 @@ const ProductFeatures = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <Badge className="mb-4 bg-accent/10 text-accent border-accent/20 px-4 py-2">
+          <Badge className="mb-4 bg-primary/10 text-accent border-accent/20 px-4 py-2">
             <Leaf className="w-4 h-4 mr-2 inline" />
             Nature's Wisdom
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
-            Why Lichen-Based Vitamin D₃?
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-6">Why Lichen-Based Vitamin D₃?</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             The superior choice for ethical, sustainable, and effective vitamin D₃ supplementation
           </p>
@@ -75,9 +78,9 @@ const ProductFeatures = () => {
           <div className="relative group">
             <div className="absolute -inset-4 bg-gradient-warm rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
             <div className="relative rounded-2xl overflow-hidden shadow-warm bg-gradient-to-br from-primary/10 to-amber-100/30">
-              <img 
-                src={sacredCow} 
-                alt="Sacred Indian Gir cow with calf at sunrise" 
+              <img
+                src={sacredCow}
+                alt="Sacred Indian Gir cow with calf at sunrise"
                 className="w-full h-80 object-contain transform group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent" />
@@ -90,9 +93,9 @@ const ProductFeatures = () => {
           <div className="relative group">
             <div className="absolute -inset-4 bg-gradient-natural rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
             <div className="relative rounded-2xl overflow-hidden shadow-natural">
-              <img 
-                src={vitaminNature} 
-                alt="Natural vitamin D essence" 
+              <img
+                src={vitaminNature}
+                alt="Natural vitamin D essence"
                 className="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent" />
@@ -147,9 +150,7 @@ const ProductFeatures = () => {
               <Leaf className="h-5 w-5" />
               Lichen-derived D₃ is bioidentical to animal sources — suitable for vegan, gut-friendly formulations.
             </p>
-            <p className="text-center text-sm mt-2 opacity-80">
-              - European Food Safety Authority (EFSA), 2021
-            </p>
+            <p className="text-center text-sm mt-2 opacity-80">- European Food Safety Authority (EFSA), 2021</p>
           </div>
         </div>
 
@@ -160,7 +161,10 @@ const ProductFeatures = () => {
             {matrixFeatures.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <Card key={index} className="border-primary/10 hover:border-primary/30 hover:shadow-warm transition-all duration-300 group bg-white">
+                <Card
+                  key={index}
+                  className="border-primary/10 hover:border-primary/30 hover:shadow-warm transition-all duration-300 group bg-white"
+                >
                   <CardHeader className="pb-3">
                     <div className="flex items-start space-x-4">
                       <div className="w-12 h-12 bg-gradient-warm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -230,21 +234,27 @@ const ProductFeatures = () => {
                 <span className="text-4xl">💊</span>
               </div>
               <h4 className="font-bold text-secondary mb-2 text-lg">Dosage</h4>
-              <p className="text-muted-foreground">Chew or pop 1 SuryAmrit™ veg capsule daily, or as advised by a healthcare professional.</p>
+              <p className="text-muted-foreground">
+                Chew or pop 1 SuryAmrit™ veg capsule daily, or as advised by a healthcare professional.
+              </p>
             </div>
             <div className="group">
               <div className="w-20 h-20 bg-gradient-natural rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-4xl">💧</span>
               </div>
               <h4 className="font-bold text-secondary mb-2 text-lg">No Water Required</h4>
-              <p className="text-muted-foreground">Convenient soft chewable format for anytime, anywhere consumption.</p>
+              <p className="text-muted-foreground">
+                Convenient soft chewable format for anytime, anywhere consumption.
+              </p>
             </div>
             <div className="group">
               <div className="w-20 h-20 bg-gradient-warm rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-4xl">🕒</span>
               </div>
               <h4 className="font-bold text-secondary mb-2 text-lg">Daily Habit</h4>
-              <p className="text-muted-foreground">Best results with consistent daily intake for optimal vitamin D₃ levels.</p>
+              <p className="text-muted-foreground">
+                Best results with consistent daily intake for optimal vitamin D₃ levels.
+              </p>
             </div>
           </div>
         </div>
