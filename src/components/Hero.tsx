@@ -9,13 +9,7 @@ const Hero = () => {
     <section id="home" className="relative min-h-screen overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
+        <video autoPlay loop muted playsInline className="w-full h-full object-cover">
           <source src={heroVideo} type="video/mp4" />
         </video>
         {/* Overlay for readability */}
@@ -30,7 +24,7 @@ const Hero = () => {
             <Sun className="w-4 h-4 mr-2 inline" />
             Over 82% of Indians are deficient in Vitamin D
           </Badge>
-          
+
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
             Natural
             <span className="block text-primary drop-shadow-lg">D₃ Daily</span>
@@ -38,8 +32,8 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl mb-8 text-white/90 leading-relaxed">
-            AYURBRAMH SuryAmrit™ - Soft Chewable Veg Capsules of 
-            Natural Vitamin D₃-600 IU with Ghee from sacred Indian cows
+            AYURBRAMH SuryAmrit™ - Soft Chewable Veg Capsules of Natural Vitamin D₃-600 IU with Ghee from sacred Indian
+            cows
           </p>
 
           <div className="flex flex-wrap gap-6 mb-10">
@@ -64,18 +58,24 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white shadow-warm text-lg px-8 py-6">
+            <Button
+              asChild
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white shadow-warm text-lg px-8 py-6"
+            >
               <Link to="/buy">Order Now - PAN India Delivery</Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/30 text-black hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6"
+            >
               <Play className="w-5 h-5 mr-2" />
               Watch Story
             </Button>
           </div>
 
-          <p className="text-sm mt-6 text-white/60">
-            - ICMR-NIN Survey, 2020
-          </p>
+          <p className="text-sm mt-6 text-white/60">- ICMR-NIN Survey, 2020</p>
         </div>
       </div>
 
