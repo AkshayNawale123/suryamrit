@@ -1,33 +1,31 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Heart, Target, Users, Award, Sun, Shield } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import Header from '@/components/Header';
-import BreadcrumbNavigation from '@/components/BreadcrumbNavigation';
-import Footer from '@/components/Footer';
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Heart, Target, Users, Award, Sun, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
+import Footer from "@/components/Footer";
 
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <BreadcrumbNavigation />
-      
+
       {/* Hero Section */}
       <section className="py-20 bg-gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-white/20 text-white border-white/30">
-              Our Story
-            </Badge>
+            <Badge className="mb-6 bg-white/20 text-white border-white/30">Our Story</Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Illuminating Lives with the Power of
               <span className="block text-primary-glow">Vitamin D₃</span>
             </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Born from a deep understanding of India's Vitamin D crisis, SuryAmrit™ represents 
-              our commitment to bringing natural, effective solutions to every Indian home.
+            <p className="text-xl text-muted-foreground/90 max-w-3xl mx-auto">
+              Born from a deep understanding of India's Vitamin D crisis, SuryAmrit™ represents our commitment to
+              bringing natural, effective solutions to every Indian home.
             </p>
           </div>
         </div>
@@ -46,16 +44,16 @@ const About = () => {
                   <h2 className="text-3xl font-bold text-foreground">Our Mission</h2>
                 </div>
                 <p className="text-lg text-muted-foreground mb-6">
-                  To combat India's widespread Vitamin D deficiency crisis by providing accessible, 
-                  natural, and culturally-appropriate supplementation solutions that fit seamlessly 
-                  into Indian lifestyles and traditions.
+                  To combat India's widespread Vitamin D deficiency crisis by providing accessible, natural, and
+                  culturally-appropriate supplementation solutions that fit seamlessly into Indian lifestyles and
+                  traditions.
                 </p>
                 <p className="text-muted-foreground">
-                  We believe that optimal health should not be a privilege but a right accessible 
-                  to every individual, regardless of their geographic location or lifestyle constraints.
+                  We believe that optimal health should not be a privilege but a right accessible to every individual,
+                  regardless of their geographic location or lifestyle constraints.
                 </p>
               </div>
-              
+
               <Card className="bg-gradient-subtle border-primary/20 shadow-golden">
                 <CardContent className="p-8">
                   <div className="text-center">
@@ -64,9 +62,8 @@ const About = () => {
                     </div>
                     <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
                     <p className="text-muted-foreground">
-                      A world where Vitamin D deficiency is no longer a silent epidemic, 
-                      and every person has access to the nutrition they need to live 
-                      their healthiest, most vibrant life.
+                      A world where Vitamin D deficiency is no longer a silent epidemic, and every person has access to
+                      the nutrition they need to live their healthiest, most vibrant life.
                     </p>
                   </div>
                 </CardContent>
@@ -84,8 +81,8 @@ const About = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    We source only the finest lichen-derived Vitamin D₃, ensuring 
-                    100% plant-based purity that aligns with vegetarian principles.
+                    We source only the finest lichen-derived Vitamin D₃, ensuring 100% plant-based purity that aligns
+                    with vegetarian principles.
                   </p>
                 </CardContent>
               </Card>
@@ -99,8 +96,8 @@ const About = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Every formulation is backed by rigorous scientific research 
-                    and clinical studies, ensuring maximum efficacy and safety.
+                    Every formulation is backed by rigorous scientific research and clinical studies, ensuring maximum
+                    efficacy and safety.
                   </p>
                 </CardContent>
               </Card>
@@ -114,8 +111,8 @@ const About = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    From infants to elderly, our products are formulated to be 
-                    safe and effective for all age groups and life stages.
+                    From infants to elderly, our products are formulated to be safe and effective for all age groups and
+                    life stages.
                   </p>
                 </CardContent>
               </Card>
@@ -129,12 +126,10 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                The Silent Crisis We're Fighting
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">The Silent Crisis We're Fighting</h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Vitamin D deficiency has reached epidemic proportions in India, 
-                affecting over 80% of the population despite abundant sunshine.
+                Vitamin D deficiency has reached epidemic proportions in India, affecting over 80% of the population
+                despite abundant sunshine.
               </p>
             </div>
 
@@ -214,9 +209,8 @@ const About = () => {
                     <h3 className="text-2xl font-bold mb-4">Our Solution</h3>
                   </div>
                   <p className="text-white/90 mb-6">
-                    SuryAmrit™ bridges this gap with a scientifically formulated, 
-                    culturally appropriate, and easily accessible Vitamin D₃ supplement 
-                    that fits seamlessly into Indian lifestyles.
+                    SuryAmrit™ bridges this gap with a scientifically formulated, culturally appropriate, and easily
+                    accessible Vitamin D₃ supplement that fits seamlessly into Indian lifestyles.
                   </p>
                   <Button asChild variant="secondary" size="lg" className="w-full">
                     <Link to="/product">Discover SuryAmrit™</Link>
@@ -232,12 +226,10 @@ const About = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Our Commitment to India
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Our Commitment to India</h2>
             <p className="text-lg text-muted-foreground mb-12">
-              We're not just a supplement company - we're partners in India's journey 
-              towards better health and wellness.
+              We're not just a supplement company - we're partners in India's journey towards better health and
+              wellness.
             </p>
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -250,8 +242,8 @@ const About = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Every batch of SuryAmrit™ undergoes rigorous testing for purity, 
-                    potency, and safety. We never compromise on quality.
+                    Every batch of SuryAmrit™ undergoes rigorous testing for purity, potency, and safety. We never
+                    compromise on quality.
                   </p>
                 </CardContent>
               </Card>
@@ -265,20 +257,18 @@ const About = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    We work tirelessly to make our products accessible across India, 
-                    from metros to tier-3 cities, ensuring no one is left behind.
+                    We work tirelessly to make our products accessible across India, from metros to tier-3 cities,
+                    ensuring no one is left behind.
                   </p>
                 </CardContent>
               </Card>
             </div>
 
             <div className="bg-gradient-subtle rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Join Us in This Mission
-              </h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Join Us in This Mission</h3>
               <p className="text-muted-foreground mb-6">
-                Together, we can make Vitamin D deficiency a thing of the past. 
-                Join thousands of families who have already started their journey to better health.
+                Together, we can make Vitamin D deficiency a thing of the past. Join thousands of families who have
+                already started their journey to better health.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="shadow-golden">
