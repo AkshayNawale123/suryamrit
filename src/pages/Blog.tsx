@@ -1,24 +1,37 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Search, Calendar, User, ArrowRight, Clock, Tag, BookOpen, Sun, Heart, Shield, Mail, Loader2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { useToast } from '@/hooks/use-toast';
+import React, { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Search,
+  Calendar,
+  User,
+  ArrowRight,
+  Clock,
+  Tag,
+  BookOpen,
+  Sun,
+  Heart,
+  Shield,
+  Mail,
+  Loader2,
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { useToast } from "@/hooks/use-toast";
 
 const Blog = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [email, setEmail] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [email, setEmail] = useState("");
   const [isSubscribing, setIsSubscribing] = useState(false);
   const { toast } = useToast();
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email.trim() || !emailRegex.test(email.trim())) {
       toast({
@@ -30,58 +43,61 @@ const Blog = () => {
     }
 
     setIsSubscribing(true);
-    
+
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     toast({
       title: "Successfully Subscribed! 🎉",
       description: "You'll receive our latest health tips and articles in your inbox.",
     });
-    
-    setEmail('');
+
+    setEmail("");
     setIsSubscribing(false);
   };
 
-  const categories = ['All', 'Vitamin D', 'Nutrition', 'Children Health', 'Women Health', 'Immunity', 'Lifestyle'];
+  const categories = ["All", "Vitamin D", "Nutrition", "Children Health", "Women Health", "Immunity", "Lifestyle"];
 
   const featuredArticles = [
     {
       id: 1,
       title: "The Silent Epidemic: Understanding Vitamin D Deficiency in India",
-      excerpt: "Explore why over 80% of Indians are vitamin D deficient despite living in a sunny country, and what you can do about it.",
+      excerpt:
+        "Explore why over 80% of Indians are vitamin D deficient despite living in a sunny country, and what you can do about it.",
       author: "Dr. Priya Sharma",
       date: "2024-01-15",
       category: "Vitamin D",
       readTime: "8 min read",
       image: "☀️",
       featured: true,
-      tags: ["Deficiency", "India", "Health Crisis"]
+      tags: ["Deficiency", "India", "Health Crisis"],
     },
     {
       id: 2,
       title: "Plant-Based vs Animal-Derived Vitamin D3: What's the Difference?",
-      excerpt: "A comprehensive comparison of lichen-derived D3 versus traditional animal sources, and why it matters for your health.",
+      excerpt:
+        "A comprehensive comparison of lichen-derived D3 versus traditional animal sources, and why it matters for your health.",
       author: "Nutrition Team",
       date: "2024-01-10",
       category: "Nutrition",
       readTime: "6 min read",
       image: "🌱",
       featured: true,
-      tags: ["Plant-based", "Comparison", "Science"]
+      tags: ["Plant-based", "Comparison", "Science"],
     },
     {
       id: 3,
       title: "Building Strong Bones in Children: The Role of Vitamin D",
-      excerpt: "Essential information for parents about ensuring optimal bone development in growing children through proper nutrition.",
+      excerpt:
+        "Essential information for parents about ensuring optimal bone development in growing children through proper nutrition.",
       author: "Dr. Rajesh Kumar",
       date: "2024-01-05",
       category: "Children Health",
       readTime: "7 min read",
       image: "👶",
       featured: true,
-      tags: ["Children", "Bone Health", "Development"]
-    }
+      tags: ["Children", "Bone Health", "Development"],
+    },
   ];
 
   const recentArticles = [
@@ -95,7 +111,7 @@ const Blog = () => {
       readTime: "5 min read",
       image: "🛡️",
       featured: false,
-      tags: ["Immunity", "Defense", "Health"]
+      tags: ["Immunity", "Defense", "Health"],
     },
     {
       id: 5,
@@ -107,7 +123,7 @@ const Blog = () => {
       readTime: "6 min read",
       image: "🍛",
       featured: false,
-      tags: ["Diet", "Indian Food", "Nutrition"]
+      tags: ["Diet", "Indian Food", "Nutrition"],
     },
     {
       id: 6,
@@ -118,7 +134,7 @@ const Blog = () => {
       category: "Women Health",
       readTime: "8 min read",
       image: "🤱",
-      tags: ["Pregnancy", "Women", "Health"]
+      tags: ["Pregnancy", "Women", "Health"],
     },
     {
       id: 7,
@@ -129,7 +145,7 @@ const Blog = () => {
       category: "Lifestyle",
       readTime: "7 min read",
       image: "🌞",
-      tags: ["Mental Health", "Mood", "Wellness"]
+      tags: ["Mental Health", "Mood", "Wellness"],
     },
     {
       id: 8,
@@ -140,7 +156,7 @@ const Blog = () => {
       category: "Nutrition",
       readTime: "5 min read",
       image: "💊",
-      tags: ["Absorption", "Supplements", "Tips"]
+      tags: ["Absorption", "Supplements", "Tips"],
     },
     {
       id: 9,
@@ -151,17 +167,18 @@ const Blog = () => {
       category: "Heart Health",
       readTime: "9 min read",
       image: "❤️",
-      tags: ["Heart", "Cardiovascular", "Prevention"]
-    }
+      tags: ["Heart", "Cardiovascular", "Prevention"],
+    },
   ];
 
   const allArticles = [...featuredArticles, ...recentArticles];
 
-  const filteredArticles = allArticles.filter(article => {
-    const matchesSearch = article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         article.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         article.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-    const matchesCategory = selectedCategory === 'All' || article.category === selectedCategory;
+  const filteredArticles = allArticles.filter((article) => {
+    const matchesSearch =
+      article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      article.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      article.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    const matchesCategory = selectedCategory === "All" || article.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -169,43 +186,41 @@ const Blog = () => {
     {
       icon: "☀️",
       title: "Get Morning Sun",
-      tip: "15-20 minutes of morning sunlight can help boost natural vitamin D production."
+      tip: "15-20 minutes of morning sunlight can help boost natural vitamin D production.",
     },
     {
       icon: "🥛",
       title: "Pair with Healthy Fats",
-      tip: "Take vitamin D with meals containing healthy fats for better absorption."
+      tip: "Take vitamin D with meals containing healthy fats for better absorption.",
     },
     {
       icon: "🏃‍♂️",
       title: "Stay Active",
-      tip: "Regular exercise helps your body utilize vitamin D more effectively."
+      tip: "Regular exercise helps your body utilize vitamin D more effectively.",
     },
     {
       icon: "🥗",
       title: "Eat Vitamin D Rich Foods",
-      tip: "Include fatty fish, fortified foods, and mushrooms in your diet."
-    }
+      tip: "Include fatty fish, fortified foods, and mushrooms in your diet.",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="py-20 bg-gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-white/20 text-white border-white/30">
-              Knowledge Center
-            </Badge>
+            <Badge className="mb-6 bg-white/20 text-muted-foreground border-white/30">Knowledge Center</Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Your Guide to
               <span className="block text-primary-glow">Vitamin D & Wellness</span>
             </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Discover evidence-based articles, expert insights, and practical tips 
-              to optimize your health and well-being naturally.
+            <p className="text-xl text-muted-foreground/90 max-w-3xl mx-auto">
+              Discover evidence-based articles, expert insights, and practical tips to optimize your health and
+              well-being naturally.
             </p>
           </div>
         </div>
@@ -239,11 +254,11 @@ const Blog = () => {
                 ))}
               </div>
             </div>
-            
+
             <div className="text-center">
               <p className="text-muted-foreground">
-                {filteredArticles.length} article{filteredArticles.length !== 1 ? 's' : ''} found
-                {selectedCategory !== 'All' && ` in ${selectedCategory}`}
+                {filteredArticles.length} article{filteredArticles.length !== 1 ? "s" : ""} found
+                {selectedCategory !== "All" && ` in ${selectedCategory}`}
                 {searchTerm && ` matching "${searchTerm}"`}
               </p>
             </div>
@@ -252,7 +267,7 @@ const Blog = () => {
       </section>
 
       {/* Featured Articles */}
-      {selectedCategory === 'All' && !searchTerm && (
+      {selectedCategory === "All" && !searchTerm && (
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
@@ -263,21 +278,20 @@ const Blog = () => {
 
               <div className="grid lg:grid-cols-3 gap-8">
                 {featuredArticles.map((article) => (
-                  <Card key={article.id} className="border-primary/20 shadow-soft hover:shadow-golden transition-all duration-300 group cursor-pointer">
+                  <Card
+                    key={article.id}
+                    className="border-primary/20 shadow-soft hover:shadow-golden transition-all duration-300 group cursor-pointer"
+                  >
                     <CardHeader>
                       <div className="text-4xl mb-4 text-center">{article.image}</div>
                       <div className="space-y-2">
-                        <Badge className="bg-primary/10 text-primary border-primary/20">
-                          {article.category}
-                        </Badge>
-                        <CardTitle className="group-hover:text-primary transition-colors">
-                          {article.title}
-                        </CardTitle>
+                        <Badge className="bg-primary/10 text-primary border-primary/20">{article.category}</Badge>
+                        <CardTitle className="group-hover:text-primary transition-colors">{article.title}</CardTitle>
                       </div>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <p className="text-muted-foreground text-sm">{article.excerpt}</p>
-                      
+
                       <div className="flex flex-wrap gap-1">
                         {article.tags.map((tag, index) => (
                           <Badge key={index} variant="secondary" className="text-xs">
@@ -285,7 +299,7 @@ const Blog = () => {
                           </Badge>
                         ))}
                       </div>
-                      
+
                       <div className="flex items-center justify-between text-sm text-muted-foreground">
                         <div className="flex items-center gap-2">
                           <User className="h-4 w-4" />
@@ -296,7 +310,7 @@ const Blog = () => {
                           <span>{article.readTime}</span>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-1 text-sm text-muted-foreground">
                           <Calendar className="h-4 w-4" />
@@ -323,34 +337,33 @@ const Blog = () => {
               {/* Articles List */}
               <div className="lg:col-span-3">
                 <h2 className="text-3xl font-bold text-foreground mb-8">
-                  {searchTerm || selectedCategory !== 'All' ? 'Search Results' : 'Latest Articles'}
+                  {searchTerm || selectedCategory !== "All" ? "Search Results" : "Latest Articles"}
                 </h2>
-                
+
                 <div className="space-y-8">
                   {filteredArticles.map((article) => (
-                    <Card key={article.id} className="border-primary/20 shadow-soft hover:shadow-golden transition-all duration-300 group cursor-pointer">
+                    <Card
+                      key={article.id}
+                      className="border-primary/20 shadow-soft hover:shadow-golden transition-all duration-300 group cursor-pointer"
+                    >
                       <div className="flex flex-col md:flex-row">
                         <div className="md:w-1/4 p-6 flex items-center justify-center bg-gradient-subtle">
                           <div className="text-6xl">{article.image}</div>
                         </div>
                         <div className="md:w-3/4 p-6">
                           <div className="flex items-center gap-3 mb-3">
-                            <Badge className="bg-primary/10 text-primary border-primary/20">
-                              {article.category}
-                            </Badge>
+                            <Badge className="bg-primary/10 text-primary border-primary/20">{article.category}</Badge>
                             {article.featured && (
-                              <Badge className="bg-secondary/10 text-secondary border-secondary/20">
-                                Featured
-                              </Badge>
+                              <Badge className="bg-secondary/10 text-secondary border-secondary/20">Featured</Badge>
                             )}
                           </div>
-                          
+
                           <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                             {article.title}
                           </h3>
-                          
+
                           <p className="text-muted-foreground mb-4">{article.excerpt}</p>
-                          
+
                           <div className="flex flex-wrap gap-1 mb-4">
                             {article.tags.map((tag, index) => (
                               <Badge key={index} variant="outline" className="text-xs">
@@ -359,7 +372,7 @@ const Blog = () => {
                               </Badge>
                             ))}
                           </div>
-                          
+
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-4 text-sm text-muted-foreground">
                               <div className="flex items-center gap-1">
@@ -392,7 +405,12 @@ const Blog = () => {
                     <p className="text-muted-foreground mb-4">
                       Try adjusting your search terms or browse different categories.
                     </p>
-                    <Button onClick={() => { setSearchTerm(''); setSelectedCategory('All'); }}>
+                    <Button
+                      onClick={() => {
+                        setSearchTerm("");
+                        setSelectedCategory("All");
+                      }}
+                    >
                       Clear Filters
                     </Button>
                   </Card>
@@ -441,13 +459,7 @@ const Blog = () => {
                         className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-white"
                         disabled={isSubscribing}
                       />
-                      <Button 
-                        type="submit" 
-                        variant="secondary" 
-                        size="sm" 
-                        className="w-full"
-                        disabled={isSubscribing}
-                      >
+                      <Button type="submit" variant="secondary" size="sm" className="w-full" disabled={isSubscribing}>
                         {isSubscribing ? (
                           <>
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -461,9 +473,7 @@ const Blog = () => {
                         )}
                       </Button>
                     </form>
-                    <p className="text-white/70 text-xs mt-3">
-                      No spam. Unsubscribe anytime.
-                    </p>
+                    <p className="text-white/70 text-xs mt-3">No spam. Unsubscribe anytime.</p>
                   </CardContent>
                 </Card>
 
@@ -501,17 +511,13 @@ const Blog = () => {
       <section className="py-16 bg-gradient-subtle">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Ready to Start Your Health Journey?
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Ready to Start Your Health Journey?</h2>
             <p className="text-lg text-muted-foreground mb-8">
               Armed with knowledge, take the next step towards optimal health with SuryAmrit™.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="shadow-golden">
-                <Link to="/product">
-                  Discover SuryAmrit™
-                </Link>
+                <Link to="/product">Discover SuryAmrit™</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link to="/buy#contact">Ask Our Experts</Link>
