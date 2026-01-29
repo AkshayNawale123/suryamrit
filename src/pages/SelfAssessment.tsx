@@ -8,8 +8,8 @@ import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { Badge } from "@/components/ui/badge";
-import { AlertTriangle, CheckCircle, XCircle, RotateCcw, Sun, ShoppingCart } from "lucide-react";
+
+import { AlertTriangle, RotateCcw, Sun, ShoppingCart, Star, Shield, Sparkles, Clock, Zap } from "lucide-react";
 import { toast } from "sonner";
 
 interface Question {
@@ -97,56 +97,60 @@ type RiskLevel = "low" | "moderate" | "high";
 
 interface ResultData {
   riskLevel: RiskLevel;
-  title: string;
-  description: string;
-  recommendations: string[];
-  medicalStatus: string;
+  statusLabel: string;
+  hook: string;
+  actionPlan: string;
+  theFix: string;
+  whySuryAmrit?: string;
+  timelineOrResult: string;
+  timelineLabel: string;
+  lifestyleTips: string[];
 }
 
 const getResultData = (total: number): ResultData => {
   if (total <= 3) {
     return {
       riskLevel: "low",
-      title: "Low Risk",
-      description:
-        "Sufficiency/Optimal Status (Likely > 30 ng/mL) - Your lifestyle and symptoms suggest you likely have sufficient Vitamin D levels. Great job maintaining healthy habits!",
-      medicalStatus: "Sufficiency/Optimal (Likely > 30 ng/mL)",
-      recommendations: [
-        "Continue current lifestyle: Your practices are working well to maintain adequate Vitamin D levels",
-        "Maintain habits: Keep up your current sun exposure and dietary practices",
-        "Optional maintenance: Consider 800-2,000 IU daily for ongoing maintenance",
-        "Annual monitoring: Check your levels during routine health check-ups",
+      statusLabel: "Sun-Kissed & Strong",
+      hook: "Lock in your levels.",
+      actionPlan: "You are living a healthy life! But in the modern world, D3 levels drop fast during stress or office weeks.",
+      theFix: "Take 1 SuryAmrit Ghee Softgel daily to \"Lock In\" your status.",
+      timelineOrResult: "Prevents future fatigue and keeps your immunity shield active.",
+      timelineLabel: "The Result",
+      lifestyleTips: [
+        "Maintain current sun exposure",
+        "Keep eating healthy fats",
       ],
     };
   } else if (total <= 7) {
     return {
       riskLevel: "moderate",
-      title: "Moderate Risk",
-      description:
-        "Insufficiency Status (Likely 20-30 ng/mL) - Your responses suggest possible Vitamin D insufficiency. Some lifestyle modifications are recommended.",
-      medicalStatus: "Insufficiency (Likely 20-30 ng/mL)",
-      recommendations: [
-        "Increase sun exposure: Aim for 15-30 minutes of direct sunlight daily with arms, legs, and face uncovered",
-        "Improve dietary intake: Consume more Vitamin D-rich foods like fatty fish, fortified milk, eggs, and mushrooms",
-        "Consider supplementation: Vitamin D3 supplement of 2,000-4,000 IU daily",
-        "Consult a doctor: Schedule an appointment to discuss getting a blood test (25-Hydroxyvitamin D test)",
-        "Re-test in 3 months: Check your levels after implementing these changes",
+      statusLabel: "The Office Fatigue Zone",
+      hook: "Bridge the gap.",
+      actionPlan: "You aren't sick, but you aren't efficient either. Your current lifestyle is draining your battery faster than you are recharging it.",
+      theFix: "Start the SuryAmrit Daily Habit. It absorbs better than tablets and fills this gap naturally.",
+      timelineOrResult: "It takes time to rebuild. Stick to it for 45 Days to feel the real shift in your energy and sleep quality.",
+      timelineLabel: "The Timeline",
+      lifestyleTips: [
+        "Add 15 mins of morning sun",
+        "Add 1 spoon of Ghee to meals",
+        "Try to get sunlight on your balcony",
       ],
     };
   } else {
     return {
       riskLevel: "high",
-      title: "High Risk",
-      description:
-        "Deficiency/Severe Deficiency Status (Likely < 20 ng/mL) - Your responses strongly suggest Vitamin D deficiency. Medical consultation is strongly recommended.",
-      medicalStatus: "Deficiency/Severe Deficiency (Likely < 20 ng/mL)",
-      recommendations: [
-        "SEE A HEALTHCARE PROVIDER: Strongly recommended to schedule an appointment immediately for a blood test",
-        "Blood test required: Only a medical professional can confirm deficiency and prescribe appropriate treatment",
-        "Likely supplementation protocol: 4,000-6,000 IU daily, OR 50,000 IU weekly for 6-8 weeks (as prescribed)",
-        "Increase sun exposure: Aim for 15-30 minutes of direct sunlight daily when possible",
-        "Dietary improvements: Prioritize Vitamin D-rich foods in your daily meals",
-        "⚠️ Important: Do NOT self-prescribe high-dose supplements without medical supervision",
+      statusLabel: "Needs Restoration",
+      hook: "Start the Restoration Cycle.",
+      actionPlan: "Your inputs (Sun/Diet) are significantly lower than your body's demand.",
+      whySuryAmrit: "Instead of shocking your body with high-dose chemical injections (which can be harsh), we recommend Gentle, Consistent Restoration.",
+      theFix: "Take SuryAmrit Daily without fail. Our Ghee matrix ensures steady absorption that is safe for long-term use.",
+      timelineOrResult: "You didn't lose your levels in a day, and you won't fix them in a day. Give us 45 Days of consistency, and you will see the change.",
+      timelineLabel: "The Promise",
+      lifestyleTips: [
+        "Mandatory: 20 mins Sun daily",
+        "Diet: More Fatty Fish/Dairy",
+        "Consistency is key",
       ],
     };
   }
@@ -183,28 +187,7 @@ const SelfAssessment = () => {
   const totalScore = section1Score + section2Score;
   const resultData = getResultData(totalScore);
 
-  const getRiskBadgeStyle = (level: RiskLevel) => {
-    switch (level) {
-      case "low":
-        return "bg-green-100 text-green-800 border-green-300";
-      case "moderate":
-        return "bg-amber-100 text-amber-800 border-amber-300";
-      case "high":
-        return "bg-red-100 text-red-800 border-red-300";
-    }
-  };
-
-  const getRiskIcon = (level: RiskLevel) => {
-    switch (level) {
-      case "low":
-        return <CheckCircle className="h-8 w-8 text-green-600" />;
-      case "moderate":
-        return <AlertTriangle className="h-8 w-8 text-amber-600" />;
-      case "high":
-        return <XCircle className="h-8 w-8 text-red-600" />;
-    }
-  };
-
+  // Risk level styling helpers
   const getRiskBgStyle = (level: RiskLevel) => {
     switch (level) {
       case "low":
@@ -215,6 +198,18 @@ const SelfAssessment = () => {
         return "bg-red-50 border-red-200";
     }
   };
+
+  const getRiskIcon = (level: RiskLevel) => {
+    switch (level) {
+      case "low":
+        return <Star className="h-10 w-10 text-green-600" />;
+      case "moderate":
+        return <AlertTriangle className="h-10 w-10 text-amber-600" />;
+      case "high":
+        return <Shield className="h-10 w-10 text-primary" />;
+    }
+  };
+
 
   const QuestionCard = ({ question, index }: { question: Question; index: number }) => (
     <Card className="border-l-4 border-l-primary">
@@ -348,126 +343,109 @@ const SelfAssessment = () => {
             </Button>
           </>
         ) : (
-          /* Results Section */
+          /* Results Section - SuryAmrit Safety Protocol */
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            
+            {/* Status Card */}
             <Card className={`border-2 ${getRiskBgStyle(resultData.riskLevel)}`}>
-              <CardHeader className="text-center">
-                <div className="flex justify-center mb-4">{getRiskIcon(resultData.riskLevel)}</div>
-                <CardTitle className="text-2xl">Your Vitamin D3 Status Assessment</CardTitle>
-                <div className="text-5xl font-bold text-foreground mt-4">{totalScore} / 14 Points</div>
-              </CardHeader>
-              <CardContent>
-                <div className="bg-card rounded-lg overflow-hidden mb-6">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="bg-primary text-primary-foreground">
-                        <th className="text-left p-3 font-semibold">Category</th>
-                        <th className="text-left p-3 font-semibold">Your Score</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="border-b border-border">
-                        <td className="p-3">Section 1 (Q1-4): Lifestyle & Risk Factors</td>
-                        <td className="p-3 font-medium">{section1Score} points</td>
-                      </tr>
-                      <tr className="border-b border-border">
-                        <td className="p-3">Section 2 (Q5-8): Common Symptoms</td>
-                        <td className="p-3 font-medium">{section2Score} points</td>
-                      </tr>
-                      <tr className="bg-muted/50 font-bold">
-                        <td className="p-3">GRAND TOTAL SCORE</td>
-                        <td className="p-3">{totalScore} points</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                {/* Risk Assessment */}
-                <div className="bg-card rounded-lg p-6 mb-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Badge className={`text-base px-3 py-1 ${getRiskBadgeStyle(resultData.riskLevel)}`}>
-                      {resultData.title}
-                    </Badge>
+              <CardContent className="pt-8 pb-6">
+                <div className="flex flex-col items-center text-center">
+                  <div className="mb-4">{getRiskIcon(resultData.riskLevel)}</div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                    {resultData.riskLevel === "low" && "🌟 "}
+                    {resultData.riskLevel === "moderate" && "⚠️ "}
+                    {resultData.riskLevel === "high" && "🛡️ "}
+                    {resultData.statusLabel}
+                  </h2>
+                  <p className="text-lg italic text-muted-foreground mb-4">"{resultData.hook}"</p>
+                  <div className="text-sm text-muted-foreground">
+                    Score: <span className="font-semibold text-foreground">{totalScore} / 14 Points</span>
                   </div>
-                  <p className="text-muted-foreground">{resultData.description}</p>
-                </div>
-
-                {/* Recommendations */}
-                <div className="bg-card rounded-lg p-6 mb-6">
-                  <h3 className="font-bold text-lg mb-4">Recommended Actions:</h3>
-                  <ul className="space-y-3">
-                    {resultData.recommendations.map((rec, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
-                        <span className="text-muted-foreground">{rec}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Interpretation Guide */}
-                <div className="bg-card rounded-lg p-6">
-                  <h4 className="font-bold text-primary mb-4">📋 Complete Score Interpretation Guide</h4>
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
-                      <thead>
-                        <tr className="bg-muted">
-                          <th className="p-2 text-left border-b border-border">Total Score</th>
-                          <th className="p-2 text-left border-b border-border">Risk Assessment</th>
-                          <th className="p-2 text-left border-b border-border">Medical Status</th>
-                          <th className="p-2 text-left border-b border-border">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="border-b border-border">
-                          <td className="p-2">0 - 3 Points</td>
-                          <td className="p-2">Low Risk</td>
-                          <td className="p-2">Likely &gt; 30 ng/mL</td>
-                          <td className="p-2">Continue current lifestyle</td>
-                        </tr>
-                        <tr className="border-b border-border">
-                          <td className="p-2">4 - 7 Points</td>
-                          <td className="p-2">Moderate Risk</td>
-                          <td className="p-2">Likely 20-30 ng/mL</td>
-                          <td className="p-2">Increase sun & diet, consider supplement</td>
-                        </tr>
-                        <tr>
-                          <td className="p-2">8 - 14 Points</td>
-                          <td className="p-2">High Risk</td>
-                          <td className="p-2">Likely &lt; 20 ng/mL</td>
-                          <td className="p-2">See healthcare provider</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-3">
-                    <strong>Maximum Possible Score:</strong> 14 Points
-                  </p>
                 </div>
               </CardContent>
             </Card>
 
-            {/* CTA Section */}
-            {resultData.riskLevel !== "low" && (
-              <Card className="bg-gradient-primary text-white">
-                <CardContent className="pt-6 text-center">
-                  <h3 className="text-xl font-bold mb-2">Start Your Vitamin D Journey Today</h3>
-                  <p className="text-white/90 mb-4">
-                    SuryAmrit™ provides 600 IU of plant-based Vitamin D3 in a traditional ghee base for optimal
-                    absorption.
-                  </p>
-                  <Button asChild variant="outline" className="bg-white text-primary hover:bg-white/90">
-                    <Link to="/buy">
-                      <ShoppingCart className="mr-2 h-4 w-4" />
-                      Order SuryAmrit™ Now
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            )}
+            {/* Your Action Plan */}
+            <Card className="border-l-4 border-l-primary">
+              <CardContent className="pt-6">
+                <h3 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase tracking-wide text-foreground">
+                  Your Action Plan
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">{resultData.actionPlan}</p>
+              </CardContent>
+            </Card>
+
+            {/* The Fix - SuryAmrit Solution */}
+            <Card className="border-2 border-primary bg-primary/5">
+              <CardContent className="pt-6">
+                <h3 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase tracking-wide text-primary">
+                  <Zap className="h-5 w-5" />
+                  The Fix
+                </h3>
+                <p className="text-foreground font-medium mb-4">{resultData.theFix}</p>
+                
+                {resultData.whySuryAmrit && (
+                  <div className="bg-background/60 rounded-lg p-4 mb-4">
+                    <p className="text-sm text-muted-foreground italic">
+                      <strong className="text-foreground">Why SuryAmrit?</strong> {resultData.whySuryAmrit}
+                    </p>
+                  </div>
+                )}
+
+                <Button asChild className="w-full" size="lg" variant="hero">
+                  <Link to="/buy">
+                    <ShoppingCart className="mr-2 h-5 w-5" />
+                    Order SuryAmrit™ Now
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* The Result/Timeline/Promise */}
+            <Card className="border-l-4 border-l-amber-500">
+              <CardContent className="pt-6">
+                <h3 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase tracking-wide text-foreground">
+                  <Clock className="h-5 w-5 text-amber-600" />
+                  {resultData.timelineLabel}
+                  {resultData.riskLevel !== "low" && (
+                    <span className="text-sm font-normal normal-case text-amber-600">(45 Days)</span>
+                  )}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">{resultData.timelineOrResult}</p>
+              </CardContent>
+            </Card>
+
+            {/* Lifestyle Add-ons */}
+            <Card className="border-l-4 border-l-green-500">
+              <CardContent className="pt-6">
+                <h3 className="font-bold text-lg mb-4 flex items-center gap-2 uppercase tracking-wide text-foreground">
+                  <Sparkles className="h-5 w-5 text-green-600" />
+                  Lifestyle Add-ons
+                </h3>
+                <ul className="space-y-3">
+                  {resultData.lifestyleTips.map((tip, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <Sun className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">{tip}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Safety Disclaimer */}
+            <Card className="bg-muted/30 border-muted">
+              <CardContent className="pt-4 pb-4">
+                <p className="text-xs text-muted-foreground text-center leading-relaxed">
+                  <strong>Disclaimer:</strong> SuryAmrit is a daily nutritional supplement to support healthy Vitamin D levels. 
+                  It is not a prescription drug or a cure for acute diseases. If you have existing liver/kidney conditions 
+                  or are on specific medication, please share this ingredient list with your physician before starting.
+                </p>
+              </CardContent>
+            </Card>
 
             {/* Reset Button */}
-            <div className="flex justify-center">
+            <div className="flex justify-center pt-4">
               <Button onClick={resetAssessment} variant="outline" size="lg">
                 <RotateCcw className="mr-2 h-4 w-4" />
                 Start New Assessment
