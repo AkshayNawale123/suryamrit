@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import indiaMapImage from '@/assets/india-map.png';
+import indiaMapImage from '@/assets/india-tricolor-map.png';
 
 interface StateData {
   name: string;
