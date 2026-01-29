@@ -113,6 +113,7 @@ const HomePage = () => {
           <div className="grid lg:grid-cols-5 gap-8 items-center">
             {/* Main Hero Content */}
             <div className="lg:col-span-3 text-center lg:text-left">
+              <p> </p>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[0.9] tracking-tight">
                 <span className="text-foreground">SuryAmrit for </span>
                 <span className="block mt-2 bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent animate-gradient warm-glow">
