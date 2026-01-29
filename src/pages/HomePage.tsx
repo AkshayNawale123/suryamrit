@@ -123,11 +123,12 @@ const HomePage = () => {
                 <span className="block mt-2 bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent animate-gradient warm-glow">
                   Vitamin D Sufficient India
                 </span>
-                <Badge className="mb-8 px-6 py-2 text-sm font-medium bg-primary/15 text-primary border-primary/30 backdrop-blur-sm animate-pulse-glow">
-                  <Sparkles className="w-4 h-4 mr-2" />
-                  An Initiative by Lokpeeth Foundation Mission
-                </Badge>
               </h1>
+
+              <Badge className="mb-8 px-6 py-2 text-sm font-medium bg-primary/15 text-primary border-primary/30 backdrop-blur-sm animate-pulse-glow">
+                <Sparkles className="w-4 h-4 mr-2" />
+                An Initiative by Lokpeeth Foundation Mission
+              </Badge>
 
               <p className="text-xl md:text-2xl mb-12 text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 Over 82% of Indians are Vitamin D deficient. SuryAmrit™ provides the natural, plant-based solution your
@@ -267,8 +268,8 @@ const HomePage = () => {
               {[
                 {
                   icon: Users,
-                  title: "80%+ Deficient",
-                  desc: "Over 80% of Indians have insufficient Vitamin D levels, especially in urban areas with limited sun exposure.",
+                  title: "82%+ Deficient",
+                  desc: "Over 82% of Indians have insufficient Vitamin D levels, especially in urban areas with limited sun exposure.",
                   gradient: "from-primary/15 to-primary/5",
                   iconBg: "bg-gradient-to-br from-primary to-primary",
                   iconColor: "text-primary-foreground",
