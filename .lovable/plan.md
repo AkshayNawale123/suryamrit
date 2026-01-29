@@ -1,269 +1,238 @@
 
-# Footer Restructure: Professional Layout with Regulatory Information
+# Self Assessment Redesign: "SuryAmrit Safety Protocol" Recommendation Engine
 
-## Overview
-Restructure the footer to accommodate new manufacturer and marketer details while maintaining the existing brand elements. The new design will be a 5-column layout on desktop, collapsing to a clean mobile-responsive format.
-
----
-
-## Current State Analysis
-
-**File**: `src/components/Footer.tsx`
-
-**Current Structure (4 columns)**:
-1. **Company Info** - Logo, tagline, social links
-2. **Quick Links** - Navigation links (Shop, Science, Reviews, etc.)
-3. **Product Information** - Feature checklist
-4. **Our Benefactor** - Lokarth Foundation card + contact info
+## Philosophy
+Replace clinical "Medical Dosages" approach with **Lifestyle Integration** messaging. The core principle: **Consistency over Intensity**. Every score level leads to a SuryAmrit recommendation - the difference is in the framing and urgency.
 
 ---
 
-## New Information to Add
+## Current State vs. New Design
 
-### Manufactured By
-```text
-GELNOVA LABORATORIES (INDIA) PVT. LTD.
-C-125, TTC Industrial Area,
-Mahape, Navi Mumbai,
-Maharashtra, 400 703 INDIA
-FSSAI Lic. No. 10013022002314
-```
+### What We Have Now
+- Generic medical recommendations (dosages, blood tests)
+- Clinical language ("Sufficiency Status", "ng/mL levels")
+- Only shows CTA for moderate/high risk users
+- Bullet-point list format for recommendations
 
-### Marketed By
-```text
-LOKPEETH FOUNDATION
-1774, Block B1, Vasant Kunj,
-New Delhi - 110070 INDIA
-Customer Care: 9373228844
-FSSAI Lic. No. 21525083005916
-info@suryamrit.org
-www.suryamrit.org
-```
+### What We Are Building
+- Lifestyle-focused, action-oriented messaging
+- Emotional hooks that resonate with office workers
+- Product CTA for ALL score levels (different framing)
+- Card-based visual hierarchy with clear sections:
+  - Status Badge (emoji + label)
+  - Your Action Plan (the insight)
+  - The Fix (SuryAmrit positioning)
+  - The Timeline/Result/Promise (45-day expectation)
+  - Lifestyle Add-ons (practical tips)
 
 ---
 
-## Proposed New Structure
+## New Result Data Structure
 
-### Layout: 5-Column Grid (Desktop) → Responsive Stack (Mobile)
-
+### Score 0-3: Optimal Zone
 ```text
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                              MAIN FOOTER CONTENT                              │
-├──────────────┬──────────────┬──────────────┬──────────────┬──────────────────┤
-│   COLUMN 1   │   COLUMN 2   │   COLUMN 3   │   COLUMN 4   │     COLUMN 5     │
-│              │              │              │              │                  │
-│  SURYAMRIT   │ QUICK LINKS  │   SUPPORT    │ MANUFACTURED │   MARKETED BY    │
-│    BRAND     │              │              │      BY      │                  │
-│              │ • Shop       │ • FAQ        │              │ LOKPEETH         │
-│  [Logo]      │ • Product    │ • Contact    │ GELNOVA      │ FOUNDATION       │
-│  Tagline     │ • Science    │ • Partners   │ LABORATORIES │                  │
-│              │ • About      │ • Self       │              │ [Address]        │
-│  [Social     │ • Endorse-   │   Assessment │ [Address]    │ [Phone]          │
-│   Icons]     │   ments      │              │ [FSSAI]      │ [Email]          │
-│              │              │              │              │ [Website]        │
-│              │              │              │              │ [FSSAI]          │
-├──────────────┴──────────────┴──────────────┴──────────────┴──────────────────┤
-│                              BOTTOM BAR                                       │
-│  © 2026 SuryAmrit™ | FSSAI Health Supplement                [Research Quote] │
-└──────────────────────────────────────────────────────────────────────────────┘
+Status:       "Sun-Kissed & Strong"
+Emoji:        Star icon
+Hook:         "Lock in your levels."
+Action Plan:  You are living a healthy life! But in the modern 
+              world, D3 levels drop fast during stress or office weeks.
+The Fix:      Take 1 SuryAmrit Ghee Softgel daily to "Lock In" 
+              your status.
+The Result:   Prevents future fatigue and keeps your immunity 
+              shield active.
+Lifestyle Tips:
+  - Maintain current sun exposure
+  - Keep eating healthy fats
 ```
 
----
-
-## Detailed Implementation
-
-### Column 1: Brand (Unchanged)
-- SuryAmrit logo
-- Tagline: "Natural Daily D₃ with Ghee..."
-- Social media icons (Facebook, Twitter, Instagram, YouTube)
-
-### Column 2: Quick Links (Updated)
-Reorganized navigation links:
-- Shop (`/buy`)
-- Product (`/product`)
-- Science (`/product#science`)
-- About Us (`/about`)
-- Endorsements (`/endorsements`)
-
-### Column 3: Support (New Section)
-Customer-focused links:
-- FAQ (`/faq`)
-- Self Assessment (`/self-assessment`)
-- Become a Partner (`/partners`)
-- Contact Us (scroll to contact section or WhatsApp)
-
-### Column 4: Manufactured By (New)
+### Score 4-7: Efficiency Gap
 ```text
-Header: "Manufactured By"
-Icon: Factory/Building icon
-
-GELNOVA LABORATORIES (INDIA) PVT. LTD.
-C-125, TTC Industrial Area,
-Mahape, Navi Mumbai,
-Maharashtra, 400 703 INDIA
-
-FSSAI Lic. No. 10013022002314
+Status:       "The Office Fatigue Zone"
+Emoji:        AlertTriangle icon  
+Hook:         "Bridge the gap."
+Action Plan:  You aren't sick, but you aren't efficient either. 
+              Your current lifestyle is draining your battery faster 
+              than you are recharging it.
+The Fix:      Start the SuryAmrit Daily Habit. It absorbs better 
+              than tablets and fills this gap naturally.
+Timeline:     It takes time to rebuild. Stick to it for 45 Days 
+              to feel the real shift in your energy and sleep quality.
+Lifestyle Tips:
+  - Add 15 mins of morning sun
+  - Add 1 spoon of Ghee to meals
+  - Try to get 15 minutes of sunlight on your balcony
 ```
-- Small text, professional appearance
-- FSSAI badge/icon for trust
 
-### Column 5: Marketed By (New - Replaces Lokarth Card)
+### Score 8-14: Silent Drain
 ```text
-Header: "Marketed By"
-Icon: Building/Store icon
-
-LOKPEETH FOUNDATION
-1774, Block B1, Vasant Kunj,
-New Delhi - 110070 INDIA
-
-📞 Customer Care: 9373228844
-📧 info@suryamrit.org
-🌐 www.suryamrit.org
-
-FSSAI Lic. No. 21525083005916
+Status:       "Needs Restoration"  
+Emoji:        Shield icon
+Hook:         "Start the Restoration Cycle."
+Action Plan:  Your inputs (Sun/Diet) are significantly lower than 
+              your body's demand.
+Why SuryAmrit: Instead of shocking your body with high-dose chemical 
+              injections (which can be harsh), we recommend Gentle, 
+              Consistent Restoration.
+The Fix:      Take SuryAmrit Daily without fail. Our Ghee matrix 
+              ensures steady absorption that is safe for long-term use.
+The Promise:  You didn't lose your levels in a day, and you won't 
+              fix them in a day. Give us 45 Days of consistency, 
+              and you will see the change.
+Lifestyle Tips:
+  - Mandatory: 20 mins Sun daily
+  - Diet: More Fatty Fish/Dairy
+  - Consistency is key
 ```
-- Clickable phone number (tel: link)
-- Clickable email (mailto: link)
-- Clickable website (external link)
 
 ---
 
 ## Technical Changes
 
-### File: `src/components/Footer.tsx`
+### File: `src/pages/SelfAssessment.tsx`
 
-#### Step 1: Add New Icons
+#### 1. Update ResultData Interface (Lines 98-104)
+Replace the current interface with a more comprehensive structure:
+
+```typescript
+interface ResultData {
+  riskLevel: RiskLevel;
+  statusEmoji: string;
+  statusLabel: string;
+  hook: string;
+  actionPlan: string;
+  theFix: string;
+  whySuryAmrit?: string; // Only for high risk
+  timelineOrResult: string;
+  timelineLabel: string; // "The Result" | "The Timeline" | "The Promise"
+  lifestyleTips: string[];
+}
+```
+
+#### 2. Rewrite getResultData Function (Lines 106-153)
+Replace the entire function with new content matching the three scenarios:
+
+**Low Risk (0-3):**
+- `statusLabel`: "Sun-Kissed & Strong"
+- `hook`: "Lock in your levels."
+- Uses Star icon styling (green)
+
+**Moderate Risk (4-7):**
+- `statusLabel`: "The Office Fatigue Zone"  
+- `hook`: "Bridge the gap."
+- Uses AlertTriangle icon styling (amber)
+
+**High Risk (8-14):**
+- `statusLabel`: "Needs Restoration"
+- `hook`: "Start the Restoration Cycle."
+- Uses Shield icon styling (red/protective)
+
+#### 3. Add New Icons (Line 12)
 Import additional icons from lucide-react:
-- `Building2` for manufacturer
-- `Store` or `Building` for marketer
-- `Globe` for website link
-- `ExternalLink` for external links
+- `Star` - for optimal zone status
+- `Shield` - for restoration status
+- `Sparkles` - for lifestyle tips
+- `Clock` - for timeline section
+- `Zap` - for "The Fix" section
 
-#### Step 2: Update Grid Layout
-Change from `md:grid-cols-4` to `lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2`
+#### 4. Update getRiskIcon Helper (Lines 197-206)
+Change the high-risk icon from `XCircle` to `Shield` for protective framing.
 
-#### Step 3: Column 1 - Brand Section
-- Keep existing logo and tagline
-- Keep social media icons
-- Remove the Lokarth Foundation card (moved to bottom or removed)
+#### 5. Completely Redesign Results Section (Lines 352-476)
+Replace the current results layout with a new card-based design:
 
-#### Step 4: Column 2 - Quick Links
-Update links:
-```jsx
-<ul>
-  <li><Link to="/buy">Shop</Link></li>
-  <li><Link to="/product">Product</Link></li>
-  <li><Link to="/product#science">Science</Link></li>
-  <li><Link to="/about">About Us</Link></li>
-  <li><Link to="/endorsements">Endorsements</Link></li>
-</ul>
+**New Layout Structure:**
+```text
++------------------------------------------+
+|  [Icon]  STATUS LABEL                    |
+|          "Hook text here"                |
+|  Score: X / 14 Points                    |
++------------------------------------------+
+
++------------------------------------------+
+|  YOUR ACTION PLAN                        |
+|  [Insight paragraph about their status]  |
++------------------------------------------+
+
++------------------------------------------+
+|  THE FIX - SURYAMRIT SOLUTION           |
+|  [Product positioning message]           |
+|  [Why SuryAmrit - for high risk only]    |
+|                                          |
+|  [Order Button - always visible]         |
++------------------------------------------+
+
++------------------------------------------+
+|  THE RESULT/TIMELINE/PROMISE (45 Days)  |
+|  [Expectation-setting message]           |
++------------------------------------------+
+
++------------------------------------------+
+|  LIFESTYLE ADD-ONS                       |
+|  - Tip 1                                 |
+|  - Tip 2                                 |
+|  - Tip 3 (if applicable)                 |
++------------------------------------------+
+
++------------------------------------------+
+|  SAFETY DISCLAIMER (small grey text)     |
++------------------------------------------+
+
+[Start New Assessment Button]
 ```
 
-#### Step 5: Column 3 - Support Section (New)
-```jsx
-<div>
-  <h4>Support</h4>
-  <ul>
-    <li><Link to="/faq">FAQ</Link></li>
-    <li><Link to="/self-assessment">Self Assessment</Link></li>
-    <li><Link to="/partners">Become a Partner</Link></li>
-    <li><a href="tel:9373228844">Contact Us</a></li>
-  </ul>
-</div>
+#### 6. Remove Old Elements
+- Remove the score breakdown table (simplify the experience)
+- Remove the "Complete Score Interpretation Guide" table
+- Remove medical terminology ("ng/mL", "Sufficiency Status")
+
+#### 7. Always Show CTA
+Move the "Order SuryAmrit" CTA inside the main results flow for ALL risk levels (not conditional). The framing changes but the action remains the same.
+
+#### 8. Add Safety Disclaimer Card
+Add a new card at the bottom with the medical disclaimer:
+
+```text
+SuryAmrit is a daily nutritional supplement to support healthy 
+Vitamin D levels. It is not a prescription drug or a cure for 
+acute diseases. If you have existing liver/kidney conditions or 
+are on specific medication, please share this ingredient list 
+with your physician before starting.
 ```
-
-#### Step 6: Column 4 - Manufactured By (New)
-```jsx
-<div>
-  <h4 className="flex items-center gap-2">
-    <Building2 className="h-4 w-4" />
-    Manufactured By
-  </h4>
-  <div className="text-sm text-white/70 space-y-1">
-    <p className="font-semibold text-white/90">
-      GELNOVA LABORATORIES (INDIA) PVT. LTD.
-    </p>
-    <p>C-125, TTC Industrial Area,</p>
-    <p>Mahape, Navi Mumbai,</p>
-    <p>Maharashtra, 400 703 INDIA</p>
-    <p className="text-xs mt-2 text-primary-glow">
-      FSSAI Lic. No. 10013022002314
-    </p>
-  </div>
-</div>
-```
-
-#### Step 7: Column 5 - Marketed By (New)
-```jsx
-<div>
-  <h4 className="flex items-center gap-2">
-    <Store className="h-4 w-4" />
-    Marketed By
-  </h4>
-  <div className="text-sm text-white/70 space-y-1">
-    <p className="font-semibold text-white/90">LOKPEETH FOUNDATION</p>
-    <p>1774, Block B1, Vasant Kunj,</p>
-    <p>New Delhi - 110070 INDIA</p>
-    <div className="mt-3 space-y-2">
-      <a href="tel:9373228844" className="flex items-center gap-2 hover:text-primary-glow">
-        <Phone className="h-3 w-3" /> 9373228844
-      </a>
-      <a href="mailto:info@suryamrit.org" className="flex items-center gap-2 hover:text-primary-glow">
-        <Mail className="h-3 w-3" /> info@suryamrit.org
-      </a>
-      <a href="https://www.suryamrit.org" target="_blank" className="flex items-center gap-2 hover:text-primary-glow">
-        <Globe className="h-3 w-3" /> www.suryamrit.org
-      </a>
-    </div>
-    <p className="text-xs mt-2 text-primary-glow">
-      FSSAI Lic. No. 21525083005916
-    </p>
-  </div>
-</div>
-```
-
-#### Step 8: Remove Old Sections
-- Remove "Product Information" checklist column (redundant, available on product page)
-- Remove "Our Benefactor" Lokarth card (Lokpeeth Foundation now in Marketed By)
-
-#### Step 9: Update Bottom Bar
-Keep the existing bottom section with copyright and research quote.
 
 ---
 
-## Visual Design Notes
+## Visual Design Updates
+
+### Color Coding by Risk Level
+| Risk | Primary Color | Background | Icon |
+|------|--------------|------------|------|
+| Low (0-3) | Green-600 | Green-50 | Star |
+| Moderate (4-7) | Amber-600 | Amber-50 | AlertTriangle |
+| High (8-14) | Primary (Gold) | Red-50 | Shield |
 
 ### Typography Hierarchy
-- **Column Headers**: `text-lg font-bold mb-4` with icon
-- **Company Names**: `font-semibold text-white/90`
-- **Address Lines**: `text-sm text-white/70`
-- **FSSAI Numbers**: `text-xs text-primary-glow` (gold accent for trust)
+- **Status Label**: Large, bold, with emoji prefix
+- **Hook**: Italic, secondary color, motivational
+- **Section Headers**: Bold, uppercase tracking
+- **Body Text**: Regular weight, comfortable reading
+- **Disclaimer**: Small, muted gray
 
-### Responsive Behavior
-```css
-/* Grid classes */
-grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5
-```
-- **Mobile (< 640px)**: Single column stack
-- **Tablet (640-768px)**: 2 columns
-- **Small Desktop (768-1024px)**: 3 columns
-- **Large Desktop (> 1024px)**: 5 columns
-
-### Spacing
-- `gap-8` between columns
-- `mb-12` before bottom bar
-- Consistent `space-y-3` for list items
+### Card Styling
+- Each section in its own Card component
+- Subtle left border accent matching risk level color
+- Consistent padding and spacing
+- Smooth fade-in animations (already exists)
 
 ---
 
 ## Summary of Changes
 
-| Section | Before | After |
+| Element | Before | After |
 |---------|--------|-------|
-| Column 1 | Company Info + Social | Brand + Social (unchanged) |
-| Column 2 | Quick Links (6 items) | Quick Links (5 items, reorganized) |
-| Column 3 | Product Information | Support (new navigation section) |
-| Column 4 | Our Benefactor (Lokarth) | Manufactured By (Gelnova) |
-| Column 5 | N/A | Marketed By (Lokpeeth Foundation) |
-| Grid | 4 columns | 5 columns (responsive) |
-
+| Status Labels | "Low Risk", "Moderate Risk", "High Risk" | "Sun-Kissed & Strong", "The Office Fatigue Zone", "Needs Restoration" |
+| Messaging | Clinical (blood tests, dosages) | Lifestyle (energy, efficiency, restoration) |
+| Product CTA | Only moderate/high risk | All risk levels with different framing |
+| Timeline | None | 45-day expectation for moderate/high |
+| Recommendations | Bullet list of medical actions | Structured cards with The Fix + Lifestyle Tips |
+| Disclaimer | Top of page only | Added safety valve at bottom of results |
+| Icons | CheckCircle/AlertTriangle/XCircle | Star/AlertTriangle/Shield |
