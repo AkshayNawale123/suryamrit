@@ -114,7 +114,7 @@ const HomePage = () => {
             {/* Main Hero Content */}
 
             <div className="lg:col-span-3 text-center lg:text-left" style={{ paddingTop: "50px" }}>
-              <div className="flex flex-col items-center text-center mb-8 space-y-1">
+              <div className="flex flex-col items-start text-left mb-8 space-y-1">
                 {/* 1. SuryAmrit: Dark Premium Serif */}
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-serif text-[#4A7C36] leading-tight tracking-tight">
                   SuryAmrit
