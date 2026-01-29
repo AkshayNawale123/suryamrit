@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import indiaMapImage from '@/assets/india-map.png';
 
 interface StateData {
   name: string;
@@ -115,8 +116,20 @@ const D3DeficiencyMap = () => {
                 viewBox="0 0 1000 800"
                 className="w-full h-auto max-h-96"
               >
-                {/* India Map Background */}
-                <rect width="1000" height="800" fill="#f8f9fa"/>
+                {/* India Map Background Image */}
+                <defs>
+                  <pattern id="indiaMapPattern" patternUnits="userSpaceOnUse" width="1000" height="800">
+                    <image 
+                      href={indiaMapImage} 
+                      x="50" 
+                      y="0" 
+                      width="900" 
+                      height="800" 
+                      preserveAspectRatio="xMidYMid meet"
+                    />
+                  </pattern>
+                </defs>
+                <rect width="1000" height="800" fill="url(#indiaMapPattern)"/>
                 
                 {/* Indian States with Proper Outlines */}
                 <g>
