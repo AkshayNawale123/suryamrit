@@ -115,24 +115,34 @@ const HomePage = () => {
 
             <div className="lg:col-span-3 text-center lg:text-left" style={{ paddingTop: "50px" }}>
               <div className="flex flex-col items-start text-left mb-8 space-y-1">
-                {/* 1. SuryAmrit: Dark Premium Serif */}
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-serif text-[#4A7C36] leading-tight tracking-tight">
+                {/* 0. Eyebrow Badge (Kept same size for contrast) */}
+                <div className="inline-block px-3 py-1 mb-3 rounded-full bg-orange-100 border border-orange-200">
+                  <span className="text-xs font-bold text-orange-700 uppercase tracking-wider">
+                    ✨ An Initiative by Lokpeeth Foundation
+                  </span>
+                </div>
+
+                {/* 1. SuryAmrit: MASSIVE Green Logo Color */}
+                {/* Increased to 8xl on desktop to match the impact of the old design */}
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-serif text-[#4A7C36] leading-[0.9] tracking-tighter">
                   SuryAmrit
                 </h1>
 
                 {/* 2. Middle Line: 'for' + Highlighted Gold Text */}
-                <div className="flex items-baseline gap-2 md:gap-3 mt-1">
-                  <span className="text-lg md:text-2xl font-serif text-[#0F172A]/70 italic">for</span>
-                  <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#D4AF37] tracking-tight">
+                {/* Increased spacing and font size */}
+                <div className="flex flex-wrap items-baseline gap-2 md:gap-3 mt-1">
+                  <span className="text-2xl md:text-3xl font-serif text-[#0F172A]/70 italic">for</span>
+                  <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#D4AF37] tracking-tight">
                     Vitamin D Sufficient
                   </span>
                 </div>
 
-                {/* 3. INDIA: Tricolor Gradient (Matches SuryAmrit Size) */}
+                {/* 3. INDIA: MASSIVE Tricolor Gradient */}
+                {/* Matches SuryAmrit size (8xl) */}
                 <h1
-                  className="text-5xl md:text-6xl lg:text-7xl font-bold font-serif leading-tight tracking-tight pb-2 
-                    bg-gradient-to-r from-[#FF9933] via-[#999999] to-[#138808] 
-                    bg-[length:100%_auto] bg-clip-text text-transparent drop-shadow-sm"
+                  className="text-6xl md:text-7xl lg:text-8xl font-bold font-serif leading-[0.9] tracking-tighter pb-3 
+    bg-gradient-to-r from-[#FF9933] via-[#999999] to-[#138808] 
+    bg-[length:100%_auto] bg-clip-text text-transparent drop-shadow-sm"
                 >
                   INDIA
                 </h1>
