@@ -112,18 +112,8 @@ const HomePage = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-5 gap-8 items-center">
             {/* Main Hero Content */}
-            <div className="lg:col-span-3 text-center lg:text-left" style={{ paddingTop: "50px" }}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[0.9] tracking-tight">
-                <span className="text-foreground">SuryAmrit for </span>
-                <span className="block mt-2 bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent animate-gradient warm-glow">
-                  Vitamin D Sufficient India
-                </span>
-              </h1>
-              <Badge className="mb-8 px-6 py-2 text-sm font-medium bg-primary/15 text-primary border-primary/30 backdrop-blur-sm animate-pulse-glow">
-                <Sparkles className="w-4 h-4 mr-2" />
-                An Initiative by Lokpeeth Foundation Mission
-              </Badge>
 
+            <div className="lg:col-span-3 text-center lg:text-left" style={{ paddingTop: "50px" }}>
               <div className="flex flex-col items-center text-center mb-8 space-y-1">
                 {/* 1. SuryAmrit: Dark Premium Serif */}
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-serif text-[#4A7C36] leading-tight tracking-tight">
