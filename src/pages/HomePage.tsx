@@ -123,6 +123,10 @@ const HomePage = () => {
                 <span className="block mt-2 bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent animate-gradient warm-glow">
                   Vitamin D Sufficient India
                 </span>
+                <Badge className="mb-8 px-6 py-2 text-sm font-medium bg-primary/15 text-primary border-primary/30 backdrop-blur-sm animate-pulse-glow">
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  An Initiative by Lokpeeth Foundation Mission
+                </Badge>
               </h1>
 
               <p className="text-xl md:text-2xl mb-12 text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
@@ -156,7 +160,7 @@ const HomePage = () => {
               {/* Stats Row */}
               <div className="mt-16 grid grid-cols-3 gap-6 max-w-xl mx-auto lg:mx-0">
                 {[
-                  { value: "80%+", label: "Indians Deficient" },
+                  { value: "82%+", label: "Indians Deficient" },
                   { value: "600 IU", label: "Daily Dose" },
                   { value: "100%", label: "Plant-Based" },
                 ].map((stat, i) => (
