@@ -126,7 +126,7 @@ const HomePage = () => {
 
               <div className="flex flex-col items-center text-center mb-8 space-y-1">
                 {/* 1. SuryAmrit: Dark Premium Serif */}
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-serif text-[#0F172A] leading-tight tracking-tight">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-serif text-[#4A7C36] leading-tight tracking-tight">
                   SuryAmrit
                 </h1>
 
