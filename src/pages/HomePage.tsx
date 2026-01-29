@@ -113,11 +113,6 @@ const HomePage = () => {
           <div className="grid lg:grid-cols-5 gap-8 items-center">
             {/* Main Hero Content */}
             <div className="lg:col-span-3 text-center lg:text-left">
-              <Badge className="mb-8 px-6 py-2 text-sm font-medium bg-primary/15 text-primary border-primary/30 backdrop-blur-sm animate-pulse-glow">
-                <Sparkles className="w-4 h-4 mr-2" />
-                An Initiative by Lokpeeth Foundation Mission
-              </Badge>
-
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[0.9] tracking-tight">
                 <span className="text-foreground">SuryAmrit for </span>
                 <span className="block mt-2 bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent animate-gradient warm-glow">
