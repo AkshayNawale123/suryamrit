@@ -119,6 +119,34 @@ const HomePage = () => {
                   Vitamin D Sufficient India
                 </span>
               </h1>
+              <Badge className="mb-8 px-6 py-2 text-sm font-medium bg-primary/15 text-primary border-primary/30 backdrop-blur-sm animate-pulse-glow">
+                <Sparkles className="w-4 h-4 mr-2" />
+                An Initiative by Lokpeeth Foundation Mission
+              </Badge>
+
+              <div className="flex flex-col items-center text-center mb-8 space-y-1">
+                {/* 1. SuryAmrit: Dark Premium Serif */}
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-serif text-[#0F172A] leading-tight tracking-tight">
+                  SuryAmrit
+                </h1>
+
+                {/* 2. Middle Line: 'for' + Highlighted Gold Text */}
+                <div className="flex items-baseline gap-2 md:gap-3 mt-1">
+                  <span className="text-lg md:text-2xl font-serif text-[#0F172A]/70 italic">for</span>
+                  <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#D4AF37] tracking-tight">
+                    Vitamin D Sufficient
+                  </span>
+                </div>
+
+                {/* 3. INDIA: Tricolor Gradient (Matches SuryAmrit Size) */}
+                <h1
+                  className="text-5xl md:text-6xl lg:text-7xl font-bold font-serif leading-tight tracking-tight pb-2 
+                    bg-gradient-to-r from-[#FF9933] via-[#999999] to-[#138808] 
+                    bg-[length:100%_auto] bg-clip-text text-transparent drop-shadow-sm"
+                >
+                  INDIA
+                </h1>
+              </div>
 
               <Badge className="mb-8 px-6 py-2 text-sm font-medium bg-primary/15 text-primary border-primary/30 backdrop-blur-sm animate-pulse-glow">
                 <Sparkles className="w-4 h-4 mr-2" />
