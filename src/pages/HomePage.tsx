@@ -116,11 +116,11 @@ const HomePage = () => {
             <div className="lg:col-span-3 text-center lg:text-left" style={{ paddingTop: "50px" }}>
               <div className="flex flex-col items-start text-left mb-8 space-y-1">
                 {/* 0. Eyebrow Badge (Kept same size for contrast) */}
-                <div className="inline-block px-3 py-1 mb-3 rounded-full bg-orange-100 border border-orange-200">
-                  <span className="text-xs font-bold text-orange-700 uppercase tracking-wider">
-                    ✨ An Initiative by Lokpeeth Foundation
-                  </span>
-                </div>
+
+                <Badge className="mb-8 px-6 py-2 text-sm font-medium bg-primary/15 text-primary border-primary/30 backdrop-blur-sm animate-pulse-glow">
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  An Initiative by Lokpeeth Foundation Mission
+                </Badge>
 
                 {/* 1. SuryAmrit: MASSIVE Green Logo Color */}
                 {/* Increased to 8xl on desktop to match the impact of the old design */}
@@ -147,11 +147,6 @@ const HomePage = () => {
                   INDIA
                 </h1>
               </div>
-
-              <Badge className="mb-8 px-6 py-2 text-sm font-medium bg-primary/15 text-primary border-primary/30 backdrop-blur-sm animate-pulse-glow">
-                <Sparkles className="w-4 h-4 mr-2" />
-                An Initiative by Lokpeeth Foundation Mission
-              </Badge>
 
               <p className="text-xl md:text-2xl mb-12 text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 Over 82% of Indians are Vitamin D deficient. SuryAmrit™ provides the natural, plant-based solution your
