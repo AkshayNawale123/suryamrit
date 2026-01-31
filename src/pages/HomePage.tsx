@@ -119,7 +119,7 @@ const HomePage = () => {
 
                 <Badge className="mb-8 px-6 py-2 text-sm font-medium bg-primary/15 text-primary border-primary/30 backdrop-blur-sm animate-pulse-glow">
                   <Sparkles className="w-4 h-4 mr-2" />
-                  An Initiative by Lokpeeth Foundation Mission
+                  An Initiative by Lokpeeth Foundation
                 </Badge>
 
                 {/* 1. SuryAmrit: MASSIVE Green Logo Color */}
