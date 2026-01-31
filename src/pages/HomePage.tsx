@@ -27,6 +27,7 @@ import sacredCowImage from "@/assets/sacred-cow-sunrise.png";
 import vitaminDNatureImage from "@/assets/vitamin-d-nature.jpg";
 import healthAnatomyImage from "@/assets/health-anatomy.jpg";
 import lokarthLogo from "@/assets/lokarth-logo.png";
+import naturalD3Banner from "@/assets/natural-d3-daily-banner.png";
 
 const HomePage = () => {
   return (
@@ -192,7 +193,16 @@ const HomePage = () => {
             </div>
 
             {/* Promotional Badge - Right Side */}
-            <div className="lg:col-span-2 flex flex-col items-center justify-center gap-6">
+            <div className="lg:col-span-2 flex flex-col items-center justify-center gap-4">
+              {/* Product Branding Image */}
+              <div className="w-full max-w-[280px] rounded-2xl overflow-hidden">
+                <img 
+                  src={naturalD3Banner} 
+                  alt="Natural D3 Daily with Ghee" 
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+
               {/* Urgency Banner */}
               <Link
                 to="/buy"
