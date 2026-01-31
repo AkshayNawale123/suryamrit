@@ -15,7 +15,7 @@ const Header = () => {
   const navigationLinks = [
     { path: "/buy", label: "Shop" },
     { path: "/self-assessment", label: "Self Assessment" },
-    { path: "/product#science", label: "Why Ghee?" },
+    { path: "/product#science", label: "Why SuryAmrit?" },
     { path: "/endorsements", label: "Reviews" },
     { path: "/faq", label: "FAQ" },
     { path: "/partners", label: "Partners" },
@@ -87,26 +87,26 @@ const Header = () => {
               <Search className="h-5 w-5" />
             </Button>
             <CartDrawer />
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="h-10 w-10 p-0 relative"
             >
               <div className="flex flex-col items-center justify-center gap-1.5">
-                <span 
+                <span
                   className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ease-out ${
-                    isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
+                    isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
                   }`}
                 />
-                <span 
+                <span
                   className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ease-out ${
-                    isMobileMenuOpen ? 'opacity-0 scale-0' : ''
+                    isMobileMenuOpen ? "opacity-0 scale-0" : ""
                   }`}
                 />
-                <span 
+                <span
                   className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ease-out ${
-                    isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                    isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
                   }`}
                 />
               </div>
@@ -115,15 +115,15 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation Menu - Premium Slide-Down */}
-        <div 
+        <div
           className={`lg:hidden overflow-hidden transition-all duration-400 ease-out ${
-            isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+            isMobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div className="pt-4 pb-6">
             {/* Gold accent line */}
             <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent mb-6" />
-            
+
             <nav className="flex flex-col space-y-1">
               {navigationLinks.map((link, index) => (
                 <Link
@@ -138,24 +138,22 @@ const Header = () => {
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {/* Left gold accent for active */}
-                  <span 
+                  <span
                     className={`w-1 h-6 rounded-full mr-3 transition-all duration-300 ${
                       location.pathname === link.path.split("#")[0]
-                        ? 'bg-primary'
-                        : 'bg-transparent group-hover:bg-primary/30'
+                        ? "bg-primary"
+                        : "bg-transparent group-hover:bg-primary/30"
                     }`}
                   />
-                  <span className="font-medium tracking-wide text-base">
-                    {link.label}
-                  </span>
+                  <span className="font-medium tracking-wide text-base">{link.label}</span>
                 </Link>
               ))}
             </nav>
 
             {/* CTA Button with shimmer */}
             <div className="mt-6 px-4">
-              <Button 
-                asChild 
+              <Button
+                asChild
                 className="w-full bg-gradient-primary hover:shadow-golden transition-all duration-300 py-6 text-base font-semibold tracking-wide relative overflow-hidden group"
               >
                 <Link to="/buy" onClick={() => setIsMobileMenuOpen(false)}>
